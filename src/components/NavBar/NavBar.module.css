@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #95bdcf;
+    padding: 1rem 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.second-div {
+    flex-grow: 1;
+}
+
+.navbar button {
+    margin: 0 1rem;
+}

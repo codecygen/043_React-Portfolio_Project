@@ -1,5 +1,6 @@
 import React from 'react';
 import MenuButton from '../Buttons/MenuButton';
+import ToggleSwitch from '../Buttons/ToggleSwitch';
 import classes from './NavBar.module.css';
 
 const NavBar = () => {
@@ -41,7 +42,7 @@ const NavBar = () => {
         <nav className={classes.navbar}>
             <h1>Aras Sen</h1>
             <div className={classes['second-div']}>{buttons}</div>
-            <button>switch mode</button>
+            <div><ToggleSwitch /></div>
         </nav>
     );
 };

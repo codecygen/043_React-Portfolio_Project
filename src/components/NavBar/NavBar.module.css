@@ -1,10 +1,15 @@
 .navbar {
-    background-color: #95bdcf;
-    padding: 1rem 4rem;
+    background-color: #2f6d8a;
+    padding: 1rem 10%;
     text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: rgb(24, 43, 65) 0px 20px 30px -10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
 .navbar a {
@@ -13,6 +18,9 @@
 
 .navbar > h1 {
     margin: 0;
+    font-size: 2rem;
+    font-family: 'Bungee Inline', cursive;
+    letter-spacing: 0.5rem;
 }
 
 .second-div {

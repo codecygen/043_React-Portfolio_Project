@@ -1,4 +1,19 @@
-a {
+.a {
     text-decoration: none;
     font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.a:hover {
+    border-bottom: 3.5px #ccc4c4 solid;
+    padding-bottom: 4px;
+}
+
+.a:link, .a:visited {
+    color: #ccc4c4;
+}
+
+.a:active {
+    border-bottom-color: #bd9595;
+    color: #bd9595;
 }

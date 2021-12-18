@@ -3,7 +3,9 @@ import classes from './MenuButton.module.css';
 
 const MenuButton = props => {
     return (
-        <a href={props.hyperlink}>{props.children}</a>
+        <a className={classes.a} href={props.hyperlink}>
+            {props.children}
+        </a>
     );
 };
 

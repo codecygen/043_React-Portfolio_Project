@@ -14,7 +14,8 @@ const NavBar = () => {
         {
             key: 2,
             name: 'Github',
-            link: 'https://github.com/codecygen'
+            link: '#Github'
+            // link: 'https://github.com/codecygen'
         },
 
         {

@@ -3,7 +3,7 @@ import classes from './About.module.css';
 
 const About = () => {
     return (
-        <div>aras</div>
+        <div className={classes.about}>aras</div>
     );
 };
 

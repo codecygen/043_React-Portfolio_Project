@@ -9,7 +9,7 @@ const HomeIcon = () => {
 
         <lord-icon
             src="https://cdn.lordicon.com/gmzxduhd.json"
-            trigger="hover"
+            trigger="loop"
             colors="primary:#121331,secondary:#08a88a">
         </lord-icon>
     );

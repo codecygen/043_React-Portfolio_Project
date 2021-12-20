@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuButton from '../Buttons/MenuButton';
 import ToggleSwitch from '../Buttons/ToggleSwitch';
+import HomeIcon from '../Icons/HomeIcon';
 import classes from './NavBar.module.css';
 
 const NavBar = () => {
@@ -8,26 +9,30 @@ const NavBar = () => {
         {
             key: 1,
             name: 'Home',
-            link: '#Home'
+            link: '#Home',
+            icon: <HomeIcon />
         },
 
         {
             key: 2,
             name: 'Github',
-            link: '#Github'
+            link: '#Github',
+            icon: <HomeIcon />
             // link: 'https://github.com/codecygen'
         },
 
         {
             key: 3,
             name: 'Projects',
-            link: '#Projects'
+            link: '#Projects',
+            icon: <HomeIcon />
         },
 
         {
             key: 4,
             name: 'About',
-            link: '#About'
+            link: '#About',
+            icon: <HomeIcon />
         },
     ];
 
@@ -35,7 +40,7 @@ const NavBar = () => {
         <MenuButton
             key={eachObject.key}
             hyperlink={eachObject.link}>
-            {eachObject.name}
+            {eachObject.icon}{eachObject.name}
         </MenuButton>
     ));
 

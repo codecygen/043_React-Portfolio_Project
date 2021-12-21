@@ -1,7 +1,13 @@
 import React from 'react';
+
 import MenuButton from '../Buttons/MenuButton';
 import ToggleSwitch from '../Buttons/ToggleSwitch';
+
 import HomeIcon from '../Icons/HomeIcon';
+import GitHubIcon from '../Icons/GitHubIcon';
+import ProjectsIcon from '../Icons/ProjectsIcon';
+import AboutIcon from '../Icons/AboutIcon';
+
 import classes from './NavBar.module.css';
 
 const NavBar = () => {
@@ -17,31 +23,31 @@ const NavBar = () => {
             key: 2,
             name: 'Github',
             link: '#Github',
-            icon: <HomeIcon />
-            // link: 'https://github.com/codecygen'
+            icon: <GitHubIcon />
         },
 
         {
             key: 3,
             name: 'Projects',
             link: '#Projects',
-            icon: <HomeIcon />
+            icon: <ProjectsIcon />
         },
 
         {
             key: 4,
             name: 'About',
             link: '#About',
-            icon: <HomeIcon />
+            icon: <AboutIcon />
         },
     ];
 
     const buttons = navButtons.map(eachObject => (
         <MenuButton
             key={eachObject.key}
-            hyperlink={eachObject.link}>
-            {eachObject.icon}{eachObject.name}
-        </MenuButton>
+            hyperlink={eachObject.link}
+            menuButtonIcon={eachObject.icon}
+            menuButtonName={eachObject.name} 
+        />
     ));
 
     return (

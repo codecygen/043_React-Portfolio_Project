@@ -24,7 +24,9 @@
 
 .navbar > h1 {
     margin: 0;
-    font-family: 'Ephesis', cursive;
+    font-family: 'Ballet', cursive;
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
 }
 
 .second-div {

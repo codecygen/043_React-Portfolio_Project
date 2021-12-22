@@ -46,7 +46,7 @@ const NavBar = () => {
             key={eachObject.key}
             hyperlink={eachObject.link}
             menuButtonIcon={eachObject.icon}
-            menuButtonName={eachObject.name} 
+            menuButtonName={eachObject.name}
         />
     ));
 

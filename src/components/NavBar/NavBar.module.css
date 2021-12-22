@@ -1,15 +1,21 @@
 .navbar {
-    background-color: #34417e;
-    padding: 1rem 10%;
+    background-color: #525e65;
     text-align: center;
     display: flex;
     flex-direction: row;
     align-items: center;
     box-shadow: #182b41 0px 20px 30px -10px;
-    position: fixed;
+
+    /* This section controls the box height to be 40px. No matter
+    what padding you change in child elements, the box height will be
+    controlled by heigt */
+    box-sizing: border-box;
+    height: 4rem;
+
+    /* This will allow us to add widths up to 100% with inline-block of the child elements */
+    white-space: nowrap;
+    position: sticky;
     top: 0;
-    right: 0;
-    left: 0;
 }
 
 .navbar a {
@@ -18,10 +24,7 @@
 
 .navbar > h1 {
     margin: 0;
-    font-size: 3rem;
     font-family: 'Ephesis', cursive;
-    letter-spacing: 0.25rem;
-    color: #ccc4c4;
 }
 
 .second-div {

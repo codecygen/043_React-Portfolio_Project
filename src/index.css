@@ -1,12 +1,45 @@
 body {
   margin: 0;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Helvetica Neue',
-    sans-serif;
-  padding: 0 30%;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Helvetica Neue',
+  sans-serif;
+
+  /* Website specific fonts and background colors */
+  background-color: #222733;
+  font-size: 1.5rem;
+  color: #dbe8d4;
+}
+
+/* This section controls the 
+total padding for every child element
+of root id. */
+#root > * {
+  padding-right: 20%;
+  padding-left: 20%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  border-bottom: 3.5px #ccc4c4 solid;
+  padding-bottom: 4px;
+}
+
+/* Set visited link to have same color with
+the original link */
+a:link, a:visited {
+  color: #dbe8d4;
+}
+
+a:active {
+  border-bottom-color: #5d997d;
+  color: #b1d8aa;
 }

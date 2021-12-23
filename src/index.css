@@ -6,7 +6,6 @@ body {
 
   /* Website specific fonts and background colors */
   background-color: #222733;
-  font-size: 1.5rem;
   color: #dbe8d4;
 }
 
@@ -26,6 +25,7 @@ code {
 a {
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 a:hover {
@@ -42,4 +42,16 @@ a:link, a:visited {
 a:active {
   border-bottom-color: #5d997d;
   color: #b1d8aa;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }

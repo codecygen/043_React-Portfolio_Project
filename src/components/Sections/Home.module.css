@@ -55,3 +55,8 @@
     vertical-align: middle;
     margin: 0 1rem;
 }
+
+.home-p {
+    text-align: justify;
+    margin-bottom: 2.5rem;
+}

@@ -44,6 +44,10 @@ a:active {
   color: #b1d8aa;
 }
 
+h1, h2, h3, p {
+  letter-spacing: 0.25rem;
+}
+
 h1 {
   font-size: 3rem;
 }
@@ -54,4 +58,9 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 2.5rem;
 }

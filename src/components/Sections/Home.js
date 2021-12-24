@@ -17,6 +17,25 @@ const Home = () => {
             </section>
             <Divider />
             <h2>Hello Everyone! My Name is Aras</h2>
+            <p className={classes['home-p']}>
+                I am a full stack web developer. 
+                I use HTML, CSS and Javascript on a daily basis. 
+                I try to keep up with the latest practices in industry 
+                to bring the best result by pushing my limits.
+            </p>
+
+            <p className={classes['home-p']}>
+                Although I started learning programming many years ago 
+                (around 2008) I made my first website in 2019.
+            </p>
+
+            <p className={classes['home-p']}>
+                In February 2021, I started fully focusing on web development 
+                and programming. Since then, I wake up completely motivated to 
+                learn something new everyday.
+            </p>
+            
+            <Divider />
 
         </header>
     );

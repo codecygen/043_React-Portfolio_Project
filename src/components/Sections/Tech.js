@@ -8,7 +8,7 @@ import classes from './Tech.module.css';
 const Tech = () => {
     return (
         <section className={classes.tech}>
-            <Card>sadas</Card>
+            <Card>test</Card>
             <Divider />
         </section>
     );

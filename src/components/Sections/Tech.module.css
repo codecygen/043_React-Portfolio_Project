@@ -1,0 +1,24 @@
+.tech {
+    text-align: center;
+    height: 2000px;
+}
+
+.tech h3, .tech h1 {
+    margin: 20px;
+}
+
+.same-line {
+    margin-bottom: 3rem;
+    
+}
+
+.same-line > * {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1rem;
+}
+
+.home-p {
+    text-align: justify;
+    margin-bottom: 2.5rem;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import myImage from '../../Images/Me.jpeg';
-import Divider from '../Divider/Divider';
+import Divider from '../UI/Divider';
 
 import classes from './Home.module.css';
 

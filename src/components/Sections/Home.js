@@ -31,7 +31,7 @@ const Home = () => {
 
             <p className={classes['home-p']}>
                 In February 2021, I started fully focusing on web development 
-                and programming. Since then, I wake up completely motivated to 
+                and programming. Since then, I wake up everyday completely motivated to 
                 learn something new everyday.
             </p>
             

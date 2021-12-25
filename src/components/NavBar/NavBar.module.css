@@ -5,6 +5,7 @@
     flex-direction: row;
     align-items: center;
     box-shadow: #182b41 0px 20px 30px -10px;
+    z-index: 30;
 
     /* This section controls the box height to be 40px. No matter
     what padding you change in child elements, the box height will be

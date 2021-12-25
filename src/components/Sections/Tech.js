@@ -8,6 +8,7 @@ import classes from './Tech.module.css';
 const Tech = () => {
     return (
         <section className={classes.tech}>
+            <h2>Technologies</h2>
             <Card>test</Card>
             <Divider />
         </section>

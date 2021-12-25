@@ -10,6 +10,11 @@ const Tech = () => {
         <section className={classes.tech}>
             <h2>Technologies</h2>
             <Card>test</Card>
+            <Card>test</Card>
+            <Card>test</Card>
+            <Card>test</Card>
+            <Card>test</Card>
+            <Card>test</Card>
             <Divider />
         </section>
     );

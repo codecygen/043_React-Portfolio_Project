@@ -3,10 +3,10 @@ import React from 'react';
 import MenuButton from '../Buttons/MenuButton';
 import ToggleSwitch from '../Buttons/ToggleSwitch';
 
-import HomeIcon from '../Icons/HomeIcon';
-import GitHubIcon from '../Icons/GitHubIcon';
-import ProjectsIcon from '../Icons/ProjectsIcon';
-import AboutIcon from '../Icons/AboutIcon';
+import HomeIcon from '../assets/menu-icons/HomeIcon';
+import GitHubIcon from '../assets/menu-icons/GitHubIcon';
+import ProjectsIcon from '../assets/menu-icons/ProjectsIcon';
+import AboutIcon from '../assets/menu-icons/AboutIcon';
 
 import classes from './NavBar.module.css';
 

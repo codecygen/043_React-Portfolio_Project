@@ -18,7 +18,8 @@
     margin: 0 1rem;
 }
 
-.home-p {
-    text-align: justify;
-    margin-bottom: 2.5rem;
+.tech-icons-p {
+    font-size: 0.75rem;
+    margin: 0;
+    font-weight: bold;
 }

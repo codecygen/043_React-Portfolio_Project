@@ -1,24 +1,4 @@
-.tech {
-    text-align: center;
-    height: 2000px;
-}
-
-.tech h3, .tech h1 {
-    margin: 20px;
-}
-
-.same-line {
-    margin-bottom: 3rem;
-    
-}
-
-.same-line > * {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 1rem;
-}
-
-/* .tech-icons {
+.tech-icons {
     font-size: 1.8rem;
 }
 
@@ -70,4 +50,4 @@
 
 .firebase {
     color: #ffcb2b;
-} */
+}

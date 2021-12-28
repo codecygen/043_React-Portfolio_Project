@@ -41,10 +41,10 @@
 }
 
 .expressjs {
-    width: 100%;
+    width: 5.75rem;
 }
 
-.ejs, .linux {
+.ejs {
     width: 1.92rem;
 }
 
@@ -66,4 +66,8 @@
 
 .firebase {
     color: #ffcb2b;
+}
+
+.linux {
+    width: 1.82rem;
 }

@@ -18,8 +18,56 @@
     margin: 0 1rem;
 }
 
+.tech-icons {
+    font-size: 1.8rem;
+}
+
 .tech-icons-p {
     font-size: 0.75rem;
     margin: 0;
     font-weight: bold;
+}
+
+.html5 {
+    color: #e44d26;
+}
+
+.css3 {
+    color: #254bdd;
+}
+
+.javascript {
+    color: #f7df1e;
+}
+
+.react {
+    color: #5ed3f3;
+}
+
+.bootstrap {
+    color: #7910f2;
+}
+
+.jquery {
+    color: #0769ad;
+}
+
+.nodejs {
+    color: #6da55f;
+}
+
+.mongodb {
+    color: #429543;
+}
+
+.github {
+    color: #a1a1a1;
+}
+
+.heroku {
+    color: #875dc7;
+}
+
+.firebase {
+    color: #ffcb2b;
 }

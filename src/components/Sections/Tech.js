@@ -23,116 +23,82 @@ const Tech = () => {
     const techButtons = [
         {
             key: 1,
-            icon: <FaHtml5 size="100%" style={{color: '#e44d26', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>HTML5</p>
+            icon: <FaHtml5 className={classes.html5} />,
+            name: 'HTML5'
         },
         {
             key: 2,
-            icon: <IoLogoCss3 size="100%" style={{color: '#254bdd', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>CSS3</p>
+            icon: <IoLogoCss3 className={classes.css3} />,
+            name: 'CSS3'
         },
         {
             key: 3,
-            icon: <SiJavascript size="100%" style={{color: '#f7df1e', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>Javascript</p>
+            icon: <SiJavascript className={classes.javascript} />,
+            name: 'Javascript'
         },
 
         {
             key: 4,
-            icon: <FaReact size="100%" style={{color: '#5ed3f3', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>React</p>
+            icon: <FaReact className={classes.react} />,
+            name: 'React'
         },
 
         {
             key: 5,
-            icon: <FaBootstrap size="100%" style={{color: '#7910f2', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>Bootstrap</p>
+            icon: <FaBootstrap className={classes.bootstrap} />,
+            name: 'Bootstrap'
         },
 
         {
             key: 6,
-            icon: <SiJquery size="100%" style={{color: '#0769ad', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>jQuery</p>
+            icon: <SiJquery className={classes.jquery} />,
+            name: 'jQuery'
         },
 
         {
             key: 7,
-            icon: <FaNode size="100%" style={{color: '#6da55f', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>Node.js</p>
+            icon: <FaNode className={classes.nodejs} />,
+            name: 'Node.js'
         },
 
         {
             key: 8,
-            icon: <DiMongodb size="100%" style={{color: '#429543', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>MongoDB</p>
+            icon: <DiMongodb className={classes.mongodb} />,
+            name: 'MongoDB'
         },
 
         {
             key: 9,
-            icon: <ImGithub size="100%" style={{color: '#a1a1a1', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>GitHub</p>
+            icon: <ImGithub className={classes.github} />,
+            name: 'GitHub'
         },
 
         {
             key: 10,
-            icon: <SiHeroku size="100%" style={{color: '#875dc7', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>Heroku</p>
+            icon: <SiHeroku className={classes.heroku} />,
+            name: 'Heroku'
         },
-        
+
         {
             key: 11,
-            icon: <SiFirebase size="100%" style={{color: '#ffcb2b', height: '50%'}} />,
-            name: <p className={classes['tech-icons-p']}>Firebase</p>
+            icon: <SiFirebase className={classes.firebase} />,
+            name: 'Firebase'
         },
     ]
+
+    const allTechCards = techButtons.map(techButton => (
+        <Card>
+            <div className={classes['tech-icons']}>
+                {techButton.icon}
+            </div>
+            <p className={classes['tech-icons-p']}>{techButton.name}</p>
+        </Card>
+    ));
 
     return (
         <section className={classes.tech}>
             <h2>Technologies</h2>
-            <Card>
-                {techButtons[0].icon}
-                {techButtons[0].name}
-            </Card>
-            <Card>
-                {techButtons[1].icon}
-                {techButtons[1].name}
-            </Card>
-            <Card>
-                {techButtons[2].icon}
-                {techButtons[2].name}
-            </Card>
-            <Card>
-                {techButtons[3].icon}
-                {techButtons[3].name}
-            </Card>
-            <Card>
-                {techButtons[4].icon}
-                {techButtons[4].name}
-            </Card>
-            <Card>
-                {techButtons[5].icon}
-                {techButtons[5].name}
-            </Card>
-            <Card>
-                {techButtons[6].icon}
-                {techButtons[6].name}
-            </Card>
-            <Card>
-                {techButtons[7].icon}
-                {techButtons[7].name}
-            </Card>
-            <Card>
-                {techButtons[8].icon}
-                {techButtons[8].name}
-            </Card>
-            <Card>
-                {techButtons[9].icon}
-                {techButtons[9].name}
-            </Card>
-            <Card>
-                {techButtons[10].icon}
-                {techButtons[10].name}
-            </Card>
+            {allTechCards}
             <Divider />
         </section>
     );

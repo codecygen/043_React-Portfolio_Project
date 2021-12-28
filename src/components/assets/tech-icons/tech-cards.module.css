@@ -24,6 +24,10 @@
     color: #5ed3f3;
 }
 
+.redux {
+    width: 1.92rem;
+}
+
 .bootstrap {
     color: #7910f2;
 }
@@ -40,6 +44,10 @@
     width: 100%;
 }
 
+.ejs, .linux {
+    width: 1.92rem;
+}
+
 .mongodb {
     color: #429543;
 }
@@ -48,7 +56,7 @@
     color: #de4c36;
 }
 
-.github {
+.github, .restapi {
     color: #a1a1a1;
 }
 

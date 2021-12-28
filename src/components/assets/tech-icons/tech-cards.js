@@ -12,8 +12,12 @@ import { DiGit } from "react-icons/di";
 import { ImGithub } from "react-icons/im";
 import { SiHeroku } from "react-icons/si";
 import { SiFirebase } from "react-icons/si";
+import { BsGearWide } from "react-icons/bs";
 
-import expressLink from './express.svg';
+import expressLink from './icons/express.svg';
+import reduxLink from './icons/redux.svg';
+import ejsLink from './icons/ejs.svg';
+import linuxLink from './icons/linux.svg';
 
 import classes from './tech-cards.module.css';
 
@@ -41,6 +45,12 @@ const techButtons = [
     },
 
     {
+        key: 'b4',
+        icon: <img src={reduxLink} alt="It is redux" className={classes.redux} />,
+        name: 'Redux'
+    },
+
+    {
         key: 'a5',
         icon: <FaBootstrap className={classes.bootstrap} />,
         name: 'Bootstrap'
@@ -65,9 +75,21 @@ const techButtons = [
     },
 
     {
+        key: 'b8',
+        icon: <img src={ejsLink} alt="It is ejs" className={classes.ejs} />,
+        name: 'EJS'
+    },
+
+    {
         key: 'a9',
         icon: <DiMongodb className={classes.mongodb} />,
         name: 'MongoDB'
+    },
+
+    {
+        key: 'b9',
+        icon: <BsGearWide className={classes.restapi} />,
+        name: 'REST API'
     },
 
     {
@@ -92,6 +114,12 @@ const techButtons = [
         key: 'a13',
         icon: <SiFirebase className={classes.firebase} />,
         name: 'Firebase'
+    },
+
+    {
+        key: 'a14',
+        icon: <img src={linuxLink} alt="It is linux" className={classes.linux} />,
+        name: 'Linux'
     },
 ];
 

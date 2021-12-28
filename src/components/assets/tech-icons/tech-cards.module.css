@@ -36,8 +36,16 @@
     color: #6da55f;
 }
 
+.expressjs {
+    width: 100%;
+}
+
 .mongodb {
     color: #429543;
+}
+
+.git {
+    color: #de4c36;
 }
 
 .github {

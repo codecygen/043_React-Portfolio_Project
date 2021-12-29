@@ -9,7 +9,7 @@
 
     /* This section controls the box height to be 40px. No matter
     what padding you change in child elements, the box height will be
-    controlled by heigt */
+    controlled by height */
     box-sizing: border-box;
     height: 4rem;
 

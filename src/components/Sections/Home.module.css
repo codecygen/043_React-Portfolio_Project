@@ -7,9 +7,24 @@
     margin: 20px;
 }
 
-.myImage {
-    height: 12rem;
+.landing-p {
+    width: 60%;
+    margin: auto;
+}
+
+.home > p {
+    text-align: justify;
+    margin-bottom: 2.5rem;
+}
+
+.home img {
+    height: 15rem;
     border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+
+    transform: translate(0, -50%);
 
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -21,7 +36,7 @@
     -webkit-animation-iteration-count: infinite;
 }
 
-.myImage:hover {
+.home img:hover {
     cursor: pointer;
     animation-name: bounce;
 }
@@ -46,16 +61,20 @@
 
 .same-line {
     margin-bottom: 3rem;
-    
 }
 
-.same-line > * {
+.same-line > div {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 1rem;
+    margin: 0;
 }
 
-.home-p {
-    text-align: justify;
-    margin-bottom: 2.5rem;
+.c1 {
+    position: relative;
+    width: 30%; 
+    height: max-content;
+}
+
+.c2 {
+    width: 70%;
 }

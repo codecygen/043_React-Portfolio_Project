@@ -1,4 +1,4 @@
-import Card from '../../UI/Card';
+import Card from './Card';
 
 import { FaHtml5 } from "react-icons/fa";
 import { IoLogoCss3 } from "react-icons/io";
@@ -14,12 +14,12 @@ import { SiHeroku } from "react-icons/si";
 import { SiFirebase } from "react-icons/si";
 import { BsGearWide } from "react-icons/bs";
 
-import expressLink from './icons/express.svg';
-import reduxLink from './icons/redux.svg';
-import ejsLink from './icons/ejs.svg';
-import linuxLink from './icons/linux.svg';
+import expressLink from '../../assets/tech-icons/express.svg';
+import reduxLink from '../../assets/tech-icons/redux.svg';
+import ejsLink from '../../assets/tech-icons/ejs.svg';
+import linuxLink from '../../assets/tech-icons/linux.svg';
 
-import classes from './tech-cards.module.css';
+import classes from './TechCards.module.css';
 
 const techButtons = [
     {
@@ -132,4 +132,17 @@ const techCards = techButtons.map(techButton => (
     </Card>
 ));
 
-export default techCards;
+
+const TechCards = () => {
+    return (
+        <>
+            {techCards}
+        </>
+    )
+}
+
+export default TechCards;
+
+
+
+

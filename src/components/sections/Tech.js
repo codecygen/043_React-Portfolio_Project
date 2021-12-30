@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Divider from '../UI/Divider';
+import Divider from '../ui/Divider';
 
-import techCards from '../assets/tech-icons/tech-cards';
+import TechCards from '../ui/TechCards';
 
 import classes from './Tech.module.css';
 
@@ -11,7 +11,7 @@ const Tech = () => {
     return (
         <section className={classes.tech}>
             <h2>Technologies</h2>
-            {techCards}
+            <TechCards />
             <Divider />
         </section>
     );

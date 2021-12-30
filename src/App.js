@@ -1,8 +1,8 @@
 import React from 'react';
 
-import NavBar from './components/NavBar/NavBar';
-import Home from './components/Sections/Home';
-import Tech from './components/Sections/Tech';
+import NavBar from './components/sections/NavBar';
+import Home from './components/sections/Home';
+import Tech from './components/sections/Tech';
 import './App.css';
 
 function App() {

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import MenuButton from '../Buttons/MenuButton';
-import ToggleSwitch from '../Buttons/ToggleSwitch';
+import MenuButton from '../ui/buttons/NavButton';
+import ToggleSwitch from '../ui/buttons/ToggleSwitch';
 
-import HomeIcon from '../assets/menu-icons/HomeIcon';
-import GitHubIcon from '../assets/menu-icons/GitHubIcon';
-import ProjectsIcon from '../assets/menu-icons/ProjectsIcon';
-import AboutIcon from '../assets/menu-icons/AboutIcon';
+import HomeIcon from '../../assets/menu-icons/HomeIcon';
+import GitHubIcon from '../../assets/menu-icons/GitHubIcon';
+import ProjectsIcon from '../../assets/menu-icons/ProjectsIcon';
+import AboutIcon from '../../assets/menu-icons/AboutIcon';
 
 import classes from './NavBar.module.css';
 

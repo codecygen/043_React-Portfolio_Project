@@ -3,6 +3,8 @@ import React from 'react';
 import myImage from '../../assets/images/Me.jpeg';
 import Divider from '../ui/Divider';
 
+import SocialMedia from '../ui/SocialMedia';
+
 import classes from './Home.module.css';
 
 const Home = () => {
@@ -19,6 +21,7 @@ const Home = () => {
                         I am passionate about
                         creating applications with better UI and UX!
                     </p>
+                    <SocialMedia />
                 </div>
             </section>
             <Divider />

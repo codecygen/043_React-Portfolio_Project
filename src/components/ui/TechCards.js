@@ -1,18 +1,18 @@
 import Card from './Card';
 
-import { FaHtml5 } from "react-icons/fa";
-import { IoLogoCss3 } from "react-icons/io";
-import { SiJavascript } from "react-icons/si";
-import { FaReact } from "react-icons/fa";
-import { FaBootstrap } from "react-icons/fa";
-import { SiJquery } from "react-icons/si";
-import { FaNode } from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
-import { DiGit } from "react-icons/di";
-import { ImGithub } from "react-icons/im";
-import { SiHeroku } from "react-icons/si";
-import { SiFirebase } from "react-icons/si";
-import { BsGearWide } from "react-icons/bs";
+import { FaHtml5 } from 'react-icons/fa';
+import { IoLogoCss3 } from 'react-icons/io';
+import { SiJavascript } from 'react-icons/si';
+import { FaReact } from 'react-icons/fa';
+import { FaBootstrap } from 'react-icons/fa';
+import { SiJquery } from 'react-icons/si';
+import { FaNode } from 'react-icons/fa';
+import { DiMongodb } from 'react-icons/di';
+import { DiGit } from 'react-icons/di';
+import { ImGithub } from 'react-icons/im';
+import { SiHeroku } from 'react-icons/si';
+import { SiFirebase } from 'react-icons/si';
+import { BsGearWide } from 'react-icons/bs';
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';

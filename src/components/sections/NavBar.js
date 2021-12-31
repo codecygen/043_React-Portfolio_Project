@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuButton from '../ui/buttons/NavButton';
+import NavButton from '../ui/buttons/NavButton';
 import ToggleSwitch from '../ui/buttons/ToggleSwitch';
 
 import HomeIcon from '../../assets/menu-icons/HomeIcon';
@@ -42,7 +42,7 @@ const NavBar = () => {
     ];
 
     const buttons = navButtons.map(eachObject => (
-        <MenuButton
+        <NavButton
             key={eachObject.key}
             hyperlink={eachObject.link}
             menuButtonIcon={eachObject.icon}

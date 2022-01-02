@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ButtonCard.module.css';
+import classes from './SocialButtonCard.module.css';
 
 const ButtonCard = props => {
     return (
@@ -10,5 +10,3 @@ const ButtonCard = props => {
 };
 
 export default ButtonCard;
-
-// className={classes.card}

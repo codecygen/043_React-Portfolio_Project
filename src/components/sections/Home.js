@@ -4,6 +4,7 @@ import myImage from '../../assets/images/Me.jpeg';
 import Divider from '../ui/Divider';
 
 import SocialMedia from '../ui/SocialMedia';
+import Button from '../ui/buttons/Button';
 
 import classes from './Home.module.css';
 
@@ -21,6 +22,7 @@ const Home = () => {
                         I am passionate about
                         creating applications with better UI and UX!
                     </p>
+                    <Button>LOL</Button>
                     <SocialMedia />
                 </div>
             </section>

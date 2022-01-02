@@ -22,8 +22,10 @@ const Home = () => {
                         I am passionate about
                         creating applications with better UI and UX!
                     </p>
-                    <Button>LOL</Button>
-                    <SocialMedia />
+                    <div className={classes['margin-top']}>
+                        <Button className={classes['margin-right']}>Resume</Button>
+                        <SocialMedia />
+                    </div>
                 </div>
             </section>
             <Divider />

@@ -20,11 +20,6 @@
 .home img {
     height: 15rem;
     border-radius: 50%;
-    position: absolute;
-    right: 0;
-    top: 50%;
-
-    transform: translate(0, -50%);
 
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -70,11 +65,13 @@
 }
 
 .c1 {
-    position: relative;
     width: 30%; 
-    height: max-content;
 }
 
 .c2 {
     width: 70%;
+}
+
+.margin-top {
+    margin-top: 3rem;
 }

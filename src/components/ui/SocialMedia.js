@@ -40,9 +40,9 @@ const SocialMedia = () => {
     ));
 
     return (
-        <>
+        <span className={classes.container}>
             {socialIcons}
-        </>
+        </span>
     );
 };
 

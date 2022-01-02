@@ -44,8 +44,8 @@ const Home = () => {
 
             <p>
                 In February 2021, I started fully focusing on web development
-                and programming. Since then, I wake up everyday completely motivated to
-                learn something new everyday.
+                and programming. Since then, everyday I wake up completely motivated to
+                learn something new.
             </p>
 
             <Divider />

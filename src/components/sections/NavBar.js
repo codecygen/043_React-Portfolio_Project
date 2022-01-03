@@ -3,10 +3,10 @@ import React from 'react';
 import NavButton from '../ui/buttons/NavButton';
 import ToggleSwitch from '../ui/buttons/ToggleSwitch';
 
-import HomeIcon from '../../assets/menu-icons/HomeIcon';
-import GitHubIcon from '../../assets/menu-icons/GitHubIcon';
-import ProjectsIcon from '../../assets/menu-icons/ProjectsIcon';
-import AboutIcon from '../../assets/menu-icons/AboutIcon';
+// import HomeIcon from '../../assets/menu-icons/HomeIcon';
+// import GitHubIcon from '../../assets/menu-icons/GitHubIcon';
+// import ProjectsIcon from '../../assets/menu-icons/ProjectsIcon';
+// import AboutIcon from '../../assets/menu-icons/AboutIcon';
 
 import classes from './NavBar.module.css';
 
@@ -15,29 +15,25 @@ const NavBar = () => {
         {
             key: 1,
             name: 'Home',
-            link: '#Home',
-            icon: <HomeIcon />
+            link: '#Home'
         },
 
         {
             key: 2,
             name: 'Github',
-            link: '#Github',
-            icon: <GitHubIcon />
+            link: '#Github'
         },
 
         {
             key: 3,
             name: 'Projects',
-            link: '#Projects',
-            icon: <ProjectsIcon />
+            link: '#Projects'
         },
 
         {
             key: 4,
             name: 'About',
-            link: '#About',
-            icon: <AboutIcon />
+            link: '#About'
         },
     ];
 
@@ -45,7 +41,6 @@ const NavBar = () => {
         <NavButton
             key={eachObject.key}
             hyperlink={eachObject.link}
-            menuButtonIcon={eachObject.icon}
             menuButtonName={eachObject.name}
         />
     ));

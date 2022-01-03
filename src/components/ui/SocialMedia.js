@@ -32,17 +32,17 @@ const SocialMedia = () => {
 
     const socialIcons = socialMediaList.map(element => (
         <SocialButtonCard
-            key = {element.id}
-            link = {element.link}
+            key={element.id}
+            link={element.link}
         >
             {element.icon}
         </SocialButtonCard>
     ));
 
     return (
-        <span className={classes.container}>
+        <>
             {socialIcons}
-        </span>
+        </>
     );
 };
 

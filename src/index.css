@@ -59,3 +59,13 @@ p {
   font-size: 1.25rem;
   line-height: 2.5rem;
 }
+
+.main-color {
+  background-color: #222733;
+  color: #dbe8d4;
+}
+
+.navbar-color {
+  background-color: #525e65;
+  box-shadow: #182b41 0px 20px 30px -10px;
+}

@@ -12,7 +12,6 @@
 }
 
 .footer::before {
-    content: 'fuck';
     content: '';
     display: block;
     height: 100px;

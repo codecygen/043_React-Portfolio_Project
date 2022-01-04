@@ -4,7 +4,7 @@ import SocialMedia from '../ui/SocialMedia';
 
 const Footer = () => {
     return (
-        <footer className={classes.footer}>
+        <footer className={`${classes.footer} footer-color`}>
             <SocialMedia />
         </footer>
     );

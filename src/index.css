@@ -3,10 +3,6 @@ body {
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Helvetica Neue',
   sans-serif;
-
-  /* Website specific fonts and background colors */
-  background-color: #222733;
-  color: #dbe8d4;
 }
 
 /* This section controls the 
@@ -26,17 +22,6 @@ a {
   font-weight: bold;
   font-size: 1.5rem;
   text-decoration: none;
-}
-
-/* Set visited link to have same color with
-the original link */
-a:link, a:visited {
-  color: #dbe8d4;
-}
-
-a:active {
-  border-bottom-color: #5d997d;
-  color: #b1d8aa;
 }
 
 h1, h2, h3, p {
@@ -60,12 +45,40 @@ p {
   line-height: 2.5rem;
 }
 
-.main-color {
-  background-color: #222733;
+/* Color Section */
+
+body, a:link, a:visited {
   color: #dbe8d4;
+}
+
+body {
+  background-color: #222733;
 }
 
 .navbar-color {
   background-color: #525e65;
   box-shadow: #182b41 0px 20px 30px -10px;
+}
+
+/* This section controls the colors of tech cards and social buttons */
+.card-color {
+  background-color: #24373f;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card-color:hover {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.button-color {
+  background-color: #24373f;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.button-color:hover {
+  background-color: #244945;
+}
+
+.footer-color {
+  background-color: #6479b3;
 }

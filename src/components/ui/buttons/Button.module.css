@@ -1,7 +1,7 @@
 .card {
-    background-color: #24373f;
+    /* background-color: #24373f; */
     border-radius: 1rem;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px; */
     transition: 0.5s;
     display: inline-block;
     padding: 0.75rem;
@@ -21,7 +21,7 @@
 .card:hover {
     cursor: pointer;
     text-decoration: 'inherit';
-    background-color: #244945;
+    /* background-color: #244945; */
 }
 
 .card:active {

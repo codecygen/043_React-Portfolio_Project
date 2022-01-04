@@ -45,13 +45,11 @@ p {
   line-height: 2.5rem;
 }
 
+/* /////////////////////////////////////////////////////////////////// */
 /* Color Section */
 
-body, a:link, a:visited {
-  color: #dbe8d4;
-}
-
 body {
+  color: #dbe8d4;
   background-color: #222733;
 }
 
@@ -60,13 +58,28 @@ body {
   box-shadow: #182b41 0px 20px 30px -10px;
 }
 
-/* This section controls the colors of tech cards and social buttons */
+.navbar-color a:link, .navbar-color a:visited  {
+  color: #dbe8d4;
+}
+
+/* This section controls the colors of tech cards */
 .card-color {
   background-color: #24373f;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .card-color:hover {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.social-color {
+  background-color: #ad9494;
+  color: #24373f;
+  border: 1px solid #24373f;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.social-color:hover {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
@@ -80,5 +93,7 @@ body {
 }
 
 .footer-color {
-  background-color: #6479b3;
+  background-color: #2e3445;
 }
+
+/* /////////////////////////////////////////////////////////////////// */

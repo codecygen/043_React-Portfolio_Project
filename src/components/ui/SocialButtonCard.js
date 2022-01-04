@@ -3,7 +3,7 @@ import classes from './SocialButtonCard.module.css';
 
 const ButtonCard = props => {
     return (
-        <a href={props.link} className={`${classes.card} card-color`}>
+        <a href={props.link} className={`${classes.card} social-color`}>
                 {props.children}
         </a>
     );

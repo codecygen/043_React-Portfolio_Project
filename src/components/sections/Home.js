@@ -22,7 +22,7 @@ const Home = () => {
                         I am passionate about
                         creating applications with better UI and UX!
                     </p>
-                    <div className={classes['margin-top']}>
+                    <div className={classes['link-container']}>
                         <Button className={classes['margin-right']}>Resume</Button>
                         <SocialMedia />
                     </div>

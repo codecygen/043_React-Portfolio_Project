@@ -47,7 +47,7 @@ const NavBar = () => {
 
     return (
         <nav className={`${classes.navbar} navbar-color`}>
-            <h1>Aras Sen</h1>
+            <h1>ARAS SEN</h1>
             <div className={classes['second-div']}>{buttons}</div>
             <div><ToggleSwitch /></div>
         </nav>

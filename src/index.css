@@ -9,6 +9,7 @@ body {
 total padding for every child element
 of root id. */
 #root > * {
+  position: relative;
   padding-right: 20%;
   padding-left: 20%;
 }

@@ -6,8 +6,8 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
     return (
-        <footer className={`${classes.footer} footer-color`}>
-            <div>
+        <footer className={classes.footer}>
+            <div className='footer-color'>
                 <SocialMedia />
                 <h4>©{currentYear} Aras Sen</h4>
             </div>

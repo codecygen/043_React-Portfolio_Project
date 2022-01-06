@@ -1,0 +1,41 @@
+.form-card {
+    color: #252424;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.form-card form {
+    margin-top: 40px;
+    background-color: #6f88a8;
+    border-radius: 1rem;
+}
+
+.input-div { 
+    display: flex;
+    flex-direction: column;
+    padding: 40px 60px 0 60px;
+}
+
+.form-card input {
+    height: 45px;
+    font-size: 1.25rem;
+    padding-left: 2rem;
+    border-radius: 20px;
+    border: none;
+}
+
+.form-card textarea {
+    overflow: auto;
+    resize: none;
+    height: 100px;
+    font-size: 1.25rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    border-radius: 20px;
+    border: none;
+}
+
+.input-div label {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}

@@ -5,19 +5,35 @@ const Contact = () => {
     return (
         <section className={classes['form-card']}>
             <form>
+                <h3>Contact Form</h3>
                 <div className={classes['input-div']}>
-                    <label htmlFor='name'>Name</label>
-                    <input type='text' id='name' />
+                    <label htmlFor='name'>Your Name</label>
+                    <input
+                        type='text'
+                        id='name'
+                        required
+                        placeholder='Name...'
+                    />
                 </div>
 
                 <div className={classes['input-div']}>
-                    <label htmlFor='subject'>Subject</label>
-                    <input type='text' id='subject' />
+                    <label htmlFor='subject'>Your Subject</label>
+                    <input
+                        type='text'
+                        id='subject'
+                        required
+                        placeholder='Subject...'
+                    />
                 </div>
 
                 <div className={classes['input-div']}>
-                    <label htmlFor='message'>Message</label>
-                    <textarea type='text' id='message' />
+                    <label htmlFor='message'>Your Message</label>
+                    <textarea
+                        type='text'
+                        id='message'
+                        required
+                        placeholder='Message...'
+                    />
                 </div>
             </form>
         </section>

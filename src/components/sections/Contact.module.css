@@ -1,38 +1,46 @@
 .form-card {
-    color: #252424;
     font-weight: bold;
     font-size: 1.4rem;
 }
 
 .form-card form {
     margin-top: 40px;
-    background-color: #6f88a8;
-    border-radius: 1rem;
+    background-color: #2a4566;
+    border-radius: 30px;
+    padding: 20px 100px;
 }
 
 .input-div { 
     display: flex;
     flex-direction: column;
-    padding: 40px 60px 0 60px;
+    padding: 20px 0;
+}
+
+.form-card input, .form-card textarea {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding-left: 2rem;
+    border-radius: 20px;
+    border: none;
+    transition: outline 0.15s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .form-card input {
     height: 45px;
-    font-size: 1.25rem;
-    padding-left: 2rem;
-    border-radius: 20px;
-    border: none;
 }
 
 .form-card textarea {
-    overflow: auto;
     resize: none;
     height: 100px;
-    font-size: 1.25rem;
-    padding-left: 2rem;
     padding-top: 1rem;
-    border-radius: 20px;
-    border: none;
+}
+
+.form-card input:focus, .form-card textarea:focus {
+    background-color: #e8e8f1;
+    outline: solid #a2a5d6 2px;
+    box-shadow: #a8b5ce40 0px 4px 8px -2px, #b8c1d114 0px 0px 0px 1px;
 }
 
 .input-div label {

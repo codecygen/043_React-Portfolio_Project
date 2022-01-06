@@ -12,13 +12,14 @@ const Home = () => {
     return (
         <header className={classes.home}>
             <section className={classes["same-line"]}>
-                <div className={classes.c1}>
+                <div className={classes["img-div"]}>
                     <img src={myImage} alt="profile" />
-                </div
-                ><div className={classes.c2}>
+                </div>
+                
+                <div>
                     <h1>Aras Sen</h1>
                     <h3>Full Stack Web Developer</h3>
-                    <p className={classes['landing-p']}>
+                    <p>
                         I am passionate about
                         creating applications with better UI and UX!
                     </p>

@@ -9,9 +9,15 @@ const Projects = () => {
     return (
         <section className={classes.projects}>
             <h2>Projects</h2>
-
-            <ProjectCard />
-
+            <div className={classes['project-cards']}>
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+            </div>
             <Divider />
         </section>
     );

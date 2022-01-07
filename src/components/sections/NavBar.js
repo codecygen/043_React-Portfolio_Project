@@ -20,8 +20,8 @@ const NavBar = () => {
 
         {
             key: 2,
-            name: 'Github',
-            link: '#Github'
+            name: 'Tools',
+            link: '#Tools'
         },
 
         {
@@ -32,8 +32,8 @@ const NavBar = () => {
 
         {
             key: 4,
-            name: 'About',
-            link: '#About'
+            name: 'Contact',
+            link: '#Contact'
         },
     ];
 

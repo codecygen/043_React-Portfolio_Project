@@ -6,6 +6,8 @@ import Divider from '../ui/Divider';
 import SocialMedia from '../ui/SocialMedia';
 import Button from '../ui/buttons/Button';
 
+import { FaCanadianMapleLeaf } from "react-icons/fa";
+
 import classes from './Home.module.css';
 
 const Home = () => {
@@ -19,6 +21,10 @@ const Home = () => {
                 <div>
                     <h1>Aras Sen</h1>
                     <h3>Full Stack Web Developer</h3>
+                    <h4 className={classes['same-line']}>
+                        Based in Toronto 
+                        <FaCanadianMapleLeaf className='maple-icon' />
+                    </h4>
                     <p>
                         I am passionate about
                         creating applications with better UI and UX!

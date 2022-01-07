@@ -108,4 +108,9 @@ body {
 .maple-icon {
   font-size: 2rem;
   margin: 0 10px;
+  transition: color 0.5s;
+}
+
+.maple-icon:hover {
+  color: #c62c11;
 }

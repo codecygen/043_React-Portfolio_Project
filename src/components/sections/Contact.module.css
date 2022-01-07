@@ -7,7 +7,7 @@
     margin-top: 40px;
     background-color: #2a4566;
     border-radius: 30px;
-    padding: 20px 100px;
+    padding: 20px 100px 40px;
 }
 
 .input-div { 
@@ -35,6 +35,7 @@
     resize: none;
     height: 100px;
     padding-top: 1rem;
+    margin-bottom: 30px;
 }
 
 .form-card input:focus, .form-card textarea:focus {

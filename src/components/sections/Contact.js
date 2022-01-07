@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Button from '../ui/buttons/Button';
 import classes from './Contact.module.css';
 
 const Contact = () => {
@@ -35,6 +37,8 @@ const Contact = () => {
                         placeholder='Message...'
                     />
                 </div>
+
+                <Button>Send</Button>
             </form>
         </section>
     );

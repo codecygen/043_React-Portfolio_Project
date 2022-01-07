@@ -18,6 +18,11 @@
 
 .footer-decorative {
     font-family: 'Cinzel Decorative', cursive;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer h4 {

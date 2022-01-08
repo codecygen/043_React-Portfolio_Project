@@ -8,6 +8,14 @@
     font-weight: bold;
 }
 
+.same-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .html5 {
     color: #e44d26;
 }
@@ -70,4 +78,19 @@
 
 .linux {
     width: 1.82rem;
+}
+
+@media (max-width: 700px) {
+    
+    .tech-icons-p {
+        display: none;
+    }
+
+    .expressjs {
+        width: 2.5rem;
+    }
+    
+    .ejs {
+        width: 1.5rem;
+    }
 }

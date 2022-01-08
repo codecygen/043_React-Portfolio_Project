@@ -6,8 +6,8 @@ import Button from '../ui/buttons/Button';
 const ProjectCard = () => {
     return (
         <div className={`${classes['project-card']} project-card-color`}>
-            <p>This is ProjectCard.</p>
-            <Button>View Live</Button>
+            <h3>This is Project</h3>
+            <Button>Live</Button>
             <Button>GitHub</Button>
         </div>
     );

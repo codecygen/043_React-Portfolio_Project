@@ -135,9 +135,9 @@ const techCards = techButtons.map(techButton => (
 
 const TechCards = () => {
     return (
-        <>
+        <div className={classes['same-line']}>
             {techCards}
-        </>
+        </div>
     )
 }
 

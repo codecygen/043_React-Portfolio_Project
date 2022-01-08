@@ -114,3 +114,17 @@ body {
 .maple-icon:hover {
   color: #c62c11;
 }
+
+@media (max-width: 800px) {
+  #root > * {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+
+@media (max-width: 400px) {
+  #root > * {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}

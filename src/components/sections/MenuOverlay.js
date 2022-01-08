@@ -4,7 +4,7 @@ import classes from './MenuOverlay.module.css';
 
 
 const MenuOverlay = () => {
-    const portalElement = document.getElementById("overlay");
+    const portalElement = document.getElementById("overlays");
 
     return (
         <>

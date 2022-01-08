@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import NavButton from '../ui/buttons/NavButton';
 import { IoSunny } from "react-icons/io5";
+import Hamburger from '../ui/buttons/Hamburger';
 
 import classes from './NavBar.module.css';
 
@@ -32,7 +33,18 @@ const NavBar = () => {
         },
     ];
 
-    const [windowWidth, setWindowWidth] = useState('0');
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [menuState, setMenuState] = useState(false);
+
+    const menuClickHandler = () => {
+       setMenuState(prevValue => {
+           if (prevValue === true) {
+               return false;
+           } else {
+               return true;
+           }
+       });
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -55,7 +67,7 @@ const NavBar = () => {
             <h1>ARAS SEN</h1>
             {windowWidth > 1300 && <div className={classes['second-div']}>{buttons}</div>}
             <div className={classes['second-div']}><IoSunny className='sun-icon' /></div>
-            {windowWidth <= 1300 && <div>Test</div>}
+            {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
         </nav>
     );
 };

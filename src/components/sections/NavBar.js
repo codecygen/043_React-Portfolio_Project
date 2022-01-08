@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import NavButton from '../ui/buttons/NavButton';
 import { IoSunny } from "react-icons/io5";
 import Hamburger from '../ui/buttons/Hamburger';
+import MenuOverlay from './MenuOverlay';
 
 import classes from './NavBar.module.css';
 
@@ -37,13 +38,13 @@ const NavBar = () => {
     const [menuState, setMenuState] = useState(false);
 
     const menuClickHandler = () => {
-       setMenuState(prevValue => {
-           if (prevValue === true) {
-               return false;
-           } else {
-               return true;
-           }
-       });
+        setMenuState(prevValue => {
+            if (prevValue === true) {
+                return false;
+            } else {
+                return true;
+            }
+        });
     };
 
     useEffect(() => {
@@ -63,12 +64,15 @@ const NavBar = () => {
     ));
 
     return (
-        <nav className={`${classes.navbar} navbar-color`}>
-            <h1>ARAS SEN</h1>
-            {windowWidth > 1300 && <div className={classes['second-div']}>{buttons}</div>}
-            <div className={classes['second-div']}><IoSunny className='sun-icon' /></div>
-            {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
-        </nav>
+        <>
+            <nav className={`${classes.navbar} navbar-color`}>
+                <h1>ARAS SEN</h1>
+                {windowWidth > 1300 && <div className={classes['second']}>{buttons}</div>}
+                <div className={`${classes['second']} ${classes.margin}`}><IoSunny className='sun-icon' /></div>
+                {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
+            </nav>
+            <MenuOverlay />
+        </>
     );
 };
 

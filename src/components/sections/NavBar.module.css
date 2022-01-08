@@ -9,7 +9,7 @@
     what padding you change in child elements, the box height will be
     controlled by height */
     box-sizing: border-box;
-    height: 4rem;
+    height: 4.5rem;
 
     /* This will allow us to add widths up to 100% with inline-block of the child elements */
     white-space: nowrap;
@@ -21,7 +21,7 @@
     margin: 1rem;
 }
 
-.navbar > h1 {
+.navbar h1 {
     margin: 0;
     font-family: 'Cinzel Decorative', cursive;
     font-size: 1.25rem;
@@ -29,7 +29,7 @@
     width: 30%;
 }
 
-.second-div {
+.second {
     flex-grow: 1;
 }
 
@@ -37,8 +37,12 @@
     margin: 0 1rem;
 }
 
-@media (max-width: 1300px) {
-    .navbar > h1 {
-        font-size: 1.2rem;
+@media (max-width: 600px) {
+    .navbar h1 {
+        font-size: 0.8rem;
+    }
+
+    .margin {
+        margin-left: 50px;
     }
 }

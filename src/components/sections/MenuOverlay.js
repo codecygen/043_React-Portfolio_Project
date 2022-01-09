@@ -9,7 +9,6 @@ const MenuOverlay = props => {
         <a 
             href={eachObject.link} 
             key={eachObject.key}
-            className='menu-color'
         >
             {eachObject.name}
         </a>
@@ -20,7 +19,7 @@ const MenuOverlay = props => {
     return (
         <>
             {ReactDOM.createPortal(
-                <div className={classes.box}>
+                <div className={`${classes.box} menu-color`}>
                     {buttons}
                     <h4> Aras Sen ©{props.year}</h4>
                 </div>

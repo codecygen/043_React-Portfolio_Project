@@ -38,13 +38,15 @@ const NavBar = props => {
     const [menuState, setMenuState] = useState(false);
 
     const disableScroll = () => {
-        let x = window.scrollX;
-        let y = window.scrollY;
+        var x = window.scrollX;
+        var y = window.scrollY;
         window.onscroll = () => { window.scrollTo(x, y); };
     };
 
     const enableScroll = () => {
-        window.onscroll = () => { };
+        document.body.classList.remove('body-noscroll');
+
+        window.onscroll = () => {};
     };
 
     const menuClickHandler = () => {
@@ -81,8 +83,9 @@ const NavBar = props => {
                 <h1>ARAS SEN</h1>
                 {windowWidth > 1300 && <div className={classes['second']}>{buttons}</div>}
                 <div className={`${classes['second']} ${classes.margin}`}><IoSunny className='sun-icon' /></div>
-                {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>} 
+                {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
             </nav>
+            
             {menuState && <MenuOverlay navButtons={navButtons} year={props.year} />}
         </>
     );

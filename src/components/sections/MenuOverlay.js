@@ -5,6 +5,12 @@ import classes from './MenuOverlay.module.css';
 
 const MenuOverlay = props => {
 
+    let menuClasses = `${classes.box} menu-color`;
+
+    if (props.menuState) {
+        menuClasses = `${classes.box} ${classes['box-opened']} menu-color`;
+    };
+
     const buttons = props.navButtons.map(eachObject => (
         <a 
             href={eachObject.link} 
@@ -19,7 +25,7 @@ const MenuOverlay = props => {
     return (
         <>
             {ReactDOM.createPortal(
-                <div className={`${classes.box} menu-color`}>
+                <div className={menuClasses}>
                     {buttons}
                     <h4> Aras Sen ©{props.year}</h4>
                 </div>

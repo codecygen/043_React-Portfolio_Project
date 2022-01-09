@@ -59,7 +59,8 @@ body {
 
 .menu-color {
   background-color: inherit;
-  background-color: #855555;
+  background-color: #304a5d;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
 
 .menu-color a:link, .menu-color a:visited  {

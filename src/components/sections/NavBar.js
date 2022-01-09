@@ -85,8 +85,14 @@ const NavBar = props => {
                 <div className={`${classes['second']} ${classes.margin}`}><IoSunny className='sun-icon' /></div>
                 {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
             </nav>
-            
-            {menuState && <MenuOverlay navButtons={navButtons} year={props.year} />}
+
+            {menuState && 
+                <MenuOverlay 
+                    navButtons={navButtons} 
+                    year={props.year} 
+                    menuState={menuState} 
+                />
+            }
         </>
     );
 };

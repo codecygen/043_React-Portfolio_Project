@@ -3,7 +3,7 @@
     position:fixed;
     top: 0;
     right: 0;
-    width: 65%;
+    width: 0%;
     bottom: 0;
     margin-top: 4.5rem;
     padding-top: 30px;
@@ -14,6 +14,12 @@
 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 30;
+
+    transition: width 2s;
+}
+
+.box-opened {
+    width: 70%;
 }
 
 .box * {

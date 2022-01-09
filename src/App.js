@@ -9,14 +9,17 @@ import Footer from './components/sections/Footer';
 import './App.css';
 
 function App() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
-      <NavBar />
+      <NavBar 
+        year={currentYear} />
       <Home />
       <Tech />
       <Projects />
       <Contact />
-      <Footer />
+      <Footer year={currentYear} />
     </>
   );
 }

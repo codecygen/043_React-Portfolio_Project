@@ -5,18 +5,17 @@ import SocialMedia from '../ui/SocialMedia';
 import { GiBroadheadArrow } from 'react-icons/gi';
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 
-const currentYear = new Date().getFullYear();
+const Footer = props => {
 
-const scrollUp = () => {
+    const scrollUp = () => {
     
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
-};
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+    };
 
-const Footer = () => {
     return (
         <footer className={classes.footer}>
             <div className='footer-color'>
@@ -27,7 +26,7 @@ const Footer = () => {
                 </p>
 
                 <h4>Developed and designed by</h4>
-                <h4> Aras Sen © {currentYear}</h4>
+                <h4> Aras Sen © {props.year}</h4>
                 <GiBroadheadArrow className={classes['rotate-arrow']} onClick={scrollUp} />
             </div>
         </footer>

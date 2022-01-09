@@ -53,6 +53,14 @@ body {
   background-color: #222733;
 }
 
+.menu-color {
+  background-color: inherit;
+}
+
+.menu-color a:link, .menu-color a:visited  {
+  color: #dbe8d4;
+}
+
 .navbar-color {
   background-color: #525e65;
   box-shadow: #182b41 0px 20px 30px -10px;

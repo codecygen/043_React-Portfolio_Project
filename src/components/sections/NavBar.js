@@ -7,7 +7,7 @@ import MenuOverlay from './MenuOverlay';
 
 import classes from './NavBar.module.css';
 
-const NavBar = () => {
+const NavBar = props => {
     const navButtons = [
         {
             key: 1,
@@ -37,11 +37,23 @@ const NavBar = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [menuState, setMenuState] = useState(false);
 
+    const disableScroll = () => {
+        let x = window.scrollX;
+        let y = window.scrollY;
+        window.onscroll = () => { window.scrollTo(x, y); };
+    };
+
+    const enableScroll = () => {
+        window.onscroll = () => { };
+    };
+
     const menuClickHandler = () => {
         setMenuState(prevValue => {
             if (prevValue === true) {
+                enableScroll();
                 return false;
             } else {
+                disableScroll();
                 return true;
             }
         });
@@ -69,9 +81,9 @@ const NavBar = () => {
                 <h1>ARAS SEN</h1>
                 {windowWidth > 1300 && <div className={classes['second']}>{buttons}</div>}
                 <div className={`${classes['second']} ${classes.margin}`}><IoSunny className='sun-icon' /></div>
-                {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
+                {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>} 
             </nav>
-            <MenuOverlay />
+            {menuState && <MenuOverlay navButtons={navButtons} year={props.year} />}
         </>
     );
 };

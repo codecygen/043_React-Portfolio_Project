@@ -1,19 +1,22 @@
 .box {
     background-color: red;
-    height: 200px;
-    width: 600px;
-    white-space: nowrap;
-    position: fixed;
+    position:fixed;
     top: 0;
+    right: 0;
+    width: 65%;
+    bottom: 0;
+    margin-top: 4.5rem;
+    padding-top: 30px;
 
-    position: fixed;
-    top: 20vh;
-    left: 5%;
-    width: 90%;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 30;
-    animation: slide-down 300ms ease-out forwards;
+}
+
+.box * {
+    margin-right: auto;
+    margin-left: auto;
 }

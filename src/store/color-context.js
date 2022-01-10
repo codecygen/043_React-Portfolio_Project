@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const ColorContext = React.createContext({
-    isClicked: false,
+    clickHandler: () => {},
+    isColorChanged: false
 });
 
 export const ColorContextProvider = props => {

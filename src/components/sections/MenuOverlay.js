@@ -5,11 +5,11 @@ import classes from './MenuOverlay.module.css';
 
 const MenuOverlay = props => {
 
-    let menuClasses = `${classes.box} menu-color`;
+    let menuClasses = `${classes.box} ${classes.menu} menu-color`;
 
-    if (props.menuState) {
-        menuClasses = `${classes.box} ${classes['box-opened']} menu-color`;
-    };
+    if (props.clickState) {
+        menuClasses = `${classes.box} ${classes.menu} menu-color ${classes['menu-active']}`
+    }
 
     const buttons = props.navButtons.map(eachObject => (
         <a 

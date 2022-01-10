@@ -46,7 +46,7 @@ const NavBar = props => {
     const enableScroll = () => {
         document.body.classList.remove('body-noscroll');
 
-        window.onscroll = () => {};
+        window.onscroll = () => { };
     };
 
     const menuClickHandler = () => {
@@ -86,13 +86,12 @@ const NavBar = props => {
                 {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
             </nav>
 
-            {menuState && 
-                <MenuOverlay 
-                    navButtons={navButtons} 
-                    year={props.year} 
-                    menuState={menuState} 
-                />
-            }
+
+            <MenuOverlay
+                navButtons={navButtons}
+                year={props.year}
+                clickState={menuState}
+            />
         </>
     );
 };

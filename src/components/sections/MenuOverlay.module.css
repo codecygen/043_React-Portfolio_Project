@@ -4,9 +4,13 @@
     top: 0;
     right: 0;
     width: 0%;
+    height: 0%;
     bottom: 0;
     margin-top: 4.5rem;
     padding-top: 30px;
+    opacity: 0;
+
+    white-space: nowrap;
 
     display: flex;
     flex-direction: column;
@@ -15,11 +19,17 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     z-index: 30;
 
-    transition: width 2s;
+    animation-name: menu-opening;
 }
 
-.box-opened {
-    width: 70%;
+.menu {
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-active {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
 }
 
 .box * {

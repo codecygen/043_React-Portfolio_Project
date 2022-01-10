@@ -28,7 +28,7 @@ const MenuOverlay = props => {
             {ReactDOM.createPortal(
                 <div className={menuClasses}>
                     {buttons}
-                    <h4> Aras Sen ©{props.year}</h4>
+                    <h5> Aras Sen ©{props.year}</h5>
                 </div>
             , portalElement)}
         </>

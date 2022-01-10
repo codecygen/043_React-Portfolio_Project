@@ -86,12 +86,13 @@ const NavBar = props => {
                 {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
             </nav>
 
-
-            <MenuOverlay
-                navButtons={navButtons}
-                year={props.year}
-                clickState={menuState}
-            />
+            {windowWidth <= 1300 &&
+                <MenuOverlay
+                    navButtons={navButtons}
+                    year={props.year}
+                    clickState={menuState}
+                />
+            }
         </>
     );
 };

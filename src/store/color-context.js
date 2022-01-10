@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 const ColorContext = React.createContext({
-    clickHandler: () => {},
-    isColorChanged: false
+    darkModeHandler: () => {},
+    isDarkMode: true
 });
 
 export const ColorContextProvider = props => {
-    const [isColorChangeClicked, setIsColorChangeClicked] = useState(false);
+    const [isColorDark, setIsColorDark] = useState(true);
 
     const colorChangeHandler = () => {
-        setIsColorChangeClicked(prevValue => {
+        setIsColorDark(prevValue => {
             if (prevValue) {
                 return false;
             } else {
@@ -21,8 +21,8 @@ export const ColorContextProvider = props => {
     return (
         <ColorContext.Provider 
             value={{
-                clickHandler: colorChangeHandler, 
-                isColorChanged: isColorChangeClicked
+                darkModeHandler: colorChangeHandler, 
+                isDarkMode: isColorDark
             }}
         >
             {props.children}

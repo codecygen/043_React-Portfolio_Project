@@ -5,16 +5,17 @@ import classes from './MenuOverlay.module.css';
 
 const MenuOverlay = props => {
 
-    let menuClasses = `${classes.box} ${classes.menu} menu-color`;
+    let menuClasses = `${classes.box} menu-color ${classes.menu}`;
 
     if (props.clickState) {
-        menuClasses = `${classes.box} ${classes.menu} menu-color ${classes['menu-active']}`
+        menuClasses = `${classes.box} menu-color ${classes.menu} ${classes['menu-active']}`
     }
 
     const buttons = props.navButtons.map(eachObject => (
         <a 
             href={eachObject.link} 
             key={eachObject.key}
+            className={classes.links}
         >
             {eachObject.name}
         </a>

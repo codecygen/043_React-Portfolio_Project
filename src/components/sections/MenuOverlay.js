@@ -16,6 +16,7 @@ const MenuOverlay = props => {
             href={eachObject.link} 
             key={eachObject.key}
             className={classes.links}
+            onClick={props.menuItemClickHandler}
         >
             {eachObject.name}
         </a>

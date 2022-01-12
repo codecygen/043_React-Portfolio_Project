@@ -15,10 +15,10 @@ function App() {
     <>
       <NavBar 
         year={currentYear} />
-      <Home />
-      <Tech />
-      <Projects />
-      <Contact />
+      <Home id='#home' />
+      <Tech id='#tools' />
+      <Projects id='#projects' />
+      <Contact id='#contact' />
       <Footer year={currentYear} />
     </>
   );

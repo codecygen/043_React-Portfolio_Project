@@ -5,7 +5,7 @@ import classes from './Contact.module.css';
 
 const Contact = () => {
     return (
-        <section className={classes['form-card']}>
+        <section className={classes['form-card']} id='contact'>
             <form>
                 <h3>Contact Form</h3>
                 <div className={classes['input-div']}>

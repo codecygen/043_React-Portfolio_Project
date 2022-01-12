@@ -7,7 +7,7 @@ import classes from './Projects.module.css'
 
 const Projects = () => {
     return (
-        <section className={classes.projects}>
+        <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
             <div className={classes['project-cards']}>
                 <ProjectCard />

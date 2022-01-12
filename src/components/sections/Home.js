@@ -12,7 +12,7 @@ import classes from './Home.module.css';
 
 const Home = () => {
     return (
-        <header className={classes.home}>
+        <header className={classes.home} id='home'>
             <section className={classes["same-line"]}>
                 <div className={classes["img-div"]}>
                     <img src={myImage} alt="profile" />

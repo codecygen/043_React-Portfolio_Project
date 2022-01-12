@@ -12,25 +12,25 @@ const NavBar = props => {
         {
             key: 1,
             name: 'Home',
-            link: '#Home'
+            link: '#home'
         },
 
         {
             key: 2,
             name: 'Tools',
-            link: '#Tools'
+            link: '#tools'
         },
 
         {
             key: 3,
             name: 'Projects',
-            link: '#Projects'
+            link: '#projects'
         },
 
         {
             key: 4,
             name: 'Contact',
-            link: '#Contact'
+            link: '#contact'
         },
     ];
 
@@ -91,6 +91,7 @@ const NavBar = props => {
                     navButtons={navButtons}
                     year={props.year}
                     clickState={menuState}
+                    menuItemClickHandler={menuClickHandler}
                 />
             }
         </>

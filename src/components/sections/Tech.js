@@ -9,7 +9,7 @@ import classes from './Tech.module.css';
 const Tech = () => {
 
     return (
-        <section className={classes.tech}>
+        <section className={classes.tech} id='tools'>
             <h2>Technologies</h2>
             <TechCards />
             <Divider />

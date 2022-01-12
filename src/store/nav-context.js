@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-const ColorContext = React.createContext({
+const NavContext = React.createContext({
     darkModeHandler: () => {},
     isDarkMode: true
 });
 
-export const ColorContextProvider = props => {
+export const NavContextProvider = props => {
+
     const [isColorDark, setIsColorDark] = useState(true);
 
     const colorChangeHandler = () => {
@@ -19,15 +20,15 @@ export const ColorContextProvider = props => {
     };
 
     return (
-        <ColorContext.Provider 
+        <NavContext.Provider 
             value={{
                 darkModeHandler: colorChangeHandler, 
                 isDarkMode: isColorDark
             }}
         >
             {props.children}
-        </ColorContext.Provider>
+        </NavContext.Provider>
     );
 };
 
-export default ColorContext;
+export default NavContext;

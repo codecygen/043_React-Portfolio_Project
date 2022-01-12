@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+
+import { NavContextProvider } from './store/nav-context';
+
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NavContextProvider>
+      <App />
+    </NavContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

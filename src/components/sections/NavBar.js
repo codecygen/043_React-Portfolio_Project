@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import NavButton from '../ui/buttons/NavButton';
+import { BsFillMoonFill } from "react-icons/bs";
 import { IoSunny } from "react-icons/io5";
 import Hamburger from '../ui/buttons/Hamburger';
 import MenuOverlay from './MenuOverlay';
 
+import NavContext from '../../store/nav-context';
+
 import classes from './NavBar.module.css';
 
 const NavBar = props => {
+    const navCtx = useContext(NavContext);
+
     const navButtons = [
         {
             key: 1,
@@ -77,23 +82,40 @@ const NavBar = props => {
         />
     ));
 
+    const largeScreenMenu = windowWidth > 1300 && <div className={classes['second']}>{buttons}</div>;
+
+    const darkModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
+        <BsFillMoonFill className='moon-icon' onClick={navCtx.darkModeHandler} />
+    </div>
+
+    const lightModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
+        <IoSunny className='sun-icon' onClick={navCtx.darkModeHandler} />
+    </div>
+
+    const hamburgerIcon = windowWidth <= 1300 && 
+    <div onClick={menuClickHandler}>
+        <Hamburger clickState={menuState} />
+    </div>;
+
+    const mobileScreenMenu = windowWidth <= 1300 &&
+        <MenuOverlay
+            navButtons={navButtons}
+            year={props.year}
+            clickState={menuState}
+            menuItemClickHandler={menuClickHandler}
+    />
+
+
     return (
         <>
             <nav className={`${classes.navbar} navbar-color`}>
                 <h1>ARAS SEN</h1>
-                {windowWidth > 1300 && <div className={classes['second']}>{buttons}</div>}
-                <div className={`${classes['second']} ${classes.margin}`}><IoSunny className='sun-icon' /></div>
-                {windowWidth <= 1300 && <div onClick={menuClickHandler}><Hamburger clickState={menuState} /></div>}
+                {largeScreenMenu}
+                {darkModeIcon}
+                {hamburgerIcon}
             </nav>
 
-            {windowWidth <= 1300 &&
-                <MenuOverlay
-                    navButtons={navButtons}
-                    year={props.year}
-                    clickState={menuState}
-                    menuItemClickHandler={menuClickHandler}
-                />
-            }
+            {mobileScreenMenu}
         </>
     );
 };

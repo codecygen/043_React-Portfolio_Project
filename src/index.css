@@ -134,6 +134,7 @@ body {
 }
 
 .sun-icon {
+  color: #fff59a;
   font-size: 2.5rem;
   transition: color 0.5s;
   cursor: pointer;
@@ -144,6 +145,18 @@ body {
   color: #f0d90d;
 }
 
+.moon-icon {
+  color: #a5bec2;
+  font-size: 1.5rem;
+  transition: color 0.5s;
+  cursor: pointer;
+  animation: vibrate 0.5s linear infinite;
+} 
+
+.moon-icon:hover {
+  color: #2c7681;
+}
+
 @keyframes endless-rotate {
   from {
     transform: rotate(0);
@@ -151,6 +164,24 @@ body {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(2px);
+  }
+
+  50% {
+    transform: translate(-2px);
+  }
+
+  100% {
+    transform: translate(0);
   }
 }
 

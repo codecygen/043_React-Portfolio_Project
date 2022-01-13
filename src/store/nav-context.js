@@ -7,10 +7,10 @@ const NavContext = React.createContext({
 
 export const NavContextProvider = props => {
 
-    const [isColorDark, setIsColorDark] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(true);
 
     const colorChangeHandler = () => {
-        setIsColorDark(prevValue => {
+        setIsDarkMode(prevValue => {
             if (prevValue) {
                 return false;
             } else {
@@ -23,7 +23,7 @@ export const NavContextProvider = props => {
         <NavContext.Provider 
             value={{
                 darkModeHandler: colorChangeHandler, 
-                isDarkMode: isColorDark
+                isDarkMode
             }}
         >
             {props.children}

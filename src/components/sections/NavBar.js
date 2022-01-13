@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 import NavButton from '../ui/buttons/NavButton';
-import { BsFillMoonFill } from "react-icons/bs";
 import { IoSunny } from "react-icons/io5";
+import { AiFillStar } from "react-icons/ai";
+
 import Hamburger from '../ui/buttons/Hamburger';
 import MenuOverlay from './MenuOverlay';
 
@@ -51,7 +52,7 @@ const NavBar = props => {
     const enableScroll = () => {
         document.body.classList.remove('body-noscroll');
 
-        window.onscroll = () => { };
+        window.onscroll = () => {};
     };
 
     const menuClickHandler = () => {
@@ -82,10 +83,13 @@ const NavBar = props => {
         />
     ));
 
-    const largeScreenMenu = windowWidth > 1300 && <div className={classes['second']}>{buttons}</div>;
+    const largeScreenMenu = windowWidth > 1300 && 
+    <div className={classes['second']}>
+        {buttons}
+    </div>;
 
     const darkModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
-        <BsFillMoonFill className='moon-icon' onClick={navCtx.darkModeHandler} />
+        <AiFillStar className='moon-icon' onClick={navCtx.darkModeHandler} />
     </div>
 
     const lightModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
@@ -105,13 +109,19 @@ const NavBar = props => {
             menuItemClickHandler={menuClickHandler}
     />
 
+    // let menuClasses = `${classes.box} menu-color ${classes.menu}`;
+
+    // if (props.clickState) {
+    //     menuClasses = `${classes.box} menu-color ${classes.menu} ${classes['menu-active']}`
+    // }
+
 
     return (
         <>
             <nav className={`${classes.navbar} navbar-color`}>
                 <h1>ARAS SEN</h1>
                 {largeScreenMenu}
-                {darkModeIcon}
+                {navCtx.isDarkMode ? lightModeIcon : darkModeIcon}
                 {hamburgerIcon}
             </nav>
 

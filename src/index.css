@@ -133,11 +133,14 @@ body {
   color: #c62c11;
 }
 
-.sun-icon {
-  color: #fff59a;
+.sun-icon, .moon-icon {
   font-size: 2.5rem;
   transition: color 0.5s;
   cursor: pointer;
+}
+
+.sun-icon {
+  color: #fff59a;
   animation: endless-rotate 5s linear infinite;
 }
 
@@ -147,9 +150,6 @@ body {
 
 .moon-icon {
   color: #a5bec2;
-  font-size: 1.5rem;
-  transition: color 0.5s;
-  cursor: pointer;
   animation: vibrate 0.5s linear infinite;
 } 
 

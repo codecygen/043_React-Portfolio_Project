@@ -133,58 +133,6 @@ body {
   color: #c62c11;
 }
 
-.sun-icon, .moon-icon {
-  font-size: 2.5rem;
-  transition: color 0.5s;
-  cursor: pointer;
-}
-
-.sun-icon {
-  color: #fff59a;
-  animation: endless-rotate 5s linear infinite;
-}
-
-.sun-icon:hover {
-  color: #f0d90d;
-}
-
-.moon-icon {
-  color: #a5bec2;
-  animation: vibrate 0.5s linear infinite;
-} 
-
-.moon-icon:hover {
-  color: #2c7681;
-}
-
-@keyframes endless-rotate {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes vibrate {
-  0% {
-    transform: translate(0);
-  }
-
-  25% {
-    transform: translate(2px);
-  }
-
-  50% {
-    transform: translate(-2px);
-  }
-
-  100% {
-    transform: translate(0);
-  }
-}
-
 @media (max-width: 1300px) {
   .sun-icon {
     font-size: 2rem;

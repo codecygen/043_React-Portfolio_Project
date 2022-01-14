@@ -45,7 +45,7 @@
   
   .sun-icon {
     color: #fff59a;
-    animation: vibrate 0.5s linear 1;
+    animation: vibrate 0.2s linear 1;
   }
   
   .sun-icon:hover {
@@ -54,7 +54,7 @@
   
   .moon-icon {
     color: #a5bec2;
-    animation: vibrate 0.5s linear 1;
+    animation: vibrate 0.2s linear 1;
   } 
   
   .moon-icon:hover {
@@ -62,20 +62,12 @@
   }
   
   @keyframes vibrate {
-    0% {
+    from {
       opacity: 0;
-      transform: translate(0);
+      transform: translate(-20px);
     }
   
-    25% {
-      transform: translate(5px);
-    }
-  
-    50% {
-      transform: translate(-5px);
-    }
-  
-    100% {
+    to {
       opacity: 1;
       transform: translate(0);
     }

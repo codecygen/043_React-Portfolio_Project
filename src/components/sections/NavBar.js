@@ -83,20 +83,17 @@ const NavBar = props => {
         />
     ));
 
-    let sunIconClasses = `${classes['sun-icon']}`;
-    let moonIconClasses = `${classes['moon-icon']}`;
-
     const largeScreenMenu = windowWidth > 1300 && 
     <div className={classes['second']}>
         {buttons}
     </div>;
 
     const darkModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
-        <AiFillStar className={moonIconClasses} onClick={navCtx.darkModeHandler} />
+        <AiFillStar className={`${classes['moon-icon']}`} onClick={navCtx.darkModeHandler} />
     </div>
 
     const lightModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
-        <IoSunny className={sunIconClasses} onClick={navCtx.darkModeHandler} />
+        <IoSunny className={`${classes['sun-icon']}`} onClick={navCtx.darkModeHandler} />
     </div>
 
     const hamburgerIcon = windowWidth <= 1300 && 
@@ -111,13 +108,6 @@ const NavBar = props => {
             clickState={menuState}
             menuItemClickHandler={menuClickHandler}
     />
-
-    // let menuClasses = `${classes.box} menu-color ${classes.menu}`;
-
-    // if (props.clickState) {
-    //     menuClasses = `${classes.box} menu-color ${classes.menu} ${classes['menu-active']}`
-    // }
-
 
     return (
         <>

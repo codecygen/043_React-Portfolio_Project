@@ -45,7 +45,7 @@
   
   .sun-icon {
     color: #fff59a;
-    animation: endless-rotate 5s linear infinite;
+    animation: vibrate 0.5s linear 1;
   }
   
   .sun-icon:hover {
@@ -54,45 +54,29 @@
   
   .moon-icon {
     color: #a5bec2;
-    animation: vibrate 0.5s linear infinite;
+    animation: vibrate 0.5s linear 1;
   } 
   
   .moon-icon:hover {
     color: #2c7681;
   }
-
-  .animate {
-    transition: transform 0.35s ease-in-out;
-  }
-  
-  .animate.grow {
-    transform: scale(1.5);
-  }
-  
-  @keyframes endless-rotate {
-    from {
-      transform: rotate(0);
-    }
-  
-    to {
-      transform: rotate(360deg);
-    }
-  }
   
   @keyframes vibrate {
     0% {
+      opacity: 0;
       transform: translate(0);
     }
   
     25% {
-      transform: translate(2px);
+      transform: translate(5px);
     }
   
     50% {
-      transform: translate(-2px);
+      transform: translate(-5px);
     }
   
     100% {
+      opacity: 1;
       transform: translate(0);
     }
   }

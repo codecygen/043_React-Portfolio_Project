@@ -5,7 +5,7 @@ import classes from './Card.module.css';
 const Card = props => {
     const darkCtx = useContext(DarkModeContext);
 
-    const cardColor = darkCtx ? `${classes.card} card-color-dark` : `${classes.card} card-color-light`;
+    const cardColor = darkCtx.isDarkMode ? `${classes.card} card-color-dark` : `${classes.card} card-color-light`;
 
     return (
         <div className={cardColor}>

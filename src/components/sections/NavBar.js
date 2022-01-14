@@ -3,16 +3,17 @@ import React, { useEffect, useState, useContext } from 'react';
 import NavButton from '../ui/buttons/NavButton';
 import { IoSunny } from "react-icons/io5";
 import { AiFillStar } from "react-icons/ai";
+import { IoIosMoon } from "react-icons/io";
 
 import Hamburger from '../ui/buttons/Hamburger';
 import MenuOverlay from './MenuOverlay';
 
-import NavContext from '../../store/nav-context';
+import DarkModeContext from '../../store/color-context';
 
 import classes from './NavBar.module.css';
 
 const NavBar = props => {
-    const navCtx = useContext(NavContext);
+    const darkCtx = useContext(DarkModeContext);
 
     const navButtons = [
         {
@@ -44,14 +45,12 @@ const NavBar = props => {
     const [menuState, setMenuState] = useState(false);
 
     const disableScroll = () => {
-        var x = window.scrollX;
-        var y = window.scrollY;
+        let x = window.scrollX;
+        let y = window.scrollY;
         window.onscroll = () => { window.scrollTo(x, y); };
     };
 
     const enableScroll = () => {
-        document.body.classList.remove('body-noscroll');
-
         window.onscroll = () => {};
     };
 
@@ -89,11 +88,11 @@ const NavBar = props => {
     </div>;
 
     const darkModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
-        <AiFillStar className={`${classes['moon-icon']}`} onClick={navCtx.darkModeHandler} />
+        <IoIosMoon className={`${classes['moon-icon']}`} onClick={darkCtx.darkModeHandler} />
     </div>
 
     const lightModeIcon = <div className={`${classes['second']} ${classes.margin}`}>
-        <IoSunny className={`${classes['sun-icon']}`} onClick={navCtx.darkModeHandler} />
+        <IoSunny className={`${classes['sun-icon']}`} onClick={darkCtx.darkModeHandler} />
     </div>
 
     const hamburgerIcon = windowWidth <= 1300 && 
@@ -109,12 +108,14 @@ const NavBar = props => {
             menuItemClickHandler={menuClickHandler}
     />
 
+    const navColor = darkCtx.isDarkMode ? `${classes.navbar} navbar-color-dark` : `${classes.navbar} navbar-color-light`;
+
     return (
         <>
-            <nav className={`${classes.navbar} navbar-color`}>
+            <nav className={navColor}>
                 <h1>ARAS SEN</h1>
                 {largeScreenMenu}
-                {navCtx.isDarkMode ? lightModeIcon : darkModeIcon}
+                {darkCtx.isDarkMode ? lightModeIcon : darkModeIcon}
                 {hamburgerIcon}
             </nav>
 

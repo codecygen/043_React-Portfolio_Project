@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-import { NavContextProvider } from './store/nav-context';
+import { DarkModeContextProvider } from './store/color-context';
 
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavContextProvider>
+    <DarkModeContextProvider>
       <App />
-    </NavContextProvider>
+    </DarkModeContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

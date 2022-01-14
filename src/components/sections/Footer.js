@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Footer.module.css';
 import SocialMedia from '../ui/SocialMedia';
 
 import { GiBroadheadArrow } from 'react-icons/gi';
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 
+import DarkModeContext from '../../store/color-context';
+
 const Footer = props => {
+
+    const darkCtx = useContext(DarkModeContext);
 
     const scrollUp = () => {
     
@@ -16,9 +20,11 @@ const Footer = props => {
           });
     };
 
+    const footerColor = darkCtx.isDarkMode ? 'footer-color-dark' : 'footer-color-light';
+
     return (
         <footer className={classes.footer}>
-            <div className='footer-color'>
+            <div className={footerColor}>
                 <SocialMedia />
                 
                 <p className={classes['footer-decorative']}>

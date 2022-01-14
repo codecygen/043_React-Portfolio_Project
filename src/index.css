@@ -2,8 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
-header, section {
+nav, header, section {
   scroll-margin-top: 100px;
+  padding-right: 20%;
+  padding-left: 20%;
 }
 
 body {
@@ -15,14 +17,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: scroll;
-}
-
-/* This section controls the 
-total padding for every child element
-of root id. */
-#root > * {
-  padding-right: 20%;
-  padding-left: 20%;
 }
 
 code {
@@ -60,9 +54,14 @@ p {
 /* /////////////////////////////////////////////////////////////////// */
 /* Color Section */
 
-body {
+.body-color-dark {
   color: #dbe8d4;
   background-color: #222733;
+}
+
+.body-color-light {
+  color: #1f1f1f;
+  background-color: #bec0c3;
 }
 
 .menu-color {
@@ -73,13 +72,22 @@ body {
   color: #dbe8d4;
 }
 
-.navbar-color {
+.navbar-color-dark {
   background-color: #525e65;
   box-shadow: #182b41 0px 20px 30px -10px;
 }
 
-.navbar-color a:link, .navbar-color a:visited  {
+.navbar-color-light {
+  background-color: #357c7c;
+  box-shadow: #182b41 0px 20px 30px -10px;
+}
+
+.navbar-color-dark a:link, .navbar-color-dark a:visited  {
   color: #dbe8d4;
+}
+
+.navbar-color-light a:link, .navbar-color-light a:visited  {
+  color: #262925;
 }
 
 /* This section controls the colors of tech cards */
@@ -118,8 +126,13 @@ body {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.footer-color {
+.footer-color-dark {
   background-color: #2e3445;
+  box-shadow: rgba(128, 107, 107, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(109, 85, 85, 0.12) 0px 4px 6px, rgba(46, 42, 42, 0.17) 0px 12px 13px, rgba(155, 49, 49, 0.09) 0px -3px 5px;
+}
+
+.footer-color-light {
+  background-color: #90949e;
   box-shadow: rgba(128, 107, 107, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(109, 85, 85, 0.12) 0px 4px 6px, rgba(46, 42, 42, 0.17) 0px 12px 13px, rgba(155, 49, 49, 0.09) 0px -3px 5px;
 }
 
@@ -143,14 +156,14 @@ body {
 /* /////////////////////////////////////////////////////////////////// */
 
 @media (max-width: 800px) {
-  #root > * {
+  nav, header, section {
     padding-right: 10%;
     padding-left: 10%;
   }
 }
 
 @media (max-width: 400px) {
-  #root > * {
+  nav, header, section {
     padding-right: 5%;
     padding-left: 5%;
   }

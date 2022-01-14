@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import NavButton from '../ui/buttons/NavButton';
 import { IoSunny } from "react-icons/io5";
-import { AiFillStar } from "react-icons/ai";
 import { IoIosMoon } from "react-icons/io";
 
 import Hamburger from '../ui/buttons/Hamburger';

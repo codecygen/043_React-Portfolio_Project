@@ -9,28 +9,49 @@ const Contact = () => {
     const {
         value: enteredName,
         valueChangeHandler: nameChangeHandler,
-        formSubmitHandler,
         onBlurHandler: nameOnBlurHandler,
-        hasError: nameHasError,
-    } = useInput();
+        isValueValid: isNameValid,
+        inputClasses: nameInputClasses,
+        errorMessage: nameErrorMessage,
+    } = useInput('Name');
 
     const {
         value: enteredSubject,
         valueChangeHandler: subjectChangeHandler,
         onBlurHandler: subjectOnBlurHandler,
-        hasError: subjectHasError,
-    } = useInput();
+        isValueValid: isSubjectValid,
+        inputClasses: subjectInputClasses,
+        errorMessage: subjectErrorMessage,
+    } = useInput('Subject');
 
     const {
         value: enteredMessage,
         valueChangeHandler: messageChangeHandler,
         onBlurHandler: messageOnBlurHandler,
-        hasError: messageHasError,
-    } = useInput();
+        isValueValid: isMessageValid,
+        inputClasses: messageInputClasses,
+        errorMessage: messageErrorMessage,
+    } = useInput('Message');
 
-    console.log(`Typed name: ${enteredName}`);
-    console.log(`Typed subject: ${enteredSubject}`);
-    console.log(`Typed message: ${enteredMessage}`);
+    const formSubmitHandler = event => {
+        event.preventDefault();
+
+        let isFormValid = false;
+
+        if (isNameValid && isSubjectValid && isMessageValid) {
+            isFormValid = true;
+        } else {
+            isFormValid = false;
+        }
+
+        if (!isFormValid) {
+            return;
+        }
+
+        console.log(`Submitted name is ${enteredName}`);
+        console.log(`Submitted name is ${enteredSubject}`);
+        console.log(`Submitted name is ${enteredMessage}`);
+    };
 
     return (
         <section className={classes['form-card']} id='contact'>
@@ -39,37 +60,43 @@ const Contact = () => {
                 <div className={classes['input-div']}>
                     <label htmlFor='name'>Your Name</label>
                     <input
-                        type='text' 
-                        id='name' 
-                        placeholder='Name...' 
-                        onChange={nameChangeHandler} 
-                        value={enteredName} 
+                        className={nameInputClasses}
+                        type='text'
+                        id='name'
+                        placeholder='Name...'
+                        onChange={nameChangeHandler}
+                        value={enteredName}
                         onBlur={nameOnBlurHandler}
                     />
+                    {nameErrorMessage}
                 </div>
 
                 <div className={classes['input-div']}>
                     <label htmlFor='subject'>Your Subject</label>
                     <input
-                        type='text' 
-                        id='subject' 
-                        placeholder='Subject...' 
-                        onChange={subjectChangeHandler} 
-                        value={enteredSubject} 
+                        className={subjectInputClasses}
+                        type='text'
+                        id='subject'
+                        placeholder='Subject...'
+                        onChange={subjectChangeHandler}
+                        value={enteredSubject}
                         onBlur={subjectOnBlurHandler}
                     />
+                    {subjectErrorMessage}
                 </div>
 
                 <div className={classes['input-div']}>
                     <label htmlFor='message'>Your Message</label>
                     <textarea
-                        type='text' 
-                        id='message' 
-                        placeholder='Message...' 
-                        onChange={messageChangeHandler} 
-                        value={enteredMessage} 
+                        className={messageInputClasses}
+                        type='text'
+                        id='message'
+                        placeholder='Message...'
+                        onChange={messageChangeHandler}
+                        value={enteredMessage}
                         onBlur={messageOnBlurHandler}
                     />
+                    {messageErrorMessage}
                 </div>
 
                 <Button>Shoot It!</Button>

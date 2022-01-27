@@ -13,7 +13,7 @@
 .input-div { 
     display: flex;
     flex-direction: column;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .form-card input, .form-card textarea {
@@ -35,16 +35,26 @@
     resize: none;
     height: 100px;
     padding-top: 1rem;
-    margin-bottom: 30px;
 }
 
-.form-card input:focus, .form-card textarea:focus {
+.input:focus {
     background-color: #e8e8f1;
     outline: solid #a2a5d6 2px;
     box-shadow: #a8b5ce40 0px 4px 8px -2px, #b8c1d114 0px 0px 0px 1px;
 }
 
+.input-error {
+    outline: 2px solid #b40e0e;
+    background-color: #eebebe;
+}
+
 .input-div label {
     margin-left: 20px;
     margin-bottom: 15px;
+}
+
+.error-text {
+    color: #eebebe;
+    font-size: 1rem;
+    margin: 0 0 0 20px;
 }

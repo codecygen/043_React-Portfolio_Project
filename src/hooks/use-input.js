@@ -1,32 +1,34 @@
 import { useState } from 'react';
+import classes from '../components/sections/Contact.module.css';
 
-const useInput = () => {
+const useInput = inputType => {
     const [enteredValue, setEnteredValue] = useState('');
 
     const [isTouched, setIsTouched] = useState(false);
 
-    const hasError = isTouched;
+    const isValueValid = enteredValue.trim() !== '';
+
+    const hasError = !isValueValid && isTouched;
+
+    const inputClasses = hasError ? classes['input-error'] : classes.input;
+
+    const errorMessage = hasError ? <p className={classes['error-text']}>{inputType} must not be empty!</p> : <p></p>;
 
     const valueChangeHandler = event => {
         setEnteredValue(event.target.value);
     };
 
-    const formSubmitHandler = event => {
-        console.log('Form submitted!');
-        event.preventDefault();
-    };
-
     const onBlurHandler = event => {
-        console.log('Not focused anymore!');
         setIsTouched(true);
     };
 
     return {
         value: enteredValue,
         valueChangeHandler,
-        formSubmitHandler,
         onBlurHandler,
-        hasError,
+        isValueValid,
+        inputClasses,
+        errorMessage,
     };
 };
 

@@ -6,6 +6,8 @@ import classes from './Contact.module.css';
 
 const Contact = () => {
 
+    let clientIP = '';
+
     const {
         value: enteredName,
         valueChangeHandler: nameChangeHandler,
@@ -59,10 +61,24 @@ const Contact = () => {
         resetSubject();
         resetMessage();
 
+        const aras = fetch('https://www.myexternalip.com/json')
+            .then(res => res.json())
+            .then(data => data.ip)
+        ;
+
+        const address = async () => {
+            clientIP = await aras;
+        }
+
+        address();
+
+        console.log(clientIP);
+
         const email = {
             '1_Name': enteredName,
             '2_Subject': enteredSubject,
-            '3_Message': enteredMessage
+            '3_Message': enteredMessage,
+            '4_IP' : clientIP
         }
 
         emailSendHandler(email);

@@ -13,6 +13,7 @@ const Contact = () => {
         isValueValid: isNameValid,
         inputClasses: nameInputClasses,
         errorMessage: nameErrorMessage,
+        reset: resetName
     } = useInput('Name');
 
     const {
@@ -22,6 +23,7 @@ const Contact = () => {
         isValueValid: isSubjectValid,
         inputClasses: subjectInputClasses,
         errorMessage: subjectErrorMessage,
+        reset: resetSubject
     } = useInput('Subject');
 
     const {
@@ -31,6 +33,7 @@ const Contact = () => {
         isValueValid: isMessageValid,
         inputClasses: messageInputClasses,
         errorMessage: messageErrorMessage,
+        reset: resetMessage
     } = useInput('Message');
 
     const formSubmitHandler = event => {
@@ -51,7 +54,32 @@ const Contact = () => {
         console.log(`Submitted name is ${enteredName}`);
         console.log(`Submitted name is ${enteredSubject}`);
         console.log(`Submitted name is ${enteredMessage}`);
+
+        resetName();
+        resetSubject();
+        resetMessage();
+
+        const email = {
+            '1_Name': enteredName,
+            '2_Subject': enteredSubject,
+            '3_Message': enteredMessage
+        }
+
+        emailSendHandler(email);
     };
+
+    const emailSendHandler = async (email) => {
+        const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/email.json', {
+            method: 'post',
+            body: JSON.stringify(email),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        console.log(res.status);
+        console.log(res.ok);
+    }
 
     return (
         <section className={classes['form-card']} id='contact'>

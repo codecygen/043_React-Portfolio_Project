@@ -22,6 +22,11 @@ const useInput = inputType => {
         setIsTouched(true);
     };
 
+    const reset = () => {
+        setEnteredValue('');
+        setIsTouched(false);
+    }
+
     return {
         value: enteredValue,
         valueChangeHandler,
@@ -29,6 +34,7 @@ const useInput = inputType => {
         isValueValid,
         inputClasses,
         errorMessage,
+        reset
     };
 };
 

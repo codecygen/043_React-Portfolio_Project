@@ -70,10 +70,10 @@ const Contact = () => {
             const data = await result.json();
 
             const email = {
-                '1_Name': enteredName,
-                '2_Subject': enteredSubject,
-                '3_Message': enteredMessage,
-                '4_IP': data.ip
+                '1_IP': data.ip,
+                '2_Name': enteredName,
+                '3_Subject': enteredSubject,
+                '4_Message': enteredMessage
             }
 
             emailSendHandler(email);
@@ -96,17 +96,11 @@ const Contact = () => {
     // }
 
     const emailSendHandler = async (email) => {
-        const date = new Date().toLocaleDateString('en-CA');
-        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/email_${date}.json`;
-        const res = await fetch(fetchLink, {
-            method: 'post',
-            body: JSON.stringify(email),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const year = new Date().getFullYear();
+        const month = ('0' + (new Date().getMonth() + 1)).slice(-2);
 
-        const res2 = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/email.json', {
+        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/email/${year}-${month}.json`;
+        const res = await fetch(fetchLink, {
             method: 'post',
             body: JSON.stringify(email),
             headers: {
@@ -116,9 +110,6 @@ const Contact = () => {
 
         console.log(res.status);
         console.log(res.ok);
-
-        console.log(res2.status);
-        console.log(res.ok)
     }
 
     return (

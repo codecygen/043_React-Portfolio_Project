@@ -98,8 +98,9 @@ const Contact = () => {
     const emailSendHandler = async (email) => {
         const year = new Date().getFullYear();
         const month = ('0' + (new Date().getMonth() + 1)).slice(-2);
+        const day = ('0' + (new Date().getDate())).slice(-2);;
 
-        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/email/${year}-${month}.json`;
+        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/email/${year}-${month}/day-${day}.json`;
         const res = await fetch(fetchLink, {
             method: 'post',
             body: JSON.stringify(email),

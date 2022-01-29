@@ -3,13 +3,16 @@
     font-size: 1.4rem;
 }
 
-.form-card form {
+.form-card > div {
     margin-top: 40px;
     background-color: #2a4566;
     border-radius: 30px;
     padding: 20px 40px 40px;
-    /* visibility: hidden; */
 }
+
+/* .form-card form {
+    visibility: hidden;
+} */
 
 .input-div { 
     display: flex;

@@ -6,7 +6,6 @@ import classes from './Contact.module.css';
 
 const Contact = () => {
 
-
     const {
         value: enteredName,
         valueChangeHandler: nameChangeHandler,
@@ -52,10 +51,6 @@ const Contact = () => {
             return;
         }
 
-        console.log(`Submitted name is ${enteredName}`);
-        console.log(`Submitted name is ${enteredSubject}`);
-        console.log(`Submitted name is ${enteredMessage}`);
-
         resetName();
         resetSubject();
         resetMessage();
@@ -65,9 +60,16 @@ const Contact = () => {
         //     .then(data => data.ip)
         // ;
 
-        const getIP = async () => {
+        const submitDatabase = async () => {
             const result = await fetch('https://www.myexternalip.com/json')
             const data = await result.json();
+
+            const isPostedBefore = await emailFetchHandler(data.ip);
+
+            if (isPostedBefore) {
+                console.log('You already posted a message!');
+                return;
+            }
 
             const email = {
                 '1_IP': data.ip,
@@ -76,31 +78,55 @@ const Contact = () => {
                 '4_Message': enteredMessage
             }
 
-            emailSendHandler(email);
+            await emailSendHandler(email);
+            console.log('Message Submitted!');
         }
 
-        getIP();
+        submitDatabase();
     };
 
-    // const emailFetchHandler = async () => {
-    //     const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/email.json');
-    //     const data = await res.json();
+    const emailFetchHandler = async clientIP => {
+        try {
+            const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/emails.json');
 
-    //     const allEmails = [];
+            if (!res.ok) {
+                throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
+            }
 
-    //     for (const key in data) {
-    //         allEmails.push({
+            const data = await res.json();
 
-    //         });
-    //     }
-    // }
+            const loadedEmails = [];
+
+            for (const key1 in data) {
+                for (const key2 in data[key1]) {
+                    for (const key3 in data[key1][key2]) {
+                        loadedEmails.push(
+                            { ...data[key1][key2][key3] }
+                        );
+                    }
+                }
+            }
+
+            const databaseIPs = [];
+
+            for (const key4 in loadedEmails) {
+                databaseIPs.push(loadedEmails[key4]['1_IP']);
+            }
+
+            // console.log(loadedEmails);
+            // console.log(databaseIPs);
+
+            return databaseIPs.includes(clientIP);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
 
     const emailSendHandler = async (email) => {
-        const year = new Date().getFullYear();
-        const month = ('0' + (new Date().getMonth() + 1)).slice(-2);
-        const day = ('0' + (new Date().getDate())).slice(-2);;
+        const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);
+        const day = new Date().getDate();
 
-        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/email/${year}-${month}/day-${day}.json`;
+        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/emails/${yearMonth}/day-${day}.json`;
         const res = await fetch(fetchLink, {
             method: 'post',
             body: JSON.stringify(email),
@@ -109,58 +135,61 @@ const Contact = () => {
             }
         });
 
-        console.log(res.status);
-        console.log(res.ok);
+        if (!res.ok) {
+            throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
+        }
     }
 
     return (
         <section className={classes['form-card']} id='contact'>
-            <form onSubmit={formSubmitHandler}>
-                <h3>Contact Form</h3>
-                <div className={classes['input-div']}>
-                    <label htmlFor='name'>Your Name</label>
-                    <input
-                        className={nameInputClasses}
-                        type='text'
-                        id='name'
-                        placeholder='Name...'
-                        onChange={nameChangeHandler}
-                        value={enteredName}
-                        onBlur={nameOnBlurHandler}
-                    />
-                    {nameErrorMessage}
-                </div>
+            <div>
+                <form onSubmit={formSubmitHandler}>
+                    <h3>Contact Form</h3>
+                    <div className={classes['input-div']}>
+                        <label htmlFor='name'>Your Name</label>
+                        <input
+                            className={nameInputClasses}
+                            type='text'
+                            id='name'
+                            placeholder='Name...'
+                            onChange={nameChangeHandler}
+                            value={enteredName}
+                            onBlur={nameOnBlurHandler}
+                        />
+                        {nameErrorMessage}
+                    </div>
 
-                <div className={classes['input-div']}>
-                    <label htmlFor='subject'>Your Subject</label>
-                    <input
-                        className={subjectInputClasses}
-                        type='text'
-                        id='subject'
-                        placeholder='Subject...'
-                        onChange={subjectChangeHandler}
-                        value={enteredSubject}
-                        onBlur={subjectOnBlurHandler}
-                    />
-                    {subjectErrorMessage}
-                </div>
+                    <div className={classes['input-div']}>
+                        <label htmlFor='subject'>Your Subject</label>
+                        <input
+                            className={subjectInputClasses}
+                            type='text'
+                            id='subject'
+                            placeholder='Subject...'
+                            onChange={subjectChangeHandler}
+                            value={enteredSubject}
+                            onBlur={subjectOnBlurHandler}
+                        />
+                        {subjectErrorMessage}
+                    </div>
 
-                <div className={classes['input-div']}>
-                    <label htmlFor='message'>Your Message</label>
-                    <textarea
-                        className={messageInputClasses}
-                        type='text'
-                        id='message'
-                        placeholder='Message...'
-                        onChange={messageChangeHandler}
-                        value={enteredMessage}
-                        onBlur={messageOnBlurHandler}
-                    />
-                    {messageErrorMessage}
-                </div>
+                    <div className={classes['input-div']}>
+                        <label htmlFor='message'>Your Message</label>
+                        <textarea
+                            className={messageInputClasses}
+                            type='text'
+                            id='message'
+                            placeholder='Message...'
+                            onChange={messageChangeHandler}
+                            value={enteredMessage}
+                            onBlur={messageOnBlurHandler}
+                        />
+                        {messageErrorMessage}
+                    </div>
 
-                <Button>Shoot It!</Button>
-            </form>
+                    <Button>Shoot It!</Button>
+                </form>
+            </div>
         </section>
     );
 };

@@ -37,7 +37,7 @@ const Contact = () => {
         reset: resetMessage
     } = useInput('Message');
 
-    const formSubmitHandler = async event => {
+    const formSubmitHandler = event => {
         event.preventDefault();
 
         let isFormValid = false;
@@ -68,25 +68,45 @@ const Contact = () => {
         const getIP = async () => {
             const result = await fetch('https://www.myexternalip.com/json')
             const data = await result.json();
-            const ip = await data.ip;
 
-            return ip;
+            const email = {
+                '1_Name': enteredName,
+                '2_Subject': enteredSubject,
+                '3_Message': enteredMessage,
+                '4_IP': data.ip
+            }
+
+            emailSendHandler(email);
         }
 
-        const myIP = await getIP();
-
-        const email = {
-            '1_Name': enteredName,
-            '2_Subject': enteredSubject,
-            '3_Message': enteredMessage,
-            '4_IP' : myIP
-        }
-
-        emailSendHandler(email);
+        getIP();
     };
 
+    // const emailFetchHandler = async () => {
+    //     const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/email.json');
+    //     const data = await res.json();
+
+    //     const allEmails = [];
+
+    //     for (const key in data) {
+    //         allEmails.push({
+
+    //         });
+    //     }
+    // }
+
     const emailSendHandler = async (email) => {
-        const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/email.json', {
+        const date = new Date().toLocaleDateString('en-CA');
+        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/email_${date}.json`;
+        const res = await fetch(fetchLink, {
+            method: 'post',
+            body: JSON.stringify(email),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const res2 = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/email.json', {
             method: 'post',
             body: JSON.stringify(email),
             headers: {
@@ -96,6 +116,9 @@ const Contact = () => {
 
         console.log(res.status);
         console.log(res.ok);
+
+        console.log(res2.status);
+        console.log(res.ok)
     }
 
     return (

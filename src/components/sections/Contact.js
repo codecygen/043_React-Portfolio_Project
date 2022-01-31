@@ -61,7 +61,7 @@ const Contact = () => {
         // ;
 
         const submitDatabase = async () => {
-            const result = await fetch('https://www.myexternalip.com/json')
+            const result = await fetch('https://www.myexternalip.com/json');
             const data = await result.json();
 
             const isPostedBefore = await emailFetchHandler(data.ip);

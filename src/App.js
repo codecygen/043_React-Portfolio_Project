@@ -19,11 +19,16 @@ function App() {
 
   useEffect(() => {
     const getIP = async () => {
-      const resIP = await fetch('https://www.myexternalip.com/json')
-      const data = await resIP.json();
+      const resIP = await fetch('https://www.myexternalip.com/json');
+      const dataIP = await resIP.json();
+
+      const resGeoInfo = await fetch(`https://ipwhois.app/json//${dataIP.ip}`);
+      const dataGeoInfo = await resGeoInfo.json();
+
+      console.log(dataGeoInfo);
 
       const visitorInfo = {
-        '1_IP': data.ip
+        '1_IP': dataIP.ip
       }
 
       const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);

@@ -22,21 +22,21 @@ function App() {
       const resIP = await fetch('https://www.myexternalip.com/json');
       const dataIP = await resIP.json();
 
-      const resGeoInfo = await fetch(`https://ipwhois.app/json//${dataIP.ip}`);
+      const resGeoInfo = await fetch(`https://ipwhois.app/json/${dataIP.ip}`);
       const dataGeoInfo = await resGeoInfo.json();
 
-      console.log(dataGeoInfo);
-
       const visitorInfo = {
-        '1_IP': dataIP.ip
-      }
+        location: `${dataGeoInfo.city}/${dataGeoInfo.country}`,
+        coordinate: `${dataGeoInfo.latitude} ${dataGeoInfo.longitude}`,
+        ip: `${dataGeoInfo.ip}`
+      };
 
       const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);
       const day = new Date().getDate();
 
-      const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/visitors/${yearMonth}/day-${day}.json`;
+      const databaseFetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/visitors/${yearMonth}/day-${day}.json`;
 
-      const res = await fetch(fetchLink,
+      const res = await fetch(databaseFetchLink,
         {
           method: 'post',
           body: JSON.stringify(visitorInfo),

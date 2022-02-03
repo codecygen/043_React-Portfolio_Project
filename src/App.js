@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import useRecordVisitor from './hooks/use-recordVisitor';
 
@@ -20,7 +20,46 @@ function App() {
   const currentYear = new Date().getFullYear();
 
   useRecordVisitor();
+
+  // React-To-Node-Connection
+  // Don't forget to edit "package.json" file and put
+  // "proxy": "http://localhost:8000"
+  useEffect(() => {
+    const getBackend = async () => {
+      const res = await fetch('/backend-to-frontend');
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(`Cannot get data from backend server. HTTP Status: ${res.status}`);
+      }
   
+      console.log(data.message);
+    }
+  
+    getBackend();
+
+    const postBackend = async () => {
+    
+      const res = await fetch('/frontend-to-backend',
+        {
+          method: 'post',
+          body: JSON.stringify({test: 'Hi from frontend!'}),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error(`Cannot send data to backend server. HTTP Status: ${res.status}`);
+      }
+    }
+
+    postBackend();
+
+  }, []);
+  
+
   return (
     <div className={bodyColor}>
       <NavBar

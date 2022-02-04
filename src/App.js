@@ -39,11 +39,15 @@ function App() {
     getBackend();
 
     const postBackend = async () => {
+
+      const frontendData = {
+        test: 'Hi from frontend!'
+      }
     
       const res = await fetch('/frontend-to-backend',
         {
           method: 'post',
-          body: JSON.stringify({test: 'Hi from frontend!'}),
+          body: JSON.stringify(frontendData),
           headers: {
             'Content-Type': 'application/json'
           }

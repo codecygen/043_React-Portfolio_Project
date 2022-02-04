@@ -32,37 +32,40 @@ function App() {
       if (!res.ok) {
         throw new Error(`Cannot get data from backend server. HTTP Status: ${res.status}`);
       }
-  
+
       console.log(data.message);
     }
-  
+
     getBackend();
 
     const postBackend = async () => {
 
-      const frontendData = {
-        test: 'Hi from frontend!'
-      }
-    
-      const res = await fetch('/frontend-to-backend',
-        {
-          method: 'post',
-          body: JSON.stringify(frontendData),
-          headers: {
-            'Content-Type': 'application/json'
+      try {
+        const res = await fetch('http://localhost:8000/frontend-to-backend',
+          {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify({ message: 'Hi from frontend!' }),
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
           }
-        }
-      );
+        );
 
-      if (!res.ok) {
-        throw new Error(`Cannot send data to backend server. HTTP Status: ${res.status}`);
+        if (res.ok) {
+          const data = await res.json();
+          console.log(data);
+        }
+      } catch (error) {
+        console.error(error);
       }
     }
 
     postBackend();
 
   }, []);
-  
+
 
   return (
     <div className={bodyColor}>

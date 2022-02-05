@@ -22,8 +22,9 @@ function App() {
   useRecordVisitor();
 
   // React-To-Node-Connection
-  // Don't forget to edit "package.json" file and put
+  // "package.json" file has the following line
   // "proxy": "http://localhost:8000"
+  // React Code
   useEffect(() => {
     const getBackend = async () => {
       const res = await fetch('/backend-to-frontend');
@@ -41,24 +42,19 @@ function App() {
     const postBackend = async () => {
 
       try {
-        const res = await fetch('http://localhost:8000/frontend-to-backend',
+
+        await fetch('http://localhost:8000/frontend-to-backend',
           {
             method: 'POST',
-            mode: 'no-cors',
             body: JSON.stringify({ message: 'Hi from frontend!' }),
             headers: {
-              'Accept': 'application/json',
               'Content-Type': 'application/json'
             }
           }
         );
 
-        if (res.ok) {
-          const data = await res.json();
-          console.log(data);
-        }
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
       }
     }
 

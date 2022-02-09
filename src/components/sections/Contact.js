@@ -51,94 +51,99 @@ const Contact = () => {
             return;
         }
 
-        resetName();
-        resetSubject();
-        resetMessage();
-
-        // clientIP = fetch('https://www.myexternalip.com/json')
-        //     .then(res => res.json())
-        //     .then(data => data.ip)
-        // ;
-
         const submitDatabase = async () => {
+
             const result = await fetch('https://www.myexternalip.com/json');
             const data = await result.json();
 
-            const isPostedBefore = await emailFetchHandler(data.ip);
+            const date = new Date().toLocaleString('EN-CA');
 
-            if (isPostedBefore) {
-                console.log('You already posted a message!');
-                return;
+            const postData = {
+                date: date,
+                ip: data.ip,
+                name: enteredName,
+                subject: enteredSubject,
+                message: enteredMessage
+            };
+
+            try {
+
+                await fetch('http://localhost:8000/post',
+                    {
+                        method: 'POST',
+                        body: JSON.stringify({...postData}),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+                );
+
+            } catch (err) {
+                console.error(err);
             }
-
-            const email = {
-                '1_IP': data.ip,
-                '2_Name': enteredName,
-                '3_Subject': enteredSubject,
-                '4_Message': enteredMessage
-            }
-
-            await emailSendHandler(email);
-            console.log('Message Submitted!');
         }
 
         submitDatabase();
+
+        resetName();
+        resetSubject();
+        resetMessage();
     };
 
-    const emailFetchHandler = async clientIP => {
-        try {
-            const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/emails.json');
+    // const emailFetchHandler = async clientIP => {
+    //     try {
+    //         const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/emails.json');
 
-            if (!res.ok) {
-                throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
-            }
+    //         if (!res.ok) {
+    //             throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
+    //         }
 
-            const data = await res.json();
+    //         const data = await res.json();
 
-            const loadedEmails = [];
+    //         const loadedEmails = [];
 
-            for (const key1 in data) {
-                for (const key2 in data[key1]) {
-                    for (const key3 in data[key1][key2]) {
-                        loadedEmails.push(
-                            { ...data[key1][key2][key3] }
-                        );
-                    }
-                }
-            }
+    //         for (const key1 in data) {
+    //             for (const key2 in data[key1]) {
+    //                 for (const key3 in data[key1][key2]) {
+    //                     loadedEmails.push(
+    //                         { ...data[key1][key2][key3] }
+    //                     );
+    //                 }
+    //             }
+    //         }
 
-            const databaseIPs = [];
+    //         const databaseIPs = [];
 
-            for (const key4 in loadedEmails) {
-                databaseIPs.push(loadedEmails[key4]['1_IP']);
-            }
+    //         for (const key4 in loadedEmails) {
+    //             databaseIPs.push(loadedEmails[key4]['1_IP']);
+    //         }
 
-            // console.log(loadedEmails);
-            // console.log(databaseIPs);
+    //         // console.log(loadedEmails);
+    //         // console.log(databaseIPs);
 
-            return databaseIPs.includes(clientIP);
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
+    //         return databaseIPs.includes(clientIP);
+    //     } catch (error) {
+    //         console.log(error.message);
+    //     }
+    // }
 
-    const emailSendHandler = async (email) => {
-        const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);
-        const day = new Date().getDate();
+    // const emailSendHandler = async (email) => {
+    //     const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);
+    //     const day = new Date().getDate();
 
-        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/emails/${yearMonth}/day-${day}.json`;
-        const res = await fetch(fetchLink, {
-            method: 'post',
-            body: JSON.stringify(email),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+    //     const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/emails/${yearMonth}/day-${day}.json`;
+    //     const res = await fetch(fetchLink, {
+    //         method: 'post',
+    //         body: JSON.stringify(email),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     });
 
-        if (!res.ok) {
-            throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
-        }
-    }
+    //     if (!res.ok) {
+    //         throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
+    //     }
+    // }
 
     return (
         <section className={classes['form-card']} id='contact'>

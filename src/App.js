@@ -26,39 +26,39 @@ function App() {
   // "proxy": "http://localhost:8000"
   // React Code
   useEffect(() => {
-    const getBackend = async () => {
-      const res = await fetch('/backend-to-frontend');
-      const data = await res.json();
+    // const getBackend = async () => {
+    //   const res = await fetch('/backend-to-frontend');
+    //   const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(`Cannot get data from backend server. HTTP Status: ${res.status}`);
-      }
+    //   if (!res.ok) {
+    //     throw new Error(`Cannot get data from backend server. HTTP Status: ${res.status}`);
+    //   }
 
-      console.log(data.message);
-    }
+    //   console.log(data.message);
+    // }
 
-    getBackend();
+    // getBackend();
 
-    const postBackend = async () => {
+    // const postBackend = async () => {
 
-      try {
+    //   try {
 
-        await fetch('http://localhost:8000/frontend-to-backend',
-          {
-            method: 'POST',
-            body: JSON.stringify({ message: 'Hi from frontend!' }),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }
-        );
+    //     await fetch('http://localhost:8000/frontend-to-backend',
+    //       {
+    //         method: 'POST',
+    //         body: JSON.stringify({ message: 'Hi from frontend!' }),
+    //         headers: {
+    //           'Content-Type': 'application/json'
+    //         }
+    //       }
+    //     );
 
-      } catch (err) {
-        console.error(err);
-      }
-    }
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // }
 
-    postBackend();
+    // postBackend();
 
   }, []);
 

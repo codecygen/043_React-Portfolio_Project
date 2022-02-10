@@ -53,34 +53,51 @@ const Contact = () => {
 
         const submitDatabase = async () => {
 
-            const result = await fetch('https://www.myexternalip.com/json');
-            const data = await result.json();
+            const postEmail = async () => {
+                const result = await fetch('https://www.myexternalip.com/json');
+                const data = await result.json();
 
-            const date = new Date().toLocaleString('EN-CA');
+                const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
 
-            const postData = {
-                date: date,
-                ip: data.ip,
-                name: enteredName,
-                subject: enteredSubject,
-                message: enteredMessage
-            };
+                const postData = {
+                    date: date,
+                    ip: data.ip,
+                    name: enteredName,
+                    subject: enteredSubject,
+                    message: enteredMessage
+                };
 
-            try {
+                try {
 
-                await fetch('http://localhost:8000/post',
-                    {
-                        method: 'POST',
-                        body: JSON.stringify({...postData}),
-                        headers: {
-                            'Content-Type': 'application/json'
+                    await fetch('http://localhost:8000/post',
+                        {
+                            method: 'POST',
+                            body: JSON.stringify({ ...postData }),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
                         }
-                    }
-                );
+                    );
 
-            } catch (err) {
-                console.error(err);
+                } catch (err) {
+                    console.error(err);
+                }
             }
+
+            postEmail();
+
+            const getEmailSubmitRes = async () => {
+                try {
+                    const res = await fetch('http://localhost:8000/get');
+                    const data = await res.json();
+
+                    console.log(data.isExist);
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+            getEmailSubmitRes();
         }
 
         submitDatabase();
@@ -89,61 +106,6 @@ const Contact = () => {
         resetSubject();
         resetMessage();
     };
-
-    // const emailFetchHandler = async clientIP => {
-    //     try {
-    //         const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/emails.json');
-
-    //         if (!res.ok) {
-    //             throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
-    //         }
-
-    //         const data = await res.json();
-
-    //         const loadedEmails = [];
-
-    //         for (const key1 in data) {
-    //             for (const key2 in data[key1]) {
-    //                 for (const key3 in data[key1][key2]) {
-    //                     loadedEmails.push(
-    //                         { ...data[key1][key2][key3] }
-    //                     );
-    //                 }
-    //             }
-    //         }
-
-    //         const databaseIPs = [];
-
-    //         for (const key4 in loadedEmails) {
-    //             databaseIPs.push(loadedEmails[key4]['1_IP']);
-    //         }
-
-    //         // console.log(loadedEmails);
-    //         // console.log(databaseIPs);
-
-    //         return databaseIPs.includes(clientIP);
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // }
-
-    // const emailSendHandler = async (email) => {
-    //     const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);
-    //     const day = new Date().getDate();
-
-    //     const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/emails/${yearMonth}/day-${day}.json`;
-    //     const res = await fetch(fetchLink, {
-    //         method: 'post',
-    //         body: JSON.stringify(email),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     });
-
-    //     if (!res.ok) {
-    //         throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
-    //     }
-    // }
 
     return (
         <section className={classes['form-card']} id='contact'>

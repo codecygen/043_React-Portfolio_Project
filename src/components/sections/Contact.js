@@ -69,7 +69,7 @@ const Contact = () => {
 
                 try {
 
-                    await fetch('http://localhost:8000/post',
+                    await fetch('http://localhost:8000/email',
                         {
                             method: 'POST',
                             body: JSON.stringify({ ...postData }),
@@ -88,7 +88,7 @@ const Contact = () => {
 
             const getEmailSubmitRes = async () => {
                 try {
-                    const res = await fetch('http://localhost:8000/get');
+                    const res = await fetch('http://localhost:8000/email');
                     const data = await res.json();
 
                     console.log(data.isExist);

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import useRecordVisitor from './hooks/use-recordVisitor';
 
@@ -25,7 +25,7 @@ function App() {
   // "package.json" file has the following line
   // "proxy": "http://localhost:8000"
   // React Code
-  useEffect(() => {
+  // useEffect(() => {
     // const getBackend = async () => {
     //   const res = await fetch('/backend-to-frontend');
     //   const data = await res.json();
@@ -60,7 +60,7 @@ function App() {
 
     // postBackend();
 
-  }, []);
+  // }, []);
 
 
   return (

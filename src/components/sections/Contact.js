@@ -68,7 +68,6 @@ const Contact = () => {
                 };
 
                 try {
-
                     await fetch('http://localhost:8000/email',
                         {
                             method: 'POST',
@@ -83,9 +82,7 @@ const Contact = () => {
                     console.error(err);
                 }
             }
-
-            postEmail();
-
+            
             const getEmailSubmitRes = async () => {
                 try {
                     const res = await fetch('http://localhost:8000/email');
@@ -97,7 +94,8 @@ const Contact = () => {
                 }
             }
 
-            getEmailSubmitRes();
+            await postEmail();
+            await getEmailSubmitRes();
         }
 
         submitDatabase();

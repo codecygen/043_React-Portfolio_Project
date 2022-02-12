@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useInput from '../../hooks/use-input';
 
 import Button from '../ui/buttons/Button';
 import classes from './Contact.module.css';
 
 const Contact = () => {
+    const [isSent, setIsSent] = useState(false);
 
     const {
         value: enteredName,
@@ -54,21 +55,25 @@ const Contact = () => {
         const submitDatabase = async () => {
 
             const postEmail = async () => {
-                const result = await fetch('https://www.myexternalip.com/json');
-                const data = await result.json();
+                const response = await fetch('https://www.myexternalip.com/json');
+                const data = await response.json();
 
                 const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
+
+                const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
+                const dataGeo = await resGeo.json();
 
                 const postData = {
                     date: date,
                     ip: data.ip,
+                    place: `${dataGeo.city}/${dataGeo.country}`,
                     name: enteredName,
                     subject: enteredSubject,
                     message: enteredMessage
                 };
 
                 try {
-                    await fetch('http://localhost:8000/email',
+                    const res = await fetch('http://localhost:8000/email',
                         {
                             method: 'POST',
                             body: JSON.stringify({ ...postData }),
@@ -78,24 +83,15 @@ const Contact = () => {
                         }
                     );
 
-                } catch (err) {
-                    console.error(err);
-                }
-            }
-            
-            const getEmailSubmitRes = async () => {
-                try {
-                    const res = await fetch('http://localhost:8000/email');
-                    const data = await res.json();
+                    const serverData = await res.json();
+                    setIsSent(serverData.isExist);
 
-                    console.log(data.isExist);
                 } catch (err) {
                     console.error(err);
                 }
             }
 
             await postEmail();
-            await getEmailSubmitRes();
         }
 
         submitDatabase();
@@ -120,6 +116,7 @@ const Contact = () => {
                             onChange={nameChangeHandler}
                             value={enteredName}
                             onBlur={nameOnBlurHandler}
+                            disabled={isSent}
                         />
                         {nameErrorMessage}
                     </div>
@@ -134,6 +131,7 @@ const Contact = () => {
                             onChange={subjectChangeHandler}
                             value={enteredSubject}
                             onBlur={subjectOnBlurHandler}
+                            disabled={isSent}
                         />
                         {subjectErrorMessage}
                     </div>
@@ -148,11 +146,12 @@ const Contact = () => {
                             onChange={messageChangeHandler}
                             value={enteredMessage}
                             onBlur={messageOnBlurHandler}
+                            disabled={isSent}
                         />
                         {messageErrorMessage}
                     </div>
 
-                    <Button>Shoot It!</Button>
+                    <Button>{isSent ? 'Will Contact Shortly!' : 'Shoot It!'}</Button>
                 </form>
             </div>
         </section>

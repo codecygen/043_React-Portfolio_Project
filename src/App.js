@@ -19,6 +19,21 @@ function App() {
 
   const currentYear = new Date().getFullYear();
 
+
+
+  const localVisitTime = localStorage.getItem('localVisitTime');
+  const currentTime = new Date().getTime();
+  const timeDifference = currentTime - localVisitTime;
+
+  const [ visitTime, setVisitTime ] = useState(localVisitTime);
+
+  if (localVisitTime && timeDifference <= 5000) {
+    // Do nothing, wait!
+  } else {
+    localStorage.setItem('localVisitTime', new Date().getTime());
+    setVisitTime(localVisitTime);
+  }
+
   useEffect(() => {
 
     const fetchData = async () => {
@@ -38,15 +53,12 @@ function App() {
           date: date
         };
       });
+
+      console.log('Data fetched!');
     }
 
     fetchData();
-
-    const timer = setInterval(() => fetchData(), 60000);
-
-    return () => clearInterval(timer);
-
-  }, []);
+  }, [visitTime]);
 
   console.log(visitorInfo);
 

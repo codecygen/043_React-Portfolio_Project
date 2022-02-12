@@ -19,9 +19,6 @@ function App() {
 
   const currentYear = new Date().getFullYear();
 
-
-  const [time, setTime] = useState(new Date().getTime());
-
   useEffect(() => {
 
     const fetchData = async () => {
@@ -45,11 +42,9 @@ function App() {
 
     fetchData();
 
-    setTime(prevTime => {
-      if (new Date().getTime() - prevTime > 1000) {
-        return new Date().getTime();
-      }
-    });
+    const timer = setInterval(() => fetchData(), 60000);
+
+    return () => clearInterval(timer);
 
   }, []);
 

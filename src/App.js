@@ -13,7 +13,7 @@ import './App.css';
 function App() {
   const darkCtx = useContext(DarkModeContext);
 
-  const [visitorInfo, setVisitorInfo] = useState({});
+  // const [visitorInfo, setVisitorInfo] = useState({});
 
   const bodyColor = darkCtx.isDarkMode ? 'body-color-dark' : 'body-color-light';
 
@@ -21,46 +21,87 @@ function App() {
 
 
 
-  const localVisitTime = localStorage.getItem('localVisitTime');
-  const currentTime = new Date().getTime();
-  const timeDifference = currentTime - localVisitTime;
+  // const localVisitTime = localStorage.getItem('localVisitTime');
+  // const currentTime = new Date().getTime();
+  // const timeDifference = currentTime - localVisitTime;
 
-  const [ visitTime, setVisitTime ] = useState(localVisitTime);
 
-  if (localVisitTime && timeDifference <= 5000) {
-    // Do nothing, wait!
-  } else {
-    localStorage.setItem('localVisitTime', new Date().getTime());
-    setVisitTime(localVisitTime);
+
+  // if (localVisitTime && timeDifference <= 5000) {
+  //   // Do nothing, wait!
+  // } else {
+  //   localStorage.setItem('localVisitTime', new Date().getTime());
+  //   setVisitTime(localVisitTime);
+  // }
+
+
+
+
+
+
+
+  // useEffect(() => {
+
+  //   const fetchData = async () => {
+  //     const response = await fetch('https://www.myexternalip.com/json');
+  //     const data = await response.json();
+
+  //     const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
+  //     const dataGeo = await resGeo.json();
+
+  //     const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
+
+  //     setVisitorInfo(prevValue => {
+  //       return {
+  //         ...prevValue,
+  //         ip: data.ip,
+  //         country: dataGeo.country,
+  //         date: date
+  //       };
+  //     });
+
+  //     console.log('Data fetched!');
+  //   }
+
+  //   fetchData();
+  // }, [visitTime]);
+
+  // console.log(visitorInfo);
+
+
+
+
+  // localStorage.setItem('localVisitTime', new Date().getTime());
+  // const [localVisitTime, setLocalVisitTime] = useState();
+  // setLocalVisitTime(localStorage.getItem('localVisitTime'));
+
+
+  const [localVisitTime, setLocalVisitTime] = useState(localStorage.getItem('localTime'));
+  const [timeDifference, setTimeDifference] = useState(new Date().getTime() - localVisitTime);
+
+  console.log(`time difference: ${timeDifference}`);
+
+  if (timeDifference > 5000) {
+    localStorage.setItem('localTime', new Date().getTime());
   }
 
   useEffect(() => {
 
-    const fetchData = async () => {
-      const response = await fetch('https://www.myexternalip.com/json');
-      const data = await response.json();
+    const interval = setInterval(() => {
+      setLocalVisitTime(localStorage.getItem('localTime'));
+      setTimeDifference(new Date().getTime() - localVisitTime);
 
-      const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
-      const dataGeo = await resGeo.json();
+      console.log(timeDifference);
 
-      const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
 
-      setVisitorInfo(prevValue => {
-        return {
-          ...prevValue,
-          ip: data.ip,
-          country: dataGeo.country,
-          date: date
-        };
-      });
-
-      console.log('Data fetched!');
-    }
-
-    fetchData();
-  }, [visitTime]);
-
-  console.log(visitorInfo);
+      if (timeDifference > 5000) {
+        console.log('It is more than 5 secs!');
+        // localStorage.setItem('localTime', new Date().getTime());
+        setLocalVisitTime(localStorage.getItem('localTime'));
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  });
 
   return (
     <div className={bodyColor}>

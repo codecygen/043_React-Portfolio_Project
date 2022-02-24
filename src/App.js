@@ -52,19 +52,17 @@ function App() {
   useEffect(() => {
 
     const interval = setInterval(() => {
+
       setLocalStorageTime(localStorage.getItem('localTime'));
 
-      console.log(new Date().getTime() - localStorageTime);
-
       if (new Date().getTime() - localStorageTime > timeInterval) {
-        console.log(`Required time passed: ${timeInterval / 1000} secs.`);
         localStorage.setItem('localTime', new Date().getTime());
         setLocalStorageTime(localStorage.getItem('localTime'));
 
         fetchData();
-
-        console.log(visitorInfo);
       }
+
+      console.log(visitorInfo);
     }, timeInterval);
 
     return () => clearInterval(interval);

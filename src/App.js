@@ -49,9 +49,15 @@ function App() {
 
   const timeInterval = 5000;
 
+  localStorage.setItem('isVisited', 1);
+
   useEffect(() => {
 
     const interval = setInterval(() => {
+
+      if (localStorage.getItem('isVisited') === '1') {
+        console.log('hi');
+      }
 
       setLocalStorageTime(localStorage.getItem('localTime'));
 

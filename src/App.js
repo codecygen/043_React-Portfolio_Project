@@ -13,84 +13,57 @@ import './App.css';
 function App() {
   const darkCtx = useContext(DarkModeContext);
 
-  // const [visitorInfo, setVisitorInfo] = useState({});
-
   const bodyColor = darkCtx.isDarkMode ? 'body-color-dark' : 'body-color-light';
 
   const currentYear = new Date().getFullYear();
 
 
 
-  // const localVisitTime = localStorage.getItem('localVisitTime');
-  // const currentTime = new Date().getTime();
-  // const timeDifference = currentTime - localVisitTime;
 
 
 
-  // if (localVisitTime && timeDifference <= 5000) {
-  //   // Do nothing, wait!
-  // } else {
-  //   localStorage.setItem('localVisitTime', new Date().getTime());
-  //   setVisitTime(localVisitTime);
-  // }
+  const [visitorInfo, setVisitorInfo] = useState({});
 
+  const fetchData = async () => {
+    const response = await fetch('https://www.myexternalip.com/json');
+    const data = await response.json();
 
+    const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
+    const dataGeo = await resGeo.json();
 
+    const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
 
+    setVisitorInfo(prevValue => {
+      return {
+        ...prevValue,
+        ip: data.ip,
+        country: dataGeo.country,
+        date: date
+      };
+    });
 
+    console.log('Data fetched!');
+  }
 
-
-  // useEffect(() => {
-
-  //   const fetchData = async () => {
-  //     const response = await fetch('https://www.myexternalip.com/json');
-  //     const data = await response.json();
-
-  //     const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
-  //     const dataGeo = await resGeo.json();
-
-  //     const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
-
-  //     setVisitorInfo(prevValue => {
-  //       return {
-  //         ...prevValue,
-  //         ip: data.ip,
-  //         country: dataGeo.country,
-  //         date: date
-  //       };
-  //     });
-
-  //     console.log('Data fetched!');
-  //   }
-
-  //   fetchData();
-  // }, [visitTime]);
-
-  // console.log(visitorInfo);
-
-
-
-
-  // localStorage.setItem('localVisitTime', new Date().getTime());
-  // const [localVisitTime, setLocalVisitTime] = useState();
-  // setLocalVisitTime(localStorage.getItem('localVisitTime'));
-
-
-  const [localVisitTime, setLocalVisitTime] = useState(localStorage.getItem('localTime'));
+  const [localStorageTime, setLocalStorageTime] = useState(localStorage.getItem('localTime'));
 
   const timeInterval = 5000;
 
   useEffect(() => {
 
     const interval = setInterval(() => {
-      setLocalVisitTime(localStorage.getItem('localTime'));
+      setLocalStorageTime(localStorage.getItem('localTime'));
 
-      console.log(new Date().getTime() - localVisitTime);
+      console.log(new Date().getTime() - localStorageTime);
 
-      if (new Date().getTime() - localVisitTime > timeInterval) {
-        console.log(`Required time passed: ${timeInterval/1000} secs.`);
+      if (new Date().getTime() - localStorageTime > timeInterval) {
+        console.log(`Required time passed: ${timeInterval / 1000} secs.`);
         localStorage.setItem('localTime', new Date().getTime());
-        setLocalVisitTime(localStorage.getItem('localTime'));
+        setLocalStorageTime(localStorage.getItem('localTime'));
+
+        fetchData();
+
+        console.log(visitorInfo);
       }
     }, timeInterval);
 

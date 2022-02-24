@@ -77,29 +77,23 @@ function App() {
 
 
   const [localVisitTime, setLocalVisitTime] = useState(localStorage.getItem('localTime'));
-  const [timeDifference, setTimeDifference] = useState(new Date().getTime() - localVisitTime);
 
-  console.log(`time difference: ${timeDifference}`);
-
-  if (timeDifference > 5000) {
-    localStorage.setItem('localTime', new Date().getTime());
-  }
+  const timeInterval = 5000;
 
   useEffect(() => {
 
     const interval = setInterval(() => {
       setLocalVisitTime(localStorage.getItem('localTime'));
-      setTimeDifference(new Date().getTime() - localVisitTime);
 
-      console.log(timeDifference);
+      console.log(new Date().getTime() - localVisitTime);
 
-
-      if (timeDifference > 5000) {
-        console.log('It is more than 5 secs!');
-        // localStorage.setItem('localTime', new Date().getTime());
+      if (new Date().getTime() - localVisitTime > timeInterval) {
+        console.log(`Required time passed: ${timeInterval/1000} secs.`);
+        localStorage.setItem('localTime', new Date().getTime());
         setLocalVisitTime(localStorage.getItem('localTime'));
       }
-    }, 5000);
+    }, timeInterval);
+
     return () => clearInterval(interval);
   });
 

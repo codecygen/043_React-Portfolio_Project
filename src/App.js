@@ -25,29 +25,37 @@ function App() {
   const [visitorInfo, setVisitorInfo] = useState({});
 
   const fetchData = async () => {
-    const response = await fetch('https://www.myexternalip.com/json');
-    const data = await response.json();
+    // const response = await fetch('https://www.myexternalip.com/json');
+    // const data = await response.json();
 
-    const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
-    const dataGeo = await resGeo.json();
+    // const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
+    // const dataGeo = await resGeo.json();
 
-    const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
+    // const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
+
+    // setVisitorInfo(prevValue => {
+    //   return {
+    //     ...prevValue,
+    //     ip: data.ip,
+    //     country: dataGeo.country,
+    //     date: date
+    //   };
+    // });
 
     setVisitorInfo(prevValue => {
       return {
-        ...prevValue,
-        ip: data.ip,
-        country: dataGeo.country,
-        date: date
+        country: 'Canada',
+        date: '2022-02-25, 12:37:49 a.m.',
+        ip: "72.140.52.253"
       };
     });
-
-    console.log('Data fetched!');
   }
 
   const [localStorageTime, setLocalStorageTime] = useState(localStorage.getItem('localTime'));
 
-  const timeInterval = 5000;
+
+  const [timeInterval, setTimeInterval] = useState(1000);
+  const [fetchCount, setFetchCount] = useState(0);
 
   useEffect(() => {
 
@@ -59,7 +67,13 @@ function App() {
         localStorage.setItem('localTime', new Date().getTime());
         setLocalStorageTime(localStorage.getItem('localTime'));
 
-        fetchData();
+        if (fetchCount < 1) {
+          fetchData();
+          setFetchCount(prevCount => prevCount + 1);
+        } else {
+          fetchData();
+          setTimeInterval(900000);
+        }
       }
 
       console.log(visitorInfo);

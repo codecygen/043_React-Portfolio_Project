@@ -55,7 +55,7 @@ function App() {
 
 
   const [timeInterval, setTimeInterval] = useState(1000);
-  const [fetchCount, setFetchCount] = useState(0);
+  const [fetchCount, setFetchCount] = useState(localStorage.getItem('localCount'));
 
   useEffect(() => {
 
@@ -67,16 +67,22 @@ function App() {
         localStorage.setItem('localTime', new Date().getTime());
         setLocalStorageTime(localStorage.getItem('localTime'));
 
-        if (fetchCount < 1) {
+        if (!fetchCount) {
           fetchData();
           setFetchCount(prevCount => prevCount + 1);
-        } else {
+          localStorage.setItem('localCount', 1);
+        } else if (fetchCount === 1) {
           fetchData();
-          setTimeInterval(900000);
+          setFetchCount(prevCount => prevCount + 1);
+          setTimeInterval(5000);
+          localStorage.setItem('localCount', 2);
+          console.log(visitorInfo);
+        } else if (localStorage.getItem('localCount') === 2) {
+          fetchData();
+          console.log(visitorInfo);
+          console.log('hi');
         }
       }
-
-      console.log(visitorInfo);
     }, timeInterval);
 
     return () => clearInterval(interval);

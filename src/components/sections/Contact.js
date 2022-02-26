@@ -5,7 +5,6 @@ import Button from '../ui/buttons/Button';
 import classes from './Contact.module.css';
 
 const Contact = () => {
-    
     const [isSent, setIsSent] = useState(false);
 
     const {
@@ -67,7 +66,7 @@ const Contact = () => {
                 const postData = {
                     date: date,
                     ip: data.ip,
-                    place: `${dataGeo.country}`,
+                    place: `${dataGeo.city}/${dataGeo.country}`,
                     name: enteredName,
                     subject: enteredSubject,
                     message: enteredMessage
@@ -152,7 +151,7 @@ const Contact = () => {
                         {messageErrorMessage}
                     </div>
 
-                    <Button>{isSent ? 'Contact Shortly!' : 'Shoot It!'}</Button>
+                    <Button>{isSent ? 'Will Contact Shortly!' : 'Shoot It!'}</Button>
                 </form>
             </div>
         </section>

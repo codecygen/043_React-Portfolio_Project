@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import useRecordVisitor from './hooks/use-recordVisitor';
+
 import NavBar from './components/sections/NavBar';
 import Home from './components/sections/Home';
 import Tech from './components/sections/Tech';
@@ -16,6 +18,8 @@ function App() {
   const bodyColor = darkCtx.isDarkMode ? 'body-color-dark' : 'body-color-light';
 
   const currentYear = new Date().getFullYear();
+
+  useRecordVisitor();
 
   return (
     <div className={bodyColor}>

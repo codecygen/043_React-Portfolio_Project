@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useInput from '../../hooks/use-input';
 
 import Button from '../ui/buttons/Button';
 import classes from './Contact.module.css';
 
 const Contact = () => {
-    const [isSent, setIsSent] = useState(false);
 
     const {
         value: enteredName,
@@ -52,54 +51,94 @@ const Contact = () => {
             return;
         }
 
-        const submitDatabase = async () => {
-
-            const postEmail = async () => {
-                const response = await fetch('https://www.myexternalip.com/json');
-                const data = await response.json();
-
-                const date = new Date().toLocaleString('EN-CA', { timeZone: 'America/New_York' });
-
-                const resGeo = await fetch(`https://ipwhois.app/json/${data.ip}`);
-                const dataGeo = await resGeo.json();
-
-                const postData = {
-                    date: date,
-                    ip: data.ip,
-                    place: `${dataGeo.city}/${dataGeo.country}`,
-                    name: enteredName,
-                    subject: enteredSubject,
-                    message: enteredMessage
-                };
-
-                try {
-                    const res = await fetch('http://localhost:8000/email',
-                        {
-                            method: 'POST',
-                            body: JSON.stringify({ ...postData }),
-                            headers: {
-                                'Content-Type': 'application/json'
-                            }
-                        }
-                    );
-
-                    const serverData = await res.json();
-                    setIsSent(serverData.isExist);
-
-                } catch (err) {
-                    console.error(err);
-                }
-            }
-
-            await postEmail();
-        }
-
-        submitDatabase();
-
         resetName();
         resetSubject();
         resetMessage();
+
+        // clientIP = fetch('https://www.myexternalip.com/json')
+        //     .then(res => res.json())
+        //     .then(data => data.ip)
+        // ;
+
+        const submitDatabase = async () => {
+            const result = await fetch('https://www.myexternalip.com/json');
+            const data = await result.json();
+
+            const isPostedBefore = await emailFetchHandler(data.ip);
+
+            if (isPostedBefore) {
+                console.log('You already posted a message!');
+                return;
+            }
+
+            const email = {
+                '1_IP': data.ip,
+                '2_Name': enteredName,
+                '3_Subject': enteredSubject,
+                '4_Message': enteredMessage
+            }
+
+            await emailSendHandler(email);
+            console.log('Message Submitted!');
+        }
+
+        submitDatabase();
     };
+
+    const emailFetchHandler = async clientIP => {
+        try {
+            const res = await fetch('https://portfolio-email-sending-default-rtdb.firebaseio.com/emails.json');
+
+            if (!res.ok) {
+                throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
+            }
+
+            const data = await res.json();
+
+            const loadedEmails = [];
+
+            for (const key1 in data) {
+                for (const key2 in data[key1]) {
+                    for (const key3 in data[key1][key2]) {
+                        loadedEmails.push(
+                            { ...data[key1][key2][key3] }
+                        );
+                    }
+                }
+            }
+
+            const databaseIPs = [];
+
+            for (const key4 in loadedEmails) {
+                databaseIPs.push(loadedEmails[key4]['1_IP']);
+            }
+
+            // console.log(loadedEmails);
+            // console.log(databaseIPs);
+
+            return databaseIPs.includes(clientIP);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const emailSendHandler = async (email) => {
+        const yearMonth = new Date().toLocaleDateString('EN-CA').slice(0, 7);
+        const day = new Date().getDate();
+
+        const fetchLink = `https://portfolio-email-sending-default-rtdb.firebaseio.com/emails/${yearMonth}/day-${day}.json`;
+        const res = await fetch(fetchLink, {
+            method: 'post',
+            body: JSON.stringify(email),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!res.ok) {
+            throw new Error(`Something went wrong! HTTP Status: ${res.status}`);
+        }
+    }
 
     return (
         <section className={classes['form-card']} id='contact'>
@@ -116,7 +155,6 @@ const Contact = () => {
                             onChange={nameChangeHandler}
                             value={enteredName}
                             onBlur={nameOnBlurHandler}
-                            disabled={isSent}
                         />
                         {nameErrorMessage}
                     </div>
@@ -131,7 +169,6 @@ const Contact = () => {
                             onChange={subjectChangeHandler}
                             value={enteredSubject}
                             onBlur={subjectOnBlurHandler}
-                            disabled={isSent}
                         />
                         {subjectErrorMessage}
                     </div>
@@ -146,12 +183,11 @@ const Contact = () => {
                             onChange={messageChangeHandler}
                             value={enteredMessage}
                             onBlur={messageOnBlurHandler}
-                            disabled={isSent}
                         />
                         {messageErrorMessage}
                     </div>
 
-                    <Button>{isSent ? 'Will Contact Shortly!' : 'Shoot It!'}</Button>
+                    <Button>Shoot It!</Button>
                 </form>
             </div>
         </section>

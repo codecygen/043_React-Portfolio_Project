@@ -71,7 +71,7 @@ const Contact = () => {
                     subject: enteredSubject,
                     message: enteredMessage
                 };
-
+                //asdas
                 try {
                     const res = await fetch('http://localhost:8000/email',
                         {

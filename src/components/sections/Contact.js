@@ -185,7 +185,7 @@ const Contact = () => {
                         {messageErrorMessage}
                     </div>
 
-                    <Button>Shoot It!</Button>
+                    <Button>Shoot!</Button>
                 </form>
             </div>
         </section>

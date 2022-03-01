@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useInput from '../../hooks/use-input';
 
 import Button from '../ui/buttons/Button';
 import classes from './Contact.module.css';
 
+import DarkModeContext from '../../store/color-context';
+
 const Contact = () => {
+
+    const darkCtx = useContext(DarkModeContext); 
 
     const {
         value: enteredName,
@@ -54,11 +58,6 @@ const Contact = () => {
         resetName();
         resetSubject();
         resetMessage();
-
-        // clientIP = fetch('https://www.myexternalip.com/json')
-        //     .then(res => res.json())
-        //     .then(data => data.ip)
-        // ;
 
         const submitDatabase = async () => {
             const result = await fetch('https://www.myexternalip.com/json');
@@ -113,9 +112,6 @@ const Contact = () => {
                 databaseIPs.push(loadedEmails[key4]['1_IP']);
             }
 
-            // console.log(loadedEmails);
-            // console.log(databaseIPs);
-
             return databaseIPs.includes(clientIP);
         } catch (error) {
             console.log(error.message);
@@ -140,9 +136,11 @@ const Contact = () => {
         }
     }
 
+    const contactColor = darkCtx.isDarkMode ? `contact-color-dark` : `contact-color-light`;
+
     return (
         <section className={classes['form-card']} id='contact'>
-            <div>
+            <div className={contactColor}>
                 <form onSubmit={formSubmitHandler}>
                     <h3>Contact Form</h3>
                     <div className={classes['input-div']}>

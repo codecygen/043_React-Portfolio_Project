@@ -61,7 +61,7 @@ p {
 
 .body-color-light {
   color: #1f1f1f;
-  background-color: #bec0c3;
+  background-color: #d0d3d8;
 }
 
 .menu-color {
@@ -78,7 +78,7 @@ p {
 }
 
 .navbar-color-light {
-  background-color: #357c7c;
+  background-color: #e6e6e0;
   box-shadow: #182b41 0px 20px 30px -10px;
 }
 
@@ -117,8 +117,8 @@ p {
 }
 
 .button-color-dark {
-  color: #ada2a2;
-  background-color: #24373f;
+  color: #bbbbbb;
+  background-color: #41606b;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   padding: 5px 15px;
 }
@@ -126,7 +126,7 @@ p {
 .button-color-light {
   color: #383636;
   background-color: #8697a1;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   padding: 5px 15px;
 }
 

@@ -9,8 +9,17 @@
   justify-content: space-between;
   margin: 10px;
 
-  padding: 30px 40px;
+  padding: 20px 20px;
   box-sizing: border-box;
+}
+
+.project-card h4 {
+  flex-grow: 50;
+}
+
+.project-card button {
+  flex-grow: 1;
+  margin: 5px 15%;
 }
 
 @media (max-width: 1200px) {

@@ -136,7 +136,7 @@ const Contact = () => {
         }
     }
 
-    const contactColor = darkCtx.isDarkMode ? `contact-color-dark` : `contact-color-light`;
+    const contactColor = darkCtx.isDarkMode ? 'contact-color-dark' : 'contact-color-light';
 
     return (
         <section className={classes['form-card']} id='contact'>

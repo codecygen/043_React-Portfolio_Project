@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import classes from '../components/sections/Contact.module.css';
 
+import DarkModeContext from '../store/color-context';
+
 const useInput = inputType => {
+    const darkCtx = useContext(DarkModeContext);
+    const errorTextColor = darkCtx.isDarkMode ? `${classes['error-text-dark']}` : `${classes['error-text-light']}`;
+
     const [enteredValue, setEnteredValue] = useState('');
 
     const [isTouched, setIsTouched] = useState(false);
@@ -12,7 +17,7 @@ const useInput = inputType => {
 
     const inputClasses = hasError ? classes['input-error'] : classes.input;
 
-    const errorMessage = hasError ? <p className={classes['error-text']}>{inputType} must not be empty!</p> : <p></p>;
+    const errorMessage = hasError ? <p className={errorTextColor}>{inputType} must not be empty!</p> : <p></p>;
 
     const valueChangeHandler = event => {
         setEnteredValue(event.target.value);

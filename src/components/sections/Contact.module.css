@@ -52,8 +52,15 @@
     margin-bottom: 15px;
 }
 
-.error-text {
-    color: #eebebe;
+.error-text-dark, .error-text-light {
     font-size: 1rem;
     margin: 0 0 0 20px;
+}
+
+.error-text-dark {
+    color: #eebebe;
+}
+
+.error-text-light {
+    color: blue;
 }

@@ -13,7 +13,7 @@ import classes from './Home.module.css';
 const Home = () => {
     return (
         <header className={classes.home} id='home'>
-            <section className={classes["same-line"]}>
+            <div className={classes["same-line"]}>
                 <div className={classes["img-div"]}>
                     <img src={myImage} alt="profile" />
                 </div>
@@ -34,7 +34,7 @@ const Home = () => {
                         <SocialMedia />
                     </div>
                 </div>
-            </section>
+            </div>
             <Divider />
             <h2>Hello Everyone! My Name is Aras</h2>
             <p>

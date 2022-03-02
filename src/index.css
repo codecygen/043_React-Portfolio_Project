@@ -78,10 +78,18 @@ p {
   color: #dbe8d4;
 }
 
+.menu-color-dark a:hover {
+  color: #95d672;
+}
+
 .menu-color-light a:link, 
 .menu-color-light a:visited,
 .menu-color-light h5 {
   color: #252424;
+}
+
+.menu-color-light a:hover {
+  color: #a04f4f;
 }
 
 .navbar-color-dark {

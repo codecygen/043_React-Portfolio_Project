@@ -46,15 +46,8 @@
     text-align: center;
     width: 50%;
     padding: 5px 0;
-
-    /* border-radius: 25px; */
-
-    /* transition: all 0.25s ease-in; */
 }
 
-.links:hover {
-    /* box-shadow: 1px 1px 0 #ffffff, 0 0 20px 5px #99cfb8, inset 2px 2px 0 #add4c3;
-    background-color: rgba(40, 38, 156, 0.1); */
-
+/* .links:hover {
     border-bottom: 0.5px solid white;
-}
+} */

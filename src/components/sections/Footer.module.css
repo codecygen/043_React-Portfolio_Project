@@ -29,7 +29,7 @@
     margin: 3rem auto;
 }
 
-.rotate-arrow {
+.rotate-arrow-dark, .rotate-arrow-light {
     font-size: 3rem;
     transform: rotate(-135deg);
     padding: 2rem;
@@ -46,10 +46,18 @@
     transition: color 0.6s;
 }
 
-.rotate-arrow:hover {
+.rotate-arrow-dark:hover,
+.rotate-arrow-light:hover {
     cursor: pointer;
     animation-name: bounce;
+}
+
+.rotate-arrow-dark:hover {
     color: #538f85;
+}
+
+.rotate-arrow-light:hover {
+    color: #556083;
 }
 
 @keyframes bounce {

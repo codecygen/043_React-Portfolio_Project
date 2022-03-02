@@ -21,6 +21,7 @@ const Footer = props => {
     };
 
     const footerColor = darkCtx.isDarkMode ? 'footer-color-dark' : 'footer-color-light';
+    const bottomArrowColor = darkCtx.isDarkMode ? `${classes['rotate-arrow-dark']}` : `${classes['rotate-arrow-light']}`;
 
     return (
         <footer className={classes.footer}>
@@ -33,7 +34,7 @@ const Footer = props => {
 
                 <h4>Developed and designed by</h4>
                 <h4> Aras Sen © {props.year}</h4>
-                <GiBroadheadArrow className={classes['rotate-arrow']} onClick={scrollUp} />
+                <GiBroadheadArrow className={bottomArrowColor} onClick={scrollUp} />
             </div>
         </footer>
     );

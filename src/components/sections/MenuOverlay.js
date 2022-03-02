@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext }  from 'react';
 import ReactDOM from 'react-dom';
 import classes from './MenuOverlay.module.css';
 
+import DarkModeContext from '../../store/color-context';
 
 const MenuOverlay = props => {
 
-    let menuClasses = `${classes.box} menu-color ${classes.menu}`;
+    const darkCtx = useContext(DarkModeContext);
+
+    const menuColor = darkCtx.isDarkMode ? 'menu-color-dark' : 'menu-color-light';
+
+    let menuClasses = `${classes.box} ${menuColor} ${classes.menu}`;
 
     if (props.clickState) {
-        menuClasses = `${classes.box} menu-color ${classes.menu} ${classes['menu-active']}`
+        menuClasses = `${classes.box} ${menuColor} ${classes.menu} ${classes['menu-active']}`
     }
 
     const buttons = props.navButtons.map(eachObject => (
@@ -29,7 +34,7 @@ const MenuOverlay = props => {
             {ReactDOM.createPortal(
                 <div className={menuClasses}>
                     {buttons}
-                    <h5> Aras Sen ©{props.year}</h5>
+                    <h5 className={menuColor}> Aras Sen ©{props.year}</h5>
                 </div>
             , portalElement)}
         </>

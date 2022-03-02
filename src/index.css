@@ -64,12 +64,24 @@ p {
   background-color: #d0d3d8;
 }
 
-.menu-color {
-  background-color: rgba(44, 34, 53, 0.99);
+.menu-color-dark {
+  background-color: #24373f;
 }
 
-.menu-color a:link, .menu-color a:visited  {
+.menu-color-light {
+  background-color: #b8c8cf;
+}
+
+.menu-color-dark a:link, 
+.menu-color-dark a:visited, 
+.menu-color-dark h5 {
   color: #dbe8d4;
+}
+
+.menu-color-light a:link, 
+.menu-color-light a:visited,
+.menu-color-light h5 {
+  color: #252424;
 }
 
 .navbar-color-dark {

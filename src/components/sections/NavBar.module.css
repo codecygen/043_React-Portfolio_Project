@@ -53,12 +53,12 @@
   }
   
   .moon-icon {
-    color: #a5bec2;
+    color: #2c7681;
     animation: vibrate 0.2s linear 1;
   } 
   
   .moon-icon:hover {
-    color: #2c7681;
+    color: #529eaa;
   }
   
   @keyframes vibrate {

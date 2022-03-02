@@ -16,12 +16,19 @@
     transform: rotate(180deg);
   }
 
-  .line {
+  .line-dark, .line-light {
     fill:none;
     transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-    stroke: #dbe8d4;;
     stroke-width: 4;
     stroke-linecap:round;
+  }
+
+  .line-dark {
+    stroke: #dbe8d4;
+  }
+
+  .line-light {
+    stroke: rgb(66, 57, 57);
   }
   
   .ham4 .top {

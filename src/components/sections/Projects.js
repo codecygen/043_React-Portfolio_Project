@@ -45,11 +45,11 @@ const Projects = () => {
         }
     ];
 
-    const projectCards = projectList.map(element => (
-        <ProjectCard 
-            key={element.id} 
-            text={element.text} 
-            liveLink={element.liveLink} 
+    const projectCardsAll = projectList.map(element => (
+        <ProjectCard
+            key={element.id}
+            text={element.text}
+            liveLink={element.liveLink}
             githubLink={element.githubLink}
         />
     ));
@@ -58,10 +58,13 @@ const Projects = () => {
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
             <div className={classes['project-cards']}>
-                {projectCards}
+                {projectCardsAll}
             </div>
             <Divider />
-            <TiArrowSortedDown className={classes['expand-arrow']} />
+            <div className={classes.expand}>
+                <h4>Expand</h4>
+                <TiArrowSortedDown className={classes['expand-arrow']} />
+            </div>
         </section>
     );
 };

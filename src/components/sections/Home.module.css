@@ -62,6 +62,13 @@
     margin-top: 3rem;
 }
 
+.link-container a,
+.link-container a:link,
+.link-container a:visited {
+  font: inherit;
+  color: inherit;
+}
+
 .link-container > div {
     margin-left: 3rem;
 }

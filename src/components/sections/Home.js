@@ -30,7 +30,7 @@ const Home = () => {
                         creating applications with better UI and UX!
                     </p>
                     <div className={classes['link-container']}>
-                        <Button className={classes['margin-right']}>Resume</Button>
+                        <Button className={classes['margin-right']}><a href='https://gmail.com'>Live</a></Button>
                         <SocialMedia />
                     </div>
                 </div>

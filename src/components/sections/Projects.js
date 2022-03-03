@@ -3,6 +3,8 @@ import React from 'react';
 import ProjectCard from '../ui/ProjectCard';
 import Divider from '../ui/Divider';
 
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+
 import classes from './Projects.module.css'
 
 const Projects = () => {
@@ -17,6 +19,27 @@ const Projects = () => {
         {
             id: 'a2',
             text: 'This is the project 2.',
+            liveLink: 'https://www.yahoo.ca/',
+            githubLink: 'https://twitter.com/'
+        },
+
+        {
+            id: 'a2',
+            text: 'This is the project 3.',
+            liveLink: 'https://www.yahoo.ca/',
+            githubLink: 'https://twitter.com/'
+        },
+
+        {
+            id: 'a2',
+            text: 'This is the project 4.',
+            liveLink: 'https://www.yahoo.ca/',
+            githubLink: 'https://twitter.com/'
+        },
+
+        {
+            id: 'a2',
+            text: 'This is the project 5.',
             liveLink: 'https://www.yahoo.ca/',
             githubLink: 'https://twitter.com/'
         }
@@ -38,6 +61,7 @@ const Projects = () => {
                 {projectCards}
             </div>
             <Divider />
+            <TiArrowSortedDown className={classes['expand-arrow']} />
         </section>
     );
 };

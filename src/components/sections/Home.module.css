@@ -62,9 +62,9 @@
     margin-top: 3rem;
 }
 
-.link-container a,
-.link-container a:link,
-.link-container a:visited {
+.resume,
+.resume:link,
+.resume:visited {
   font: inherit;
   color: inherit;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import ProjectCard from '../ui/ProjectCard';
 import Divider from '../ui/Divider';
@@ -9,6 +9,12 @@ import classes from './Projects.module.css'
 
 const Projects = () => {
     const [expandState, setExpandState] = useState(false);
+
+    const heightRef = useRef();
+
+    if (heightRef.current) {
+        console.log(heightRef.current.scrollHeight);
+    }
 
     const handleExpand = () => {
         setExpandState(prevValue => !prevValue);
@@ -48,6 +54,13 @@ const Projects = () => {
             text: 'This is the project 5.',
             liveLink: 'https://www.yahoo.ca/',
             githubLink: 'https://twitter.com/'
+        },
+
+        {
+            id: 'a6',
+            text: 'This is the project 5.',
+            liveLink: 'https://www.yahoo.ca/',
+            githubLink: 'https://twitter.com/'
         }
     ];
 
@@ -77,7 +90,7 @@ const Projects = () => {
             <>
                 <h4>Contract</h4>
                 <TiArrowSortedUp className={classes['contract-arrow']} />
-            </> : 
+            </> :
             <>
                 <h4>Expand</h4>
                 <TiArrowSortedDown className={classes['expand-arrow']} />
@@ -87,12 +100,15 @@ const Projects = () => {
     return (
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
-            <div className={classes['project-cards']}>
-                {projectCards}
+            <div 
+                className={classes['project-cards']} 
+                ref={heightRef} 
+                style={expandState ? {height: `${heightRef.current.scrollHeight}px`} : {height: `50px`}}>
+                    {projectCards}
             </div>
             <Divider />
             <div className={classes.expand} onClick={handleExpand}>
-                {projectListLength > 2 && expandContractArrow }
+                {projectListLength > 2 && expandContractArrow}
             </div>
         </section>
     );

@@ -56,10 +56,12 @@ const Projects = () => {
     let totalIndex;
 
     if (!expandState) {
+        totalIndex = 2;
+    } else if (expandState) {
         totalIndex = projectList.length;
     }
 
-    const filteredProjectList = projectList.filter((element, index) => index < projectList.length)
+    const filteredProjectList = projectList.filter((element, index) => index < totalIndex)
 
     const projectCards = filteredProjectList.map(element => (
         <ProjectCard
@@ -78,8 +80,16 @@ const Projects = () => {
             </div>
             <Divider />
             <div className={classes.expand} onClick={handleExpand}>
-                <h4>Expand</h4>
-                <TiArrowSortedDown className={classes['expand-arrow']} />
+                {expandState ?
+                    <>
+                        <h4>Contract</h4>
+                        <TiArrowSortedUp className={classes['contract-arrow']} />
+                    </> : 
+                    <>
+                        <h4>Expand</h4>
+                        <TiArrowSortedDown className={classes['expand-arrow']} />
+                    </>      
+                }
             </div>
         </section>
     );

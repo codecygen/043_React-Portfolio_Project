@@ -1,5 +1,8 @@
 .projects {
   text-align: center;
+
+  height: calc(100%);
+  transition: height 2s;
 }
 
 .projects h2 {
@@ -19,7 +22,7 @@
   user-select: none;
 
   margin: auto;
-  width: max-content;
+  height: max-content;
 }
 
 .expand:hover {
@@ -38,7 +41,12 @@
   animation-name: bounce;
 }
 
-.expand-arrow {
+.expand:hover > .contract-arrow {
+  animation-name: bounce2;
+}
+
+.expand-arrow,
+.contract-arrow {
   font-size: 3rem;
 
   -webkit-animation-duration: 1s;
@@ -68,5 +76,25 @@
     -webkit-transform: translateY(10px);
     -ms-transform:     translateY(10px);
     transform:         translateY(10px); 
+  }
+}
+
+@keyframes bounce2 {
+  0%, 100%, 20%, 50%, 80% {
+    -webkit-transform: translateY(0);
+    -ms-transform:     translateY(0);
+    transform:         translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-12px);
+    -ms-transform:     translateY(-12px);
+    transform:         translateY(-12px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform:     translateY(-10px);
+    transform:         translateY(-10px); 
   }
 }

@@ -92,7 +92,7 @@ const Projects = () => {
             </div>
             <Divider />
             <div className={classes.expand} onClick={handleExpand}>
-                {projectListLength > 2 ? expandContractArrow : <></>}
+                {projectListLength > 2 && expandContractArrow }
             </div>
         </section>
     );

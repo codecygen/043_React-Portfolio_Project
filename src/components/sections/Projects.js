@@ -14,8 +14,6 @@ const Projects = () => {
         setExpandState(prevValue => !prevValue);
     }
 
-    console.log(expandState);
-
     const projectList = [
         {
             id: 'a1',
@@ -53,12 +51,14 @@ const Projects = () => {
         }
     ];
 
+    const projectListLength = projectList.length;
+
     let totalIndex;
 
     if (!expandState) {
         totalIndex = 2;
     } else if (expandState) {
-        totalIndex = projectList.length;
+        totalIndex = projectListLength;
     }
 
     const filteredProjectList = projectList.filter((element, index) => index < totalIndex)
@@ -72,6 +72,18 @@ const Projects = () => {
         />
     ));
 
+    const expandContractArrow = (
+        expandState ?
+            <>
+                <h4>Contract</h4>
+                <TiArrowSortedUp className={classes['contract-arrow']} />
+            </> : 
+            <>
+                <h4>Expand</h4>
+                <TiArrowSortedDown className={classes['expand-arrow']} />
+            </>
+    );
+
     return (
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
@@ -80,16 +92,7 @@ const Projects = () => {
             </div>
             <Divider />
             <div className={classes.expand} onClick={handleExpand}>
-                {expandState ?
-                    <>
-                        <h4>Contract</h4>
-                        <TiArrowSortedUp className={classes['contract-arrow']} />
-                    </> : 
-                    <>
-                        <h4>Expand</h4>
-                        <TiArrowSortedDown className={classes['expand-arrow']} />
-                    </>      
-                }
+                {projectListLength > 2 ? expandContractArrow : <></>}
             </div>
         </section>
     );

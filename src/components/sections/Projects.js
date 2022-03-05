@@ -106,21 +106,23 @@ const Projects = () => {
 
     // Dynamic height change
     useEffect(() => {
-        getHeight(); 
+        getHeight();
     }, [expandState]);
 
     return (
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
-            <div 
+            <div
                 // className={expandState ? classes['project-cards-expanded'] : classes['project-cards']}
-                className={classes['project-cards']} 
-                ref={heightRef} 
-                // style={{height: `${height}px`}} 
+                className={classes['project-cards']}
+                ref={heightRef}
+                style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
             >
                 {projectCards}
             </div>
+
             <Divider />
+
             <div className={classes.expand} onClick={handleExpand}>
                 {projectListLength > 2 && expandContractArrow}
             </div>

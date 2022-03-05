@@ -112,12 +112,17 @@ const Projects = () => {
     return (
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
+
+            {/* This parent div is to make the animation happen! */}
             <div
-                className={expandState ? classes['project-cards-expanded'] : classes['project-cards']}
-                ref={heightRef}
-                // style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
+                style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
             >
-                {projectCards}
+                <div
+                    className={classes['project-cards']}
+                    ref={heightRef}
+                >
+                    {projectCards}
+                </div>
             </div>
 
             <Divider />

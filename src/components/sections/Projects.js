@@ -113,10 +113,9 @@ const Projects = () => {
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
             <div
-                // className={expandState ? classes['project-cards-expanded'] : classes['project-cards']}
-                className={classes['project-cards']}
+                className={expandState ? classes['project-cards-expanded'] : classes['project-cards']}
                 ref={heightRef}
-                style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
+                // style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
             >
                 {projectCards}
             </div>

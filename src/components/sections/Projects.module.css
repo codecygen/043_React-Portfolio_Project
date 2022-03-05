@@ -16,11 +16,11 @@
   align-items: center;
   justify-content: center;
 
-  /* height: 540px; */
-  /* transition: height ease 0.25s; */
+  height: 540px;
+  transition: height ease 0.8s;
 }
 
-/* .project-cards-expanded {
+.project-cards-expanded {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -28,8 +28,8 @@
   justify-content: center;
 
   height: 1620px;
-  transition: height ease 0.25s;
-} */
+  transition: height ease 0.8s;
+}
 
 .expand {
   transition: color 0.6s;

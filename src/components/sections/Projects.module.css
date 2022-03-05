@@ -15,7 +15,21 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  /* height: 540px; */
+  transition: height ease 0.25s;
 }
+
+/* .project-cards-expanded {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  height: 1620px;
+  transition: height ease 0.25s;
+} */
 
 .expand {
   transition: color 0.6s;

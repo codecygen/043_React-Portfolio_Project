@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import ProjectCard from '../ui/ProjectCard';
 import Divider from '../ui/Divider';
@@ -10,10 +10,17 @@ import classes from './Projects.module.css'
 const Projects = () => {
     const [expandState, setExpandState] = useState(false);
 
+    // Dynamic height change
     const heightRef = useRef();
 
-    if (heightRef.current) {
-        console.log(heightRef.current.scrollHeight);
+    // Dynamic height change
+    const [height, setHeight] = useState();
+
+    // Dynamic height change
+    const getHeight = () => {
+        const newHeight = heightRef.current.clientHeight;
+        console.log(newHeight);
+        setHeight(newHeight);
     }
 
     const handleExpand = () => {
@@ -97,14 +104,21 @@ const Projects = () => {
             </>
     );
 
+    // Dynamic height change
+    useEffect(() => {
+        getHeight(); 
+    }, [expandState]);
+
     return (
         <section className={classes.projects} id='projects'>
             <h2>Projects</h2>
             <div 
+                // className={expandState ? classes['project-cards-expanded'] : classes['project-cards']}
                 className={classes['project-cards']} 
                 ref={heightRef} 
-                style={expandState ? {height: `${heightRef.current.scrollHeight}px`} : {height: `50px`}}>
-                    {projectCards}
+                // style={{height: `${height}px`}} 
+            >
+                {projectCards}
             </div>
             <Divider />
             <div className={classes.expand} onClick={handleExpand}>

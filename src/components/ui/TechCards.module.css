@@ -80,6 +80,10 @@
     width: 1.82rem;
 }
 
+.nginx {
+    color: #093;
+}
+
 @media (max-width: 700px) {
     
     .tech-icons-p {

@@ -13,6 +13,7 @@ import { ImGithub } from 'react-icons/im';
 import { SiHeroku } from 'react-icons/si';
 import { SiFirebase } from 'react-icons/si';
 import { BsGearWide } from 'react-icons/bs';
+import { SiNginx } from "react-icons/si";
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';
@@ -120,6 +121,12 @@ const techButtons = [
         key: 'a14',
         icon: <img src={linuxLink} alt="It is linux" className={classes.linux} />,
         name: 'Linux'
+    },
+
+    {
+        key: 'a15',
+        icon: <SiNginx className={classes.nginx} />,
+        name: 'Nginx'
     },
 ];
 

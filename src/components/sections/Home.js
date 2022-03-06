@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import myImage from '../../assets/images/Me.jpeg';
 import Divider from '../ui/Divider';
@@ -6,11 +6,17 @@ import Divider from '../ui/Divider';
 import SocialMedia from '../ui/SocialMedia';
 import Button from '../ui/buttons/Button';
 
-import { FaCanadianMapleLeaf } from "react-icons/fa";
+import { FaCanadianMapleLeaf, FaLightbulb } from "react-icons/fa";
 
 import classes from './Home.module.css';
 
+import DarkModeContext from '../../store/color-context';
+
 const Home = () => {
+    const darkCtx = useContext(DarkModeContext);
+
+    const buttonColor = darkCtx.isDarkMode ? 'button-color-dark' : 'button-color-light';
+
     return (
         <header className={classes.home} id='home'>
             <div className={classes["same-line"]}>
@@ -31,8 +37,10 @@ const Home = () => {
                     </p>
                     <div className={classes['link-container']}>
                         <Button 
-                            className={classes['margin-right']}>
-                                <a href='https://gmail.com' className={classes.resume}>
+                            className={classes['margin-right']} 
+                            className={buttonColor}
+                        >
+                                <a href='https://gmail.com'>
                                     Resume
                                 </a>
                         </Button>

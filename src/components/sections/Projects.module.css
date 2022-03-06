@@ -23,6 +23,8 @@
 
   margin: auto;
   height: max-content;
+
+  width: max-content;
 }
 
 .expand:hover {

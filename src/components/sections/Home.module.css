@@ -62,13 +62,6 @@
     margin-top: 3rem;
 }
 
-.resume,
-.resume:link,
-.resume:visited {
-  font: inherit;
-  color: inherit;
-}
-
 .link-container > div {
     margin-left: 3rem;
 }

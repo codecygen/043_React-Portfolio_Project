@@ -30,9 +30,9 @@ const Projects = () => {
     const projectList = [
         {
             id: 'a1',
-            text: 'This is the project 1.',
-            liveLink: 'https://www.google.ca/',
-            githubLink: 'https://github.com/'
+            text: 'Name list app made in React. You can add and remove users to the list.',
+            liveLink: 'https://react-namelist.firebaseapp.com/',
+            githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
         },
 
         {

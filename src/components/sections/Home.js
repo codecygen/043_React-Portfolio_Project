@@ -6,7 +6,7 @@ import Divider from '../ui/Divider';
 import SocialMedia from '../ui/SocialMedia';
 import Button from '../ui/buttons/Button';
 
-import { FaCanadianMapleLeaf, FaLightbulb } from "react-icons/fa";
+import { FaCanadianMapleLeaf } from "react-icons/fa";
 
 import classes from './Home.module.css';
 
@@ -37,7 +37,6 @@ const Home = () => {
                     </p>
                     <div className={classes['link-container']}>
                         <Button 
-                            className={classes['margin-right']} 
                             className={buttonColor}
                         >
                                 <a href='https://gmail.com'>

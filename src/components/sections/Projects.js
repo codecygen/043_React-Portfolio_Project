@@ -19,7 +19,6 @@ const Projects = () => {
     // Dynamic height change
     const getHeight = () => {
         const newHeight = heightRef.current.clientHeight;
-        console.log(newHeight);
         setHeight(newHeight);
     }
 

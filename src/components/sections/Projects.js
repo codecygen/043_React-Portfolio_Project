@@ -36,38 +36,17 @@ const Projects = () => {
 
         {
             id: 'a2',
-            text: 'This is the project 2.',
-            liveLink: 'https://www.yahoo.ca/',
-            githubLink: 'https://twitter.com/'
+            text: 'codecygen.com, first website I have ever made.',
+            liveLink: 'https://codecygen.com/',
+            githubLink: 'https://github.com/codecygen/codecygen.com-public'
         },
 
         {
             id: 'a3',
-            text: 'This is the project 3.',
-            liveLink: 'https://www.yahoo.ca/',
-            githubLink: 'https://twitter.com/'
+            text: 'armlines.com',
+            liveLink: 'https://armlines.com/',
+            githubLink: 'https://github.com/codecygen/armlines.com-public'
         },
-
-        {
-            id: 'a4',
-            text: 'This is the project 4.',
-            liveLink: 'https://www.yahoo.ca/',
-            githubLink: 'https://twitter.com/'
-        },
-
-        {
-            id: 'a5',
-            text: 'This is the project 5.',
-            liveLink: 'https://www.yahoo.ca/',
-            githubLink: 'https://twitter.com/'
-        },
-
-        {
-            id: 'a6',
-            text: 'This is the project 5.',
-            liveLink: 'https://www.yahoo.ca/',
-            githubLink: 'https://twitter.com/'
-        }
     ];
 
     const projectListLength = projectList.length;

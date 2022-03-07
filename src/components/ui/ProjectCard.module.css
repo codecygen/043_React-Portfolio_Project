@@ -18,13 +18,6 @@
   margin: 0;
 }
 
-.project-card a,
-.project-card a:link,
-.project-card a:visited {
-  font: inherit;
-  color: inherit;
-}
-
 .project-card button {
   flex-grow: 1;
   margin: 5px 15%;

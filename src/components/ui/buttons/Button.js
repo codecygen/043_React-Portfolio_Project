@@ -6,10 +6,10 @@ import DarkModeContext from '../../../store/color-context';
 const Button = props => {
     const darkCtx = useContext(DarkModeContext);
 
-    const buttonColor = darkCtx.isDarkMode ? `${classes.card} button-color-dark` : `${classes.card} button-color-light`
+    const buttonClasses = darkCtx.isDarkMode ? `${classes.card} button-color-dark` : `${classes.card} button-color-light`
 
     return (
-        <button className={buttonColor}>
+        <button className={buttonClasses}>
                 {props.children}
         </button>
     );

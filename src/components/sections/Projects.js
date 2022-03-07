@@ -54,6 +54,13 @@ const Projects = () => {
             liveLink: 'https://simongamejavascript.web.app/',
             githubLink: 'https://github.com/codecygen/056_Simon-Game'
         },
+
+        {
+            id: 'a5',
+            text: 'Dice Game',
+            liveLink: 'https://mydicerollgame.web.app/',
+            githubLink: 'https://github.com/codecygen/057_Dice-Game'
+        },
     ];
 
     const projectListLength = projectList.length;

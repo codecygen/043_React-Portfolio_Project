@@ -47,6 +47,13 @@ const Projects = () => {
             liveLink: 'https://armlines.com/',
             githubLink: 'https://github.com/codecygen/armlines.com-public'
         },
+
+        {
+            id: 'a4',
+            text: 'Simon Game',
+            liveLink: 'https://simongamejavascript.web.app/',
+            githubLink: 'https://github.com/codecygen/056_Simon-Game'
+        },
     ];
 
     const projectListLength = projectList.length;

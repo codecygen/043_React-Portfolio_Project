@@ -61,6 +61,13 @@ const Projects = () => {
             liveLink: 'https://mydicerollgame.web.app/',
             githubLink: 'https://github.com/codecygen/057_Dice-Game'
         },
+
+        {
+            id: 'a6',
+            text: 'arasmakina.com, 2017',
+            liveLink: 'https://arasmakina.com/',
+            githubLink: 'https://github.com/codecygen/057_Dice-Game'
+        },
     ];
 
     const projectListLength = projectList.length;

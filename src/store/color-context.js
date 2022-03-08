@@ -7,17 +7,15 @@ const DarkModeContext = React.createContext({
 
 export const DarkModeContextProvider = props => {
 
-    const isSet = localStorage.getItem('isSet');
+    const isBrowserDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    const [isDarkMode, setIsDarkMode] = useState(isSet);
+    const [isDarkMode, setIsDarkMode] = useState(isBrowserDark);
 
     const colorChangeHandler = () => {
         setIsDarkMode(prevValue => {
             if (prevValue) {
-                localStorage.setItem('isSet', false);
                 return false;
             } else {
-                localStorage.removeItem('isSet');
                 return true;
             }
         });

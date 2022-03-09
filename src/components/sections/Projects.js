@@ -29,49 +29,49 @@ const Projects = () => {
     const projectList = [
         {
             id: 'a1',
-            text: 'Name list app made in React. You can add and remove users to the list.',
+            text: 'Name List App, 2021, Autumn',
             liveLink: 'https://react-namelist.firebaseapp.com/',
             githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
         },
 
         {
             id: 'a2',
-            text: 'codecygen.com, first website I have ever made.',
+            text: 'codecygen.com, 2021, Summer',
             liveLink: 'https://codecygen.com/',
             githubLink: 'https://github.com/codecygen/codecygen.com-public'
         },
 
         {
             id: 'a3',
-            text: 'armlines.com',
+            text: 'armlines.com, 2021, Winter',
             liveLink: 'https://armlines.com/',
             githubLink: 'https://github.com/codecygen/armlines.com-public'
         },
 
         {
             id: 'a4',
-            text: 'Simon Game',
+            text: 'Simon Game, 2021, Summer',
             liveLink: 'https://simongamejavascript.web.app/',
             githubLink: 'https://github.com/codecygen/056_Simon-Game'
         },
 
         {
             id: 'a5',
-            text: 'Dice Game',
+            text: 'Dice Game, 2021, Summer',
             liveLink: 'https://mydicerollgame.web.app/',
             githubLink: 'https://github.com/codecygen/057_Dice-Game'
         },
 
         {
             id: 'a6',
-            text: 'arasmakina.com, 2017',
+            text: 'arasmakina.com, 2017, Winter',
             liveLink: 'https://arasmakina.com/',
-            githubLink: 'https://github.com/codecygen/057_Dice-Game'
+            githubLink: 'https://github.com/codecygen/060_arasmakina.com'
         },
 
         {
             id: 'a7',
-            text: 'weather app, 2021, Summer',
+            text: 'Weather App, 2021, Summer',
             liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
             githubLink: 'https://github.com/codecygen/059_Weather-Project'
         },

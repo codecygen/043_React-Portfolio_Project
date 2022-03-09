@@ -76,6 +76,12 @@ const Projects = () => {
             githubLink: 'https://github.com/codecygen/059_Weather-Project'
         },
 
+        {
+            id: 'a8',
+            text: 'OAUTH2.0  And Standard Login , 2021, Autumn',
+            githubLink: 'https://github.com/codecygen/059_Weather-Project'
+        },
+
         
     ];
 
@@ -103,7 +109,7 @@ const Projects = () => {
     const expandContractArrow = (
         expandState ?
             <>
-                <h4>Contract</h4>
+                <h4>Collapse</h4>
                 <TiArrowSortedUp className={classes['contract-arrow']} />
             </> :
             <>

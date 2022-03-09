@@ -79,7 +79,7 @@ const Projects = () => {
         {
             id: 'a8',
             text: 'OAUTH2.0  And Standard Login , 2021, Autumn',
-            githubLink: 'https://github.com/codecygen/059_Weather-Project'
+            githubLink: 'https://github.com/codecygen/032_OAUTH2.0-Social-Media-Login_Level6'
         },
 
         

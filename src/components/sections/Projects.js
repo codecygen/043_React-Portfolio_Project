@@ -68,6 +68,15 @@ const Projects = () => {
             liveLink: 'https://arasmakina.com/',
             githubLink: 'https://github.com/codecygen/057_Dice-Game'
         },
+
+        {
+            id: 'a7',
+            text: 'weather app, 2021, Summer',
+            liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
+            githubLink: 'https://github.com/codecygen/059_Weather-Project'
+        },
+
+        
     ];
 
     const projectListLength = projectList.length;

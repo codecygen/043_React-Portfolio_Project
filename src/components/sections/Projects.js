@@ -5,7 +5,9 @@ import Divider from '../ui/Divider';
 
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
-import classes from './Projects.module.css'
+import classes from './Projects.module.css';
+
+import armlines from '../../assets/images/project-images/armlines.png';
 
 const Projects = () => {
     const [expandState, setExpandState] = useState(false);
@@ -29,7 +31,7 @@ const Projects = () => {
     const projectList = [
         {
             id: 'a1',
-            img: '../../assets/images/project-images/Me.jpeg',
+            img: armlines,
             text: 'Name List App, 2021, Autumn',
             liveLink: 'https://react-namelist.firebaseapp.com/',
             githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
@@ -107,10 +109,11 @@ const Projects = () => {
 
     const projectCards = filteredProjectList.map(element => (
         <ProjectCard
-            key={element.id}
-            text={element.text}
-            liveLink={element.liveLink}
-            githubLink={element.githubLink}
+            key={element.id} 
+            img={element.img} 
+            text={element.text} 
+            liveLink={element.liveLink} 
+            githubLink={element.githubLink} 
         />
     ));
 

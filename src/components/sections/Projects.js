@@ -29,6 +29,7 @@ const Projects = () => {
     const projectList = [
         {
             id: 'a1',
+            img: '../../assets/images/project-images/Me.jpeg',
             text: 'Name List App, 2021, Autumn',
             liveLink: 'https://react-namelist.firebaseapp.com/',
             githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
@@ -36,6 +37,7 @@ const Projects = () => {
 
         {
             id: 'a2',
+            img: '../../assets/images/project-images/armlines.png',
             text: 'codecygen.com, 2021, Summer',
             liveLink: 'https://codecygen.com/',
             githubLink: 'https://github.com/codecygen/codecygen.com-public'
@@ -43,6 +45,7 @@ const Projects = () => {
 
         {
             id: 'a3',
+            img: '../../assets/images/project-images/armlines.png',
             text: 'armlines.com, 2021, Winter',
             liveLink: 'https://armlines.com/',
             githubLink: 'https://github.com/codecygen/armlines.com-public'
@@ -50,6 +53,7 @@ const Projects = () => {
 
         {
             id: 'a4',
+            img: '../../assets/images/project-images/armlines.png',
             text: 'Simon Game, 2021, Summer',
             liveLink: 'https://simongamejavascript.web.app/',
             githubLink: 'https://github.com/codecygen/056_Simon-Game'
@@ -57,6 +61,7 @@ const Projects = () => {
 
         {
             id: 'a5',
+            img: '../../assets/images/project-images/armlines.png',
             text: 'Dice Game, 2021, Summer',
             liveLink: 'https://mydicerollgame.web.app/',
             githubLink: 'https://github.com/codecygen/057_Dice-Game'
@@ -64,6 +69,7 @@ const Projects = () => {
 
         {
             id: 'a6',
+            img: '../../assets/images/project-images/armlines.png',
             text: 'arasmakina.com, 2017, Winter',
             liveLink: 'https://arasmakina.com/',
             githubLink: 'https://github.com/codecygen/060_arasmakina.com'
@@ -71,6 +77,7 @@ const Projects = () => {
 
         {
             id: 'a7',
+            img: '../../assets/images/project-images/armlines.png',
             text: 'Weather App, 2021, Summer',
             liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
             githubLink: 'https://github.com/codecygen/059_Weather-Project'
@@ -78,7 +85,8 @@ const Projects = () => {
 
         {
             id: 'a8',
-            text: 'OAUTH2.0  And Standard Login , 2021, Autumn',
+            img: '../../assets/images/project-images/armlines.png',
+            text: 'OAUTH2.0  And Standard Login , 2021, Winter',
             githubLink: 'https://github.com/codecygen/032_OAUTH2.0-Social-Media-Login_Level6'
         },
 

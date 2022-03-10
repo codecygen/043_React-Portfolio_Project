@@ -12,7 +12,7 @@ const ProjectCard = (props) => {
 
     return (
         <div className={projectCardColor}>
-            <img src={props.img} alt="No Image" />
+            <img src={props.img} alt="No Display" />
             <h4>{props.text}</h4>
             {props.liveLink && <Button><a href={props.liveLink}>Live</a></Button>}
             <Button><a href={props.githubLink}>Github</a></Button>

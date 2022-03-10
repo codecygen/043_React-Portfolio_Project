@@ -8,9 +8,11 @@ import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
 
 import DarkModeContext from './store/color-context';
+
 import './App.css';
 
 function App() {
+
   const darkCtx = useContext(DarkModeContext);
 
   const bodyColor = darkCtx.isDarkMode ? 'body-color-dark' : 'body-color-light';

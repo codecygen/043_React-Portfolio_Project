@@ -5,12 +5,18 @@ import Divider from '../ui/Divider';
 
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
+import useWindowSize from '../../hooks/use-windowSize';
+
 import classes from './Projects.module.css';
 
 import armlines from '../../assets/images/project-images/armlines.png';
 import aras from '../../assets/images/project-images/Me.jpeg';
 
 const Projects = () => {
+    const size = useWindowSize();
+
+    console.log(size.width);
+
     const [expandState, setExpandState] = useState(false);
 
     // Dynamic height change

@@ -13,9 +13,7 @@ import armlines from '../../assets/images/project-images/armlines.png';
 import aras from '../../assets/images/project-images/Me.jpeg';
 
 const Projects = () => {
-    const size = useWindowSize();
-
-    console.log(size.width);
+    const windowSize = useWindowSize();
 
     const [expandState, setExpandState] = useState(false);
 
@@ -139,7 +137,7 @@ const Projects = () => {
     // Dynamic height change
     useEffect(() => {
         getHeight();
-    }, [expandState]);
+    }, [expandState, windowSize.width]);
 
     return (
         <section className={classes.projects} id='projects'>

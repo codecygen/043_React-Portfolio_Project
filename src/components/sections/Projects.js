@@ -8,6 +8,7 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import classes from './Projects.module.css';
 
 import armlines from '../../assets/images/project-images/armlines.png';
+import aras from '../../assets/images/project-images/Me.jpeg';
 
 const Projects = () => {
     const [expandState, setExpandState] = useState(false);
@@ -39,7 +40,7 @@ const Projects = () => {
 
         {
             id: 'a2',
-            img: '../../assets/images/project-images/armlines.png',
+            img: aras,
             text: 'codecygen.com, 2021, Summer',
             liveLink: 'https://codecygen.com/',
             githubLink: 'https://github.com/codecygen/codecygen.com-public'

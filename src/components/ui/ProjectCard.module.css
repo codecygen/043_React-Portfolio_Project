@@ -27,6 +27,8 @@
   height: 40%;
   width: auto;
   margin: auto;
+  border-radius: 100%;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 1200px) {

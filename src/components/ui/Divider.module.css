@@ -19,3 +19,9 @@
     border-radius: 125px/12px;
     box-shadow: 0 0 8px black;
 }
+
+@media (max-width: 1200px) {
+    .h-divider {
+        margin-top: 40px;
+    }
+}

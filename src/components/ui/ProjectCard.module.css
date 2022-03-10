@@ -23,9 +23,24 @@
   margin: 5px 15%;
 }
 
+.project-card img {
+  height: 40%;
+  width: auto;
+  margin: auto;
+}
+
 @media (max-width: 1200px) {
   .project-card {
     width: 200px;
     height: 250px;
+    padding: 5px 10px;
+  }
+
+  .project-card h4 {
+    font-size: 12px;
+  }
+
+  .project-card img {
+    margin-bottom: 10px;
   }
 }

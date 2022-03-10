@@ -9,8 +9,11 @@ import useWindowSize from '../../hooks/use-windowSize';
 
 import classes from './Projects.module.css';
 
-import armlines from '../../assets/images/project-images/armlines.png';
-import aras from '../../assets/images/project-images/Me.jpeg';
+import armlines from '../../assets/images/project-images/armlines.jpg';
+import simon from '../../assets/images/project-images/simon.png';
+import codecygen from '../../assets/images/project-images/codecygen.png';
+import arasmakina from '../../assets/images/project-images/arasmakina.png';
+import dice from '../../assets/images/project-images/dice.png';
 
 const Projects = () => {
     const windowSize = useWindowSize();
@@ -44,7 +47,7 @@ const Projects = () => {
 
         {
             id: 'a2',
-            img: aras,
+            img: codecygen,
             text: 'codecygen.com, 2021, Summer',
             liveLink: 'https://codecygen.com/',
             githubLink: 'https://github.com/codecygen/codecygen.com-public'
@@ -52,7 +55,7 @@ const Projects = () => {
 
         {
             id: 'a3',
-            img: '../../assets/images/project-images/armlines.png',
+            img: armlines,
             text: 'armlines.com, 2021, Winter',
             liveLink: 'https://armlines.com/',
             githubLink: 'https://github.com/codecygen/armlines.com-public'
@@ -60,7 +63,7 @@ const Projects = () => {
 
         {
             id: 'a4',
-            img: '../../assets/images/project-images/armlines.png',
+            img: simon,
             text: 'Simon Game, 2021, Summer',
             liveLink: 'https://simongamejavascript.web.app/',
             githubLink: 'https://github.com/codecygen/056_Simon-Game'
@@ -68,7 +71,7 @@ const Projects = () => {
 
         {
             id: 'a5',
-            img: '../../assets/images/project-images/armlines.png',
+            img: dice,
             text: 'Dice Game, 2021, Summer',
             liveLink: 'https://mydicerollgame.web.app/',
             githubLink: 'https://github.com/codecygen/057_Dice-Game'
@@ -76,7 +79,7 @@ const Projects = () => {
 
         {
             id: 'a6',
-            img: '../../assets/images/project-images/armlines.png',
+            img: arasmakina,
             text: 'arasmakina.com, 2017, Winter',
             liveLink: 'https://arasmakina.com/',
             githubLink: 'https://github.com/codecygen/060_arasmakina.com'

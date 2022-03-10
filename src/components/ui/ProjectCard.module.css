@@ -24,10 +24,10 @@
 }
 
 .project-card img {
-  height: 45%;
+  height: 40%;
   width: auto;
   margin: auto;
-  border-radius: 100%;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 

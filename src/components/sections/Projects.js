@@ -13,9 +13,9 @@ import armlines from '../../assets/images/project-images/armlines.jpg';
 import simon from '../../assets/images/project-images/simon.png';
 import codecygen from '../../assets/images/project-images/codecygen.png';
 import arasmakina from '../../assets/images/project-images/arasmakina.png';
-import dice from '../../assets/images/project-images/dice.jpg';
-import nameList from '../../assets/images/project-images/nameList.png';
-import auth from '../../assets/images/project-images/auth.jpg';
+import dice from '../../assets/images/project-images/dice.png';
+import nameList from '../../assets/images/project-images/namelist.png';
+import auth from '../../assets/images/project-images/auth.png';
 import weather from '../../assets/images/project-images/weather.png';
 
 const Projects = () => {
@@ -42,26 +42,6 @@ const Projects = () => {
     const projectList = [
         {
             id: 'a1',
-            img: nameList,
-            height: '100%',
-            width: 'auto',
-            text: 'Name List App, 2021, Autumn',
-            liveLink: 'https://react-namelist.firebaseapp.com/',
-            githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
-        },
-
-        {
-            id: 'a2',
-            img: codecygen,
-            height: 'auto',
-            width: '100%',
-            text: 'codecygen.com, 2021, Summer',
-            liveLink: 'https://codecygen.com/',
-            githubLink: 'https://github.com/codecygen/codecygen.com-public'
-        },
-
-        {
-            id: 'a3',
             img: armlines,
             height: '100%',
             width: 'auto',
@@ -71,7 +51,7 @@ const Projects = () => {
         },
 
         {
-            id: 'a4',
+            id: 'a2',
             img: simon,
             height: '100%',
             width: 'auto',
@@ -81,7 +61,7 @@ const Projects = () => {
         },
 
         {
-            id: 'a5',
+            id: 'a3',
             img: dice,
             height: '100%',
             width: 'auto',
@@ -91,7 +71,17 @@ const Projects = () => {
         },
 
         {
-            id: 'a6',
+            id: 'a4',
+            img: codecygen,
+            height: 'auto',
+            width: '100%',
+            text: 'codecygen.com, 2021, Summer',
+            liveLink: 'https://codecygen.com/',
+            githubLink: 'https://github.com/codecygen/codecygen.com-public'
+        },
+
+        {
+            id: 'a5',
             img: arasmakina,
             height: 'auto',
             width: '100%',
@@ -101,17 +91,17 @@ const Projects = () => {
         },
 
         {
-            id: 'a7',
-            img: weather,
+            id: 'a6',
+            img: nameList,
             height: '100%',
             width: 'auto',
-            text: 'Weather App, 2021, Summer',
-            liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
-            githubLink: 'https://github.com/codecygen/059_Weather-Project'
+            text: 'Name List App, 2021, Autumn',
+            liveLink: 'https://react-namelist.firebaseapp.com/',
+            githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
         },
 
         {
-            id: 'a8',
+            id: 'a7',
             img: auth,
             height: '100%',
             width: 'auto',
@@ -119,7 +109,15 @@ const Projects = () => {
             githubLink: 'https://github.com/codecygen/032_OAUTH2.0-Social-Media-Login_Level6'
         },
 
-        
+        {
+            id: 'a8',
+            img: weather,
+            height: '100%',
+            width: 'auto',
+            text: 'Weather App, 2021, Summer',
+            liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
+            githubLink: 'https://github.com/codecygen/059_Weather-Project'
+        },
     ];
 
     const projectListLength = projectList.length;
@@ -169,7 +167,7 @@ const Projects = () => {
 
             {/* This parent div is to make the animation happen! */}
             <div
-                style={{ height: `${height}px`, transition: 'height ease 1s' }}
+                style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
             >
                 <div
                     className={classes['project-cards']}

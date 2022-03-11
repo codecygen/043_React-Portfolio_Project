@@ -6,13 +6,17 @@ import Button from '../ui/buttons/Button';
 import DarkModeContext from '../../store/color-context';
 
 const ProjectCard = (props) => {
+    console.log(props.height);
+
     const darkCtx = useContext(DarkModeContext);
 
     const projectCardColor = darkCtx.isDarkMode ? `${classes['project-card']} project-card-color-dark` : `${classes['project-card']} project-card-color-light`;
 
     return (
         <div className={projectCardColor}>
-            <img src={props.img} alt="No Display" />
+            <div className={classes['image-box']}>
+                <img src={props.img} alt="No Display" style={{height: `${props.height}`, width: `${props.width}`}} />
+            </div>
             <h4>{props.text}</h4>
             {props.liveLink && <Button><a href={props.liveLink}>Live</a></Button>}
             <Button><a href={props.githubLink}>Github</a></Button>

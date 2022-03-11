@@ -23,12 +23,11 @@
   margin: 5px 15%;
 }
 
-.project-card img {
+.image-box {
   height: 40%;
   width: auto;
-  margin: auto;
+  margin: 0 auto 25px;
   border-radius: 20px;
-  margin-bottom: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -42,7 +41,7 @@
     font-size: 12px;
   }
 
-  .project-card img {
+  .image-box {
     margin-bottom: 10px;
   }
 }

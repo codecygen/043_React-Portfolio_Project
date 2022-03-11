@@ -40,6 +40,8 @@ const Projects = () => {
         {
             id: 'a1',
             img: armlines,
+            height: '100%',
+            width: 'auto',
             text: 'Name List App, 2021, Autumn',
             liveLink: 'https://react-namelist.firebaseapp.com/',
             githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
@@ -48,6 +50,8 @@ const Projects = () => {
         {
             id: 'a2',
             img: codecygen,
+            height: 'auto',
+            width: '100%',
             text: 'codecygen.com, 2021, Summer',
             liveLink: 'https://codecygen.com/',
             githubLink: 'https://github.com/codecygen/codecygen.com-public'
@@ -56,6 +60,8 @@ const Projects = () => {
         {
             id: 'a3',
             img: armlines,
+            height: '100%',
+            width: 'auto',
             text: 'armlines.com, 2021, Winter',
             liveLink: 'https://armlines.com/',
             githubLink: 'https://github.com/codecygen/armlines.com-public'
@@ -64,6 +70,8 @@ const Projects = () => {
         {
             id: 'a4',
             img: simon,
+            height: '100%',
+            width: 'auto',
             text: 'Simon Game, 2021, Summer',
             liveLink: 'https://simongamejavascript.web.app/',
             githubLink: 'https://github.com/codecygen/056_Simon-Game'
@@ -72,6 +80,8 @@ const Projects = () => {
         {
             id: 'a5',
             img: dice,
+            height: '100%',
+            width: 'auto',
             text: 'Dice Game, 2021, Summer',
             liveLink: 'https://mydicerollgame.web.app/',
             githubLink: 'https://github.com/codecygen/057_Dice-Game'
@@ -80,6 +90,8 @@ const Projects = () => {
         {
             id: 'a6',
             img: arasmakina,
+            height: 'auto',
+            width: '100%',
             text: 'arasmakina.com, 2017, Winter',
             liveLink: 'https://arasmakina.com/',
             githubLink: 'https://github.com/codecygen/060_arasmakina.com'
@@ -119,6 +131,8 @@ const Projects = () => {
         <ProjectCard
             key={element.id} 
             img={element.img} 
+            height={element.height} 
+            width={element.width} 
             text={element.text} 
             liveLink={element.liveLink} 
             githubLink={element.githubLink} 

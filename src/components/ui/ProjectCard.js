@@ -10,10 +10,10 @@ const ProjectCard = (props) => {
 
     const darkCtx = useContext(DarkModeContext);
 
-    const projectCardColor = darkCtx.isDarkMode ? `${classes['project-card']} project-card-color-dark` : `${classes['project-card']} project-card-color-light`;
+    const projectCard = darkCtx.isDarkMode ? `${classes['project-card']} project-card-color-dark` : `${classes['project-card']} project-card-color-light`;
 
     return (
-        <div className={projectCardColor}>
+        <div className={projectCard}>
             <div className={classes['image-box']}>
                 <img src={props.img} alt="No Display" style={{height: `${props.height}`, width: `${props.width}`}} />
             </div>

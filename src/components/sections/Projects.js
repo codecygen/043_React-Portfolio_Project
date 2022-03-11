@@ -13,7 +13,9 @@ import armlines from '../../assets/images/project-images/armlines.jpg';
 import simon from '../../assets/images/project-images/simon.png';
 import codecygen from '../../assets/images/project-images/codecygen.png';
 import arasmakina from '../../assets/images/project-images/arasmakina.png';
-import dice from '../../assets/images/project-images/dice.png';
+import dice from '../../assets/images/project-images/dice.jpg';
+import nameList from '../../assets/images/project-images/nameList.png';
+import auth from '../../assets/images/project-images/auth.jpg';
 
 const Projects = () => {
     const windowSize = useWindowSize();
@@ -39,7 +41,7 @@ const Projects = () => {
     const projectList = [
         {
             id: 'a1',
-            img: armlines,
+            img: nameList,
             height: '100%',
             width: 'auto',
             text: 'Name List App, 2021, Autumn',
@@ -107,7 +109,9 @@ const Projects = () => {
 
         {
             id: 'a8',
-            img: '../../assets/images/project-images/armlines.png',
+            img: auth,
+            height: '100%',
+            width: 'auto',
             text: 'OAUTH2.0  And Standard Login , 2021, Winter',
             githubLink: 'https://github.com/codecygen/032_OAUTH2.0-Social-Media-Login_Level6'
         },

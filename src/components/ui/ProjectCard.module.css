@@ -25,9 +25,15 @@
 
 .image-box {
   height: 40%;
-  width: auto;
   margin: 0 auto 25px;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box img {
+  border-radius: 15px;
 }
 
 @media (max-width: 1200px) {

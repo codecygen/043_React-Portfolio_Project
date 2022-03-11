@@ -2,7 +2,7 @@
   text-align: center;
 
   height: auto;
-  transition: height 2s;
+  transition: height 1s;
 }
 
 .projects h2 {
@@ -15,6 +15,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  transition: opacity 5s;
 }
 
 .expand {

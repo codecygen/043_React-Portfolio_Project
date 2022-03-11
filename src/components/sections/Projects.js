@@ -16,6 +16,7 @@ import arasmakina from '../../assets/images/project-images/arasmakina.png';
 import dice from '../../assets/images/project-images/dice.jpg';
 import nameList from '../../assets/images/project-images/nameList.png';
 import auth from '../../assets/images/project-images/auth.jpg';
+import weather from '../../assets/images/project-images/weather.png';
 
 const Projects = () => {
     const windowSize = useWindowSize();
@@ -101,7 +102,9 @@ const Projects = () => {
 
         {
             id: 'a7',
-            img: '../../assets/images/project-images/armlines.png',
+            img: weather,
+            height: '100%',
+            width: 'auto',
             text: 'Weather App, 2021, Summer',
             liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
             githubLink: 'https://github.com/codecygen/059_Weather-Project'
@@ -166,7 +169,7 @@ const Projects = () => {
 
             {/* This parent div is to make the animation happen! */}
             <div
-                style={{ height: `${height}px`, transition: 'height ease 0.25s' }}
+                style={{ height: `${height}px`, transition: 'height ease 1s' }}
             >
                 <div
                     className={classes['project-cards']}

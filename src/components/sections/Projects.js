@@ -85,7 +85,7 @@ const Projects = () => {
             img: arasmakina,
             height: 'auto',
             width: '100%',
-            text: 'arasmakina.com, 2017, Winter',
+            text: 'arasmakina.com, 2018, Winter',
             liveLink: 'https://arasmakina.com/',
             githubLink: 'https://github.com/codecygen/060_arasmakina.com'
         },

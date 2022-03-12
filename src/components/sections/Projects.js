@@ -17,6 +17,7 @@ import dice from '../../assets/images/project-images/dice.png';
 import nameList from '../../assets/images/project-images/namelist.png';
 import auth from '../../assets/images/project-images/auth.png';
 import weather from '../../assets/images/project-images/weather.png';
+import portfolio from '../../assets/images/project-images/portfolio.png';
 
 const Projects = () => {
     const windowSize = useWindowSize();
@@ -40,6 +41,15 @@ const Projects = () => {
     }
 
     const projectList = [
+        {
+            id: 'a0',
+            img: portfolio,
+            height: '100%',
+            width: 'auto',
+            text: 'Current Portfolio Website , 2022, Spring',
+            githubLink: 'https://github.com/codecygen/043_React-Portfolio_Project'
+        },
+
         {
             id: 'a1',
             img: armlines,

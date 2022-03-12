@@ -111,7 +111,7 @@ const NavBar = props => {
 
     return (
         <div>
-            
+            {mobileScreenMenu}
             
             <nav className={navClass}>
                 <h1>ARAS SEN</h1>
@@ -120,7 +120,7 @@ const NavBar = props => {
                 {hamburgerIcon}
             </nav>
 
-            {mobileScreenMenu}
+            
         </div>
     );
 };

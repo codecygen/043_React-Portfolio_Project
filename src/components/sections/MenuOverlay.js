@@ -1,4 +1,4 @@
-import React, { useContext }  from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import classes from './MenuOverlay.module.css';
 
@@ -17,8 +17,8 @@ const MenuOverlay = props => {
     }
 
     const buttons = props.navButtons.map(eachObject => (
-        <a 
-            href={eachObject.link} 
+        <a
+            href={eachObject.link}
             key={eachObject.key}
             className={classes.links}
             onClick={props.menuItemClickHandler}
@@ -26,16 +26,16 @@ const MenuOverlay = props => {
             {eachObject.name}
         </a>
     ));
-    
+
     const portalElement = document.getElementById("overlays");
 
     return (
         <>
             {ReactDOM.createPortal(
-                <div className={menuClasses}>
-                    {buttons}
-                    <h5 className={menuColor}> Aras Sen ©{props.year}</h5>
-                </div>
+            <div className={menuClasses}>
+                {buttons}
+                <h5 className={menuColor}> Aras Sen ©{props.year}</h5>
+            </div>
             , portalElement)}
         </>
     );

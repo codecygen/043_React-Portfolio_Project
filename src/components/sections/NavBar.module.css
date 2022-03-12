@@ -1,32 +1,32 @@
 .navbar {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    z-index: 30;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 30;
 
-    /* This section controls the box height to be 40px. No matter
-    what padding you change in child elements, the box height will be
-    controlled by height */
-    box-sizing: border-box;
-    height: 4.5rem;
+  /* This section controls the box height to be 40px. No matter
+  what padding you change in child elements, the box height will be
+  controlled by height */
+  box-sizing: border-box;
+  height: 4.5rem;
 
-    /* This will allow us to add widths up to 100% with inline-block of the child elements */
-    white-space: nowrap;
-    position: sticky;
-    top: 0;
+  /* This will allow us to add widths up to 100% with inline-block of the child elements */
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
 }
 
 .navbar a {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .navbar h1 {
-    margin: 0;
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.25rem;
-    letter-spacing: 0.5rem;
-    width: 30%;
+  margin: 0;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.25rem;
+  letter-spacing: 0.5rem;
+  width: 30%;
 }
 
 .second {
@@ -74,11 +74,11 @@
   }
 
 @media (max-width: 600px) {
-    .navbar h1 {
-        font-size: 0.8rem;
-    }
+  .navbar h1 {
+    font-size: 0.8rem;
+  }
 
-    .margin {
-        margin-left: 50px;
-    }
+  .margin {
+    margin-left: 50px;
+  }
 }

@@ -1,11 +1,11 @@
 .box {
-    position:fixed;
+    position: fixed;
     top: 0;
     right: 0;
     height: 0%;
     width: 100%;
     bottom: 0;
-    margin: 4rem 0;
+    margin: 4.5rem 0;
     opacity: 0;
 
     white-space: nowrap;
@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 
-    z-index: 50;
+    z-index: 30;
 }
 
 .box h5 {

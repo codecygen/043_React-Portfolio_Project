@@ -107,11 +107,13 @@ const NavBar = props => {
             menuItemClickHandler={menuClickHandler}
     />
 
-    const navColor = darkCtx.isDarkMode ? `${classes.navbar} navbar-color-dark` : `${classes.navbar} navbar-color-light`;
+    const navClass = darkCtx.isDarkMode ? `${classes.navbar} navbar-color-dark` : `${classes.navbar} navbar-color-light`;
 
     return (
-        <>
-            <nav className={navColor}>
+        <div>
+            
+            
+            <nav className={navClass}>
                 <h1>ARAS SEN</h1>
                 {largeScreenMenu}
                 {darkCtx.isDarkMode ? lightModeIcon : darkModeIcon}
@@ -119,7 +121,7 @@ const NavBar = props => {
             </nav>
 
             {mobileScreenMenu}
-        </>
+        </div>
     );
 };
 

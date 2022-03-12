@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 
-    z-index: 30;
+    z-index: 50;
 }
 
 .box h5 {

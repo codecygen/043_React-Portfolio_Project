@@ -1,9 +1,9 @@
 import classes from './SocialMedia.module.css';
 import SocialButtonCard from './SocialButtonCard';
 
-import { ImGithub } from 'react-icons/im';
-import { ImLinkedin } from 'react-icons/im';
-import { ImTwitter } from 'react-icons/im';
+import { ImGithub, ImLinkedin, ImTwitter } from 'react-icons/im';
+
+import {BsStackOverflow} from "react-icons/bs";
 
 const SocialMedia = () => {
 
@@ -27,7 +27,14 @@ const SocialMedia = () => {
             name: 'Twitter',
             link: 'https://twitter.com/codecygen',
             icon: <ImTwitter className={classes['social-icons']} />
-        }
+        },
+
+        {
+            id: 'a4',
+            name: 'Stack Overflow',
+            link: 'https://stackoverflow.com/users/10824496/codecygen',
+            icon: <BsStackOverflow className={classes['social-icons']} />
+        },
     ];
 
     const socialIcons = socialMediaList.map(element => (

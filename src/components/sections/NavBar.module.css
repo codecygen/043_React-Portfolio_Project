@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  z-index: 30;
+  z-index: 3;
 
   /* This section controls the box height to be 40px. No matter
   what padding you change in child elements, the box height will be
@@ -13,8 +13,10 @@
 
   /* This will allow us to add widths up to 100% with inline-block of the child elements */
   white-space: nowrap;
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
 }
 
 .navbar a {

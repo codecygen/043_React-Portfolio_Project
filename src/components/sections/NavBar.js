@@ -23,7 +23,7 @@ const NavBar = props => {
 
         {
             key: 2,
-            name: 'Tools',
+            name: 'Techs',
             link: '#tools'
         },
 

@@ -39,7 +39,7 @@ const Home = () => {
                         <Button 
                             className={buttonColor}
                         >
-                                <a href="https://docs.google.com/document/d/12zfXCNasTuXyz1FlBpms2NXHUS02N2xP/edit?usp=sharing&ouid=100896222628235252739&rtpof=true&sd=true">
+                                <a href="https://drive.google.com/file/d/1agftHXoKNkQ9ps6nP2VzwN2NQidZUGnV/view?usp=sharing">
                                     Resume
                                 </a>
                         </Button>
@@ -58,7 +58,7 @@ const Home = () => {
 
             <p>
                 Although I started learning programming many years ago
-                (around 2008) I made my first website in 2019.
+                (around 2008) I made my first website in December 2018.
             </p>
 
             <p>

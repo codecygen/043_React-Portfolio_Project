@@ -58,12 +58,12 @@ const Home = () => {
 
             <p>
                 Although I started learning programming many years ago
-                (around 2008) I made my first website in December 2018.
+                (around 2008), I made my first website in December 2018.
             </p>
 
             <p>
-                In February 2021, I started fully focusing on web development
-                and programming. Since then, everyday I wake up completely motivated to
+                In February 2021, I started to fully focus on web development
+                and programming. Since then, I wake up everyday completely motivated to
                 learn something new.
             </p>
 

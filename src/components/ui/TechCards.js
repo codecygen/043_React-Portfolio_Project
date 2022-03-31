@@ -14,6 +14,7 @@ import { SiHeroku } from 'react-icons/si';
 import { SiFirebase } from 'react-icons/si';
 import { BsGearWide } from 'react-icons/bs';
 import { SiNginx } from "react-icons/si";
+import { SiTailwindcss } from 'react-icons/si';
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';
@@ -28,11 +29,13 @@ const techButtons = [
         icon: <FaHtml5 className={classes.html5} />,
         name: 'HTML5'
     },
+
     {
         key: 'a2',
         icon: <IoLogoCss3 className={classes.css3} />,
         name: 'CSS3'
     },
+
     {
         key: 'a3',
         icon: <SiJavascript className={classes.javascript} />,
@@ -49,6 +52,12 @@ const techButtons = [
         key: 'b4',
         icon: <img src={reduxLink} alt="It is redux" className={classes.redux} />,
         name: 'Redux'
+    },
+
+    {
+        key: 'b5',
+        icon: <SiTailwindcss className={classes.tailwind} />,
+        name: 'Tailwind'
     },
 
     {

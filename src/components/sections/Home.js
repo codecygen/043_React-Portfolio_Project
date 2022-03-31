@@ -39,7 +39,7 @@ const Home = () => {
                         <Button 
                             className={buttonColor}
                         >
-                                <a href="https://drive.google.com/file/d/1U83YXf5vlusm8sKT5dKSt7mcjZOkyKc0/view?usp=sharing">
+                                <a href="https://drive.google.com/file/d/1vVnndDiBdmCY4jN7sAM8_au4-qVq1v9P/view?usp=sharing">
                                     Resume
                                 </a>
                         </Button>

@@ -18,6 +18,7 @@ import nameList from '../../assets/images/project-images/namelist.png';
 import auth from '../../assets/images/project-images/auth.png';
 import weather from '../../assets/images/project-images/weather.png';
 import portfolio from '../../assets/images/project-images/portfolio.png';
+import solar from '../../assets/images/project-images/solar.png';
 
 const Projects = () => {
     const windowSize = useWindowSize();
@@ -41,6 +42,16 @@ const Projects = () => {
     }
 
     const projectList = [
+        {
+            id: 'm0',
+            img: solar,
+            height: '100%',
+            width: 'auto',
+            text: 'Solar System, Interview , 2022, Spring',
+            liveLink: 'https://sun-orbit-project.web.app',
+            githubLink: 'https://github.com/codecygen/065-Solar-System-Animation-HMTL-CSS-Javascript'
+        },
+
         {
             id: 'a0',
             img: portfolio,

@@ -48,7 +48,7 @@ const Projects = () => {
             img: ecommerce,
             height: '100%',
             width: 'auto',
-            text: 'Simple E-commerce App , 2022, Spring',
+            text: 'E-commerce, 2022, Spring',
             liveLink: 'https://food-order-app-database-fa642.web.app/',
             githubLink: 'https://github.com/codecygen/064-React-Redux-TailwindCSS'
         },
@@ -58,7 +58,7 @@ const Projects = () => {
             img: solar,
             height: '100%',
             width: 'auto',
-            text: 'Solar System, Interview , 2022, Spring',
+            text: 'Solar System, 2022, Spring',
             liveLink: 'https://sun-orbit-project.web.app',
             githubLink: 'https://github.com/codecygen/065-Solar-System-Animation-HMTL-CSS-Javascript'
         },

@@ -19,6 +19,7 @@ import auth from '../../assets/images/project-images/auth.png';
 import weather from '../../assets/images/project-images/weather.png';
 import portfolio from '../../assets/images/project-images/portfolio.png';
 import solar from '../../assets/images/project-images/solar.png';
+import ecommerce from '../../assets/images/project-images/ecommerce.png';
 
 const Projects = () => {
     const windowSize = useWindowSize();
@@ -44,6 +45,16 @@ const Projects = () => {
     const projectList = [
         {
             id: 'm0',
+            img: ecommerce,
+            height: '100%',
+            width: 'auto',
+            text: 'Simple E-commerce App , 2022, Spring',
+            liveLink: 'https://food-order-app-database-fa642.web.app/',
+            githubLink: 'https://github.com/codecygen/064-React-Redux-TailwindCSS'
+        },
+
+        {
+            id: 'm1',
             img: solar,
             height: '100%',
             width: 'auto',

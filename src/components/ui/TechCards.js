@@ -27,127 +27,127 @@ import classes from './TechCards.module.css';
 
 const techButtons = [
     {
-        key: '1',
+        key: 'a1',
         icon: <FaHtml5 className={classes.html5} />,
         name: 'HTML5'
     },
 
     {
-        key: '2',
+        key: 'a2',
         icon: <IoLogoCss3 className={classes.css3} />,
         name: 'CSS3'
     },
 
     {
-        key: '3',
+        key: 'a3',
         icon: <SiJavascript className={classes.javascript} />,
         name: 'Javascript'
     },
 
     {
-        key: '4',
+        key: 'a4',
         icon: <SiJquery className={classes.jquery} />,
         name: 'jQuery'
     },
 
     {
-        key: '5',
+        key: 'a5',
         icon: <FaReact className={classes.react} />,
         name: 'React'
     },
 
     {
-        key: '6',
+        key: 'a6',
         icon: <img src={reduxLink} alt="It is redux" className={classes.redux} />,
         name: 'Redux'
     },
 
     {
-        key: 'b40',
+        key: 'a7',
         icon: <img src={nextjsLink} alt="It is Next.js" className={classes.nextjs} />,
         name: 'Next.js'
     },
 
     {
-        key: 'a16',
+        key: 'a8',
         icon: <DiSass className={classes.sass} />,
         name: 'SASS'
     },
 
     {
-        key: '7',
+        key: 'a9',
         icon: <SiTailwindcss className={classes.tailwind} />,
         name: 'Tailwind'
     },
 
     {
-        key: '8',
+        key: 'a10',
         icon: <FaBootstrap className={classes.bootstrap} />,
         name: 'Bootstrap'
     },
 
     {
-        key: '9',
+        key: 'a11',
         icon: <FaNode className={classes.nodejs} />,
         name: 'Node.js'
     },
 
     {
-        key: '10',
+        key: 'a12',
         icon: <img src={expressLink} alt="It is express.js" className={classes.expressjs} />,
         name: 'Express.js'
     },
 
     {
-        key: 'b8',
+        key: 'a13',
         icon: <img src={ejsLink} alt="It is ejs" className={classes.ejs} />,
         name: 'EJS'
     },
 
     {
-        key: 'a9',
+        key: 'a14',
         icon: <DiMongodb className={classes.mongodb} />,
         name: 'MongoDB'
     },
 
     {
-        key: 'b9',
+        key: 'a15',
         icon: <BsGearWide className={classes.restapi} />,
         name: 'REST API'
     },
 
     {
-        key: 'a10',
+        key: 'a16',
         icon: <DiGit className={classes.git} />,
         name: 'Git'
     },
 
     {
-        key: 'a11',
+        key: 'a17',
         icon: <ImGithub className={classes.github} />,
         name: 'GitHub'
     },
 
     {
-        key: 'a12',
+        key: 'a18',
         icon: <SiHeroku className={classes.heroku} />,
         name: 'Heroku'
     },
 
     {
-        key: 'a13',
+        key: 'a19',
         icon: <SiFirebase className={classes.firebase} />,
         name: 'Firebase'
     },
 
     {
-        key: 'a14',
+        key: 'a20',
         icon: <img src={linuxLink} alt="It is linux" className={classes.linux} />,
         name: 'Linux'
     },
 
     {
-        key: 'a15',
+        key: 'a21',
         icon: <SiNginx className={classes.nginx} />,
         name: 'Nginx'
     },

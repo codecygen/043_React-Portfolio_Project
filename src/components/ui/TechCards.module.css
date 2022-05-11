@@ -88,6 +88,14 @@
     color: #093;
 }
 
+.sass {
+    color: #d6a;
+}
+
+.nextjs {
+    width: 2.5rem;
+}
+
 @media (max-width: 700px) {
     
     .tech-icons-p {

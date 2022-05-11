@@ -15,71 +15,85 @@ import { SiFirebase } from 'react-icons/si';
 import { BsGearWide } from 'react-icons/bs';
 import { SiNginx } from "react-icons/si";
 import { SiTailwindcss } from 'react-icons/si';
+import { DiSass } from "react-icons/di";
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';
 import ejsLink from '../../assets/tech-icons/ejs.svg';
 import linuxLink from '../../assets/tech-icons/linux.svg';
+import nextjsLink from '../../assets/tech-icons/nextjs.svg';
 
 import classes from './TechCards.module.css';
 
 const techButtons = [
     {
-        key: 'a1',
+        key: '1',
         icon: <FaHtml5 className={classes.html5} />,
         name: 'HTML5'
     },
 
     {
-        key: 'a2',
+        key: '2',
         icon: <IoLogoCss3 className={classes.css3} />,
         name: 'CSS3'
     },
 
     {
-        key: 'a3',
+        key: '3',
         icon: <SiJavascript className={classes.javascript} />,
         name: 'Javascript'
     },
 
     {
-        key: 'a4',
-        icon: <FaReact className={classes.react} />,
-        name: 'React'
-    },
-
-    {
-        key: 'b4',
-        icon: <img src={reduxLink} alt="It is redux" className={classes.redux} />,
-        name: 'Redux'
-    },
-
-    {
-        key: 'b5',
-        icon: <SiTailwindcss className={classes.tailwind} />,
-        name: 'Tailwind'
-    },
-
-    {
-        key: 'a5',
-        icon: <FaBootstrap className={classes.bootstrap} />,
-        name: 'Bootstrap'
-    },
-
-    {
-        key: 'a6',
+        key: '4',
         icon: <SiJquery className={classes.jquery} />,
         name: 'jQuery'
     },
 
     {
-        key: 'a7',
+        key: '5',
+        icon: <FaReact className={classes.react} />,
+        name: 'React'
+    },
+
+    {
+        key: '6',
+        icon: <img src={reduxLink} alt="It is redux" className={classes.redux} />,
+        name: 'Redux'
+    },
+
+    {
+        key: 'b40',
+        icon: <img src={nextjsLink} alt="It is Next.js" className={classes.nextjs} />,
+        name: 'Next.js'
+    },
+
+    {
+        key: 'a16',
+        icon: <DiSass className={classes.sass} />,
+        name: 'SASS'
+    },
+
+    {
+        key: '7',
+        icon: <SiTailwindcss className={classes.tailwind} />,
+        name: 'Tailwind'
+    },
+
+    {
+        key: '8',
+        icon: <FaBootstrap className={classes.bootstrap} />,
+        name: 'Bootstrap'
+    },
+
+    {
+        key: '9',
         icon: <FaNode className={classes.nodejs} />,
         name: 'Node.js'
     },
 
     {
-        key: 'a8',
+        key: '10',
         icon: <img src={expressLink} alt="It is express.js" className={classes.expressjs} />,
         name: 'Express.js'
     },

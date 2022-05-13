@@ -109,4 +109,8 @@
     .ejs {
         width: 1.5rem;
     }
+
+    .vercel {
+        color: black;
+    }
 }

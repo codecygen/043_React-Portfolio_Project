@@ -32,6 +32,9 @@ yarn-error.log*# See https://help.github.com/articles/ignoring-files/ for more a
 
 # production
 /build
+/.firebase
+.firebaserc
+firebase.json
 
 # misc
 .DS_Store

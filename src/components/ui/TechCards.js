@@ -16,6 +16,7 @@ import { BsGearWide } from 'react-icons/bs';
 import { SiNginx } from "react-icons/si";
 import { SiTailwindcss } from 'react-icons/si';
 import { DiSass } from "react-icons/di";
+import { SiVercel } from "react-icons/si";
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';
@@ -142,12 +143,18 @@ const techButtons = [
 
     {
         key: 'a20',
+        icon: <SiVercel className={classes.vercel} />,
+        name: 'Vercel'
+    },
+
+    {
+        key: 'a21',
         icon: <img src={linuxLink} alt="It is linux" className={classes.linux} />,
         name: 'Linux'
     },
 
     {
-        key: 'a21',
+        key: 'a22',
         icon: <SiNginx className={classes.nginx} />,
         name: 'Nginx'
     },

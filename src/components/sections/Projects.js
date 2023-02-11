@@ -15,8 +15,6 @@ import codecygen from '../../assets/images/project-images/codecygen.png';
 import arasmakina from '../../assets/images/project-images/arasmakina.png';
 import dice from '../../assets/images/project-images/dice.png';
 import nameList from '../../assets/images/project-images/namelist.png';
-import auth from '../../assets/images/project-images/auth.png';
-import weather from '../../assets/images/project-images/weather.png';
 import portfolio from '../../assets/images/project-images/portfolio.png';
 import solar from '../../assets/images/project-images/solar.png';
 import ecommerce from '../../assets/images/project-images/ecommerce.png';
@@ -130,25 +128,6 @@ const Projects = () => {
             text: 'Name List App, 2021, Autumn',
             liveLink: 'https://react-namelist.firebaseapp.com/',
             githubLink: 'https://github.com/codecygen/038_React-Project-Name_List'
-        },
-
-        {
-            id: 'a7',
-            img: auth,
-            height: '100%',
-            width: 'auto',
-            text: 'OAUTH2.0  And Standard Login , 2021, Winter',
-            githubLink: 'https://github.com/codecygen/032_OAUTH2.0-Social-Media-Login_Level6'
-        },
-
-        {
-            id: 'a8',
-            img: weather,
-            height: '100%',
-            width: 'auto',
-            text: 'Weather App, 2021, Summer',
-            liveLink: 'https://floating-escarpment-18099.herokuapp.com/',
-            githubLink: 'https://github.com/codecygen/059_Weather-Project'
         },
     ];
 

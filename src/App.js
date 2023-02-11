@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import NavBar from './components/sections/NavBar';
 import Home from './components/sections/Home';
 import Tech from './components/sections/Tech';
+import Websites from './components/sections/Websites'
 import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
@@ -26,6 +27,7 @@ function App() {
       />
       <Home />
       <Tech />
+      <Websites />
       <Projects />
       <Contact />
       <Footer year={currentYear} />

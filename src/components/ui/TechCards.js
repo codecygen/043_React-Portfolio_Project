@@ -17,11 +17,11 @@ import { SiNginx } from "react-icons/si";
 import { SiTailwindcss } from 'react-icons/si';
 import { DiSass } from "react-icons/di";
 import { SiVercel } from "react-icons/si";
+import { FcLinux } from "react-icons/fc";
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';
 import ejsLink from '../../assets/tech-icons/ejs.svg';
-import linuxLink from '../../assets/tech-icons/linux.svg';
 import nextjsLink from '../../assets/tech-icons/nextjs.svg';
 
 import classes from './TechCards.module.css';
@@ -149,7 +149,7 @@ const techButtons = [
 
     {
         key: 'a21',
-        icon: <img src={linuxLink} alt="It is linux" className={classes.linux} />,
+        icon: <FcLinux className={classes.linux} />,
         name: 'Linux'
     },
 

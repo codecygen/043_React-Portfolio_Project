@@ -7,11 +7,12 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 
 import useWindowSize from '../../hooks/use-windowSize';
 
-import classes from './Websites.module.css';
-
 import blogImg from '../../assets/images/project-images/blogImg.png';
 import armlinesImg from '../../assets/images/project-images/armlinesImg.png';
+import codecygenImg from '../../assets/images/project-images/codecygenImg.png';
 import arasmakinaImg from '../../assets/images/project-images/arasmakinaImg.png';
+
+import classes from './Websites.module.css';
 
 const Websites = () => {
     const windowSize = useWindowSize();
@@ -56,6 +57,16 @@ const Websites = () => {
 
         {
             id: 's2',
+            img: codecygenImg,
+            height: '100%',
+            width: 'auto',
+            text: 'Web Designer, 2021, Summer',
+            liveLink: 'https://codecygen.com/',
+            githubLink: 'https://github.com/codecygen/codecygen.com-public'
+        },
+
+        {
+            id: 's3',
             img: arasmakinaImg,
             height: '100%',
             width: 'auto',
@@ -63,6 +74,8 @@ const Websites = () => {
             liveLink: 'https://arasmakina.com/',
             githubLink: 'https://github.com/codecygen/060_arasmakina.com'
         },
+
+        
     ];
 
     const projectListLength = projectList.length;
@@ -108,7 +121,7 @@ const Websites = () => {
 
     return (
         <section className={classes.projects} id='projects'>
-            <h2>Websites Built</h2>
+            <h2>{projectList.length} Websites Built</h2>
 
             {/* This parent div is to make the animation happen! */}
             <div

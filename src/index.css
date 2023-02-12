@@ -224,6 +224,13 @@ p {
   transition: color 0.5s;
 }
 
+.blog-button > * {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}
+
 .blog-button:hover > .pen-icon {
   color: #1196c6;
 }

@@ -45,9 +45,13 @@ const Home = () => {
             </Button>
 
             <Button className={buttonColor} padding="true" margin="true">
-              <a href="https://vercel-083-next-js-blog-website.vercel.app/" className="blog-button">
-                <ImPen className="pen-icon" />
-                Blog
+              <a
+                href="https://vercel-083-next-js-blog-website.vercel.app/"
+                className="blog-button"
+              >
+                <ImPen className="pen-icon" size={25} />
+
+                <span>Blog</span>
               </a>
             </Button>
             <SocialMedia />

@@ -10,7 +10,6 @@ const Button = (props) => {
     ? `${classes.card} button-color-dark`
     : `${classes.card} button-color-light`;
 
-  // if (props.padding) {
   return (
     <button
       className={buttonClasses}

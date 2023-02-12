@@ -18,7 +18,7 @@ const ProjectCard = (props) => {
             </div>
             <h4>{props.text}</h4>
             {props.liveLink && <Button><a href={props.liveLink}>Live</a></Button>}
-            <Button><a href={props.githubLink}>Github</a></Button>
+            {props.githubLink && <Button><a href={props.githubLink}>Github</a></Button>}
         </div>
     );
 };

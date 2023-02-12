@@ -11,6 +11,7 @@ import classes from './Websites.module.css';
 
 import blogImg from '../../assets/images/project-images/blogImg.png';
 import armlinesImg from '../../assets/images/project-images/armlinesImg.png';
+import arasmakinaImg from '../../assets/images/project-images/arasmakinaImg.png';
 
 const Websites = () => {
     const windowSize = useWindowSize();
@@ -51,6 +52,16 @@ const Websites = () => {
             text: 'Furniture Store, 2021, Winter',
             liveLink: 'https://armlines.com/',
             githubLink: 'https://github.com/codecygen/armlines.com-public'
+        },
+
+        {
+            id: 's2',
+            img: arasmakinaImg,
+            height: '100%',
+            width: 'auto',
+            text: 'Manufacturer, 2018, Winter',
+            liveLink: 'https://arasmakina.com/',
+            githubLink: 'https://github.com/codecygen/060_arasmakina.com'
         },
     ];
 

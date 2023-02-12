@@ -11,11 +11,8 @@ import useWindowSize from "../../hooks/use-windowSize";
 
 import classes from "./Projects.module.css";
 
-import armlines from "../../assets/images/project-images/armlines.jpg";
 import simon from "../../assets/images/project-images/simon.png";
 import dice from "../../assets/images/project-images/dice.png";
-import nameList from "../../assets/images/project-images/namelist.png";
-import portfolio from "../../assets/images/project-images/portfolio.png";
 import solar from "../../assets/images/project-images/solar.png";
 import ecommerce from "../../assets/images/project-images/ecommerce.png";
 
@@ -43,7 +40,7 @@ const Projects = () => {
   let projectList = [
     {
       img: ecommerce,
-      text: "E-commerce, 2022, Spring",
+      text: "E-commerce Cart, 2022, Spring",
       liveLink: "https://food-order-app-database-fa642.web.app/",
       githubLink: "https://github.com/codecygen/064-React-Redux-TailwindCSS",
     },
@@ -57,23 +54,7 @@ const Projects = () => {
     },
 
     {
-      img: portfolio,
-      text: "Current Portfolio Website , 2022, Spring",
-      githubLink: "https://github.com/codecygen/043_React-Portfolio_Project",
-    },
-
-    {
-      img: armlines,
-      text: "armlines.com, 2021, Winter",
-      liveLink: "https://armlines.com/",
-      githubLink: "https://github.com/codecygen/armlines.com-public",
-    },
-
-    {
-      id: "a2",
       img: simon,
-      height: "100%",
-      width: "auto",
       text: "Simon Game, 2021, Summer",
       liveLink: "https://simongamejavascript.web.app/",
       githubLink: "https://github.com/codecygen/056_Simon-Game",
@@ -84,13 +65,6 @@ const Projects = () => {
       text: "Dice Game, 2021, Summer",
       liveLink: "https://mydicerollgame.web.app/",
       githubLink: "https://github.com/codecygen/057_Dice-Game",
-    },
-
-    {
-      img: nameList,
-      text: "Name List App, 2021, Autumn",
-      liveLink: "https://react-namelist.firebaseapp.com/",
-      githubLink: "https://github.com/codecygen/038_React-Project-Name_List",
     },
   ];
 

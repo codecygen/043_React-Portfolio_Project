@@ -29,12 +29,24 @@ const NavBar = props => {
 
         {
             key: 3,
+            name: 'Blog',
+            link: 'https://vercel-083-next-js-blog-website.vercel.app/'
+        },
+
+        {
+            key: 4,
+            name: 'Websites',
+            link: '#websites'
+        },
+
+        {
+            key: 5,
             name: 'Projects',
             link: '#projects'
         },
 
         {
-            key: 4,
+            key: 6,
             name: 'Contact',
             link: '#contact'
         },

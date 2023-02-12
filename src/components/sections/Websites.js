@@ -121,7 +121,7 @@ const Websites = () => {
   }, [expandState, windowSize.width]);
 
   return (
-    <section className={classes.projects} id="projects">
+    <section className={classes.projects} id="websites">
       <h2>{projectListLength} Websites Built</h2>
 
       {/* This parent div is to make the animation happen! */}

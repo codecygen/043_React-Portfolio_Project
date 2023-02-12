@@ -10,11 +10,18 @@ const Button = (props) => {
     ? `${classes.card} button-color-dark`
     : `${classes.card} button-color-light`;
 
-  if (props.padding) {
-    return <button className={buttonClasses} style={{padding: '10px'}}>{props.children}</button>;
-  }
-
-  return <button className={buttonClasses}>{props.children}</button>;
+  // if (props.padding) {
+  return (
+    <button
+      className={buttonClasses}
+      style={{
+        padding: props.padding && "10px",
+        margin: props.margin && "10px",
+      }}
+    >
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;

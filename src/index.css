@@ -224,7 +224,7 @@ p {
   transition: color 0.5s;
 }
 
-.pen-icon:hover {
+.blog-button:hover > .pen-icon {
   color: #1196c6;
 }
 

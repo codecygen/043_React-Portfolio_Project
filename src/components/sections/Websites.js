@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import ProjectCard from '../ui/ProjectCard';
 import Divider from '../ui/Divider';
 
@@ -19,6 +21,8 @@ const Websites = () => {
     const windowSize = useWindowSize();
 
     const [expandState, setExpandState] = useState(false);
+    console.log(uuidv4());
+    uuidv4();
 
     // Dynamic height change
     const heightRef = useRef();

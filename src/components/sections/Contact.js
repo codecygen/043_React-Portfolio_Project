@@ -66,7 +66,7 @@ const Contact = () => {
             const isPostedBefore = await emailFetchHandler(data.ip);
 
             if (isPostedBefore) {
-                console.log('You already posted a message!');
+                console.error('You already posted a message!');
                 return;
             }
 
@@ -78,7 +78,6 @@ const Contact = () => {
             }
 
             await emailSendHandler(email);
-            console.log('Message Submitted!');
         }
 
         submitDatabase();
@@ -114,7 +113,7 @@ const Contact = () => {
 
             return databaseIPs.includes(clientIP);
         } catch (error) {
-            console.log(error.message);
+            console.error(error.message);
         }
     }
 

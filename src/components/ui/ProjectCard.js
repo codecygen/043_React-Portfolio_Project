@@ -6,7 +6,6 @@ import Button from '../ui/buttons/Button';
 import DarkModeContext from '../../store/color-context';
 
 const ProjectCard = (props) => {
-    console.log(props.height);
 
     const darkCtx = useContext(DarkModeContext);
 

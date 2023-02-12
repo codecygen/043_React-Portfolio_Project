@@ -219,6 +219,15 @@ p {
   color: #c62c11;
 }
 
+.pen-icon {
+  font-size: 2rem;
+  transition: color 0.5s;
+}
+
+.pen-icon:hover {
+  color: #1196c6;
+}
+
 @media (max-width: 1300px) {
   .sun-icon {
     font-size: 2rem;

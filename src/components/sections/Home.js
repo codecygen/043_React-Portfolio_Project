@@ -38,6 +38,7 @@ const Home = () => {
                     <div className={classes['link-container']}>
                         <Button 
                             className={buttonColor}
+                            padding='true'
                         >
                                 <a href="https://drive.google.com/file/d/1vVnndDiBdmCY4jN7sAM8_au4-qVq1v9P/view?usp=sharing">
                                     Resume

@@ -8,6 +8,7 @@ import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import useWindowSize from '../../hooks/use-windowSize';
 
 import blogImg from '../../assets/images/project-images/blogImg.png';
+import portfolioImg from '../../assets/images/project-images/portfolioImg.png';
 import armlinesImg from '../../assets/images/project-images/armlinesImg.png';
 import codecygenImg from '../../assets/images/project-images/codecygenImg.png';
 import arasmakinaImg from '../../assets/images/project-images/arasmakinaImg.png';
@@ -47,6 +48,15 @@ const Websites = () => {
 
         {
             id: 's1',
+            img: portfolioImg,
+            height: '100%',
+            width: 'auto',
+            text: 'My Portfolio , 2022, Spring',
+            githubLink: 'https://github.com/codecygen/043_React-Portfolio_Project'
+        },
+
+        {
+            id: 's2',
             img: armlinesImg,
             height: '100%',
             width: 'auto',
@@ -56,7 +66,7 @@ const Websites = () => {
         },
 
         {
-            id: 's2',
+            id: 's3',
             img: codecygenImg,
             height: '100%',
             width: 'auto',
@@ -66,7 +76,7 @@ const Websites = () => {
         },
 
         {
-            id: 's3',
+            id: 's4',
             img: arasmakinaImg,
             height: '100%',
             width: 'auto',

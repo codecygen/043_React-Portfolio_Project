@@ -117,7 +117,7 @@ const Projects = () => {
 
   return (
     <section className={classes.projects} id="projects">
-      <h2>Projects</h2>
+      <h2>{projectListLength} Sample Projects</h2>
 
       {/* This parent div is to make the animation happen! */}
       <div style={{ height: `${height}px`, transition: "height ease 0.25s" }}>

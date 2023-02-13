@@ -11,10 +11,11 @@ import useWindowSize from "../../hooks/use-windowSize";
 
 import classes from "./Projects.module.css";
 
-import simon from "../../assets/images/project-images/simon.png";
-import dice from "../../assets/images/project-images/dice.png";
-import solar from "../../assets/images/project-images/solar.png";
-import ecommerce from "../../assets/images/project-images/ecommerce.png";
+import acronymImg from "../../assets/images/project-images/acronymImg.png";
+import simonImg from "../../assets/images/project-images/simonImg.png";
+import diceImg from "../../assets/images/project-images/diceImg.png";
+import solarImg from "../../assets/images/project-images/solarImg.png";
+import ecommerceImg from "../../assets/images/project-images/ecommerceImg.png";
 
 const Projects = () => {
   const windowSize = useWindowSize();
@@ -39,14 +40,20 @@ const Projects = () => {
 
   let projectList = [
     {
-      img: ecommerce,
+      img: acronymImg,
+      text: "Acronyms REST API, 2022, Summer",
+      githubLink: "https://github.com/codecygen/074-REST-API-Acronym",
+    },
+
+    {
+      img: ecommerceImg,
       text: "E-commerce Cart, 2022, Spring",
       liveLink: "https://food-order-app-database-fa642.web.app/",
       githubLink: "https://github.com/codecygen/064-React-Redux-TailwindCSS",
     },
 
     {
-      img: solar,
+      img: solarImg,
       text: "Solar System, 2022, Spring",
       liveLink: "https://sun-orbit-project.web.app",
       githubLink:
@@ -54,14 +61,14 @@ const Projects = () => {
     },
 
     {
-      img: simon,
+      img: simonImg,
       text: "Simon Game, 2021, Summer",
       liveLink: "https://simongamejavascript.web.app/",
       githubLink: "https://github.com/codecygen/056_Simon-Game",
     },
 
     {
-      img: dice,
+      img: diceImg,
       text: "Dice Game, 2021, Summer",
       liveLink: "https://mydicerollgame.web.app/",
       githubLink: "https://github.com/codecygen/057_Dice-Game",

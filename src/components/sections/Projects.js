@@ -11,6 +11,7 @@ import useWindowSize from "../../hooks/use-windowSize";
 
 import classes from "./Projects.module.css";
 
+import repoImg from "../../assets/images/project-images/repoImg.png";
 import acronymImg from "../../assets/images/project-images/acronymImg.png";
 import simonImg from "../../assets/images/project-images/simonImg.png";
 import diceImg from "../../assets/images/project-images/diceImg.png";
@@ -39,6 +40,12 @@ const Projects = () => {
   };
 
   let projectList = [
+    {
+      img: repoImg,
+      text: "Repo List Full Stack, 2022, Fall",
+      githubLink: "https://github.com/codecygen/090-React-Show-Repo-Assignment",
+    },
+
     {
       img: acronymImg,
       text: "Acronyms REST API, 2022, Summer",

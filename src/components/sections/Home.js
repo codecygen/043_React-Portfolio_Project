@@ -49,9 +49,10 @@ const Home = () => {
                 href="https://vercel-083-next-js-blog-website.vercel.app/"
                 className="blog-button"
               >
-                <ImPen className="pen-icon" size={25} />
-
-                <span>Blog</span>
+                <div>
+                  <ImPen className="pen-icon" size={30} />
+                </div>
+                <div>Blog</div>
               </a>
             </Button>
             <SocialMedia />

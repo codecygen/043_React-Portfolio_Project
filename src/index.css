@@ -224,15 +224,24 @@ p {
   transition: color 0.5s;
 }
 
-.blog-button > * {
-  width: 150px;
-  display: flex;
-  flex-direction: row;
-  vertical-align: middle;
+.blog-button {
+  box-sizing: border-box;
+  width: 119.375px;
+  height: 38px;
+
+  display: flex !important;
+  flex-direction: row;;
 }
 
-.blog-button:hover > .pen-icon {
-  color: #1196c6;
+.blog-button * {
+  transition: color, 0.5s;
+  color: #3C3636;
+  font-size: 24px;
+  height: 28px;
+}
+
+.blog-button:hover * {
+  color: #255060;
 }
 
 @media (max-width: 1300px) {
@@ -243,6 +252,17 @@ p {
 
 
 /* /////////////////////////////////////////////////////////////////// */
+@media (max-width: 1200px) {
+  .blog-button {
+    width: 104.484px;
+    height: 33px;
+  }
+
+  .blog-button * {
+    font-size: 22px;
+    height: 25px;
+  }
+}
 
 @media (max-width: 800px) {
   nav, header, section {

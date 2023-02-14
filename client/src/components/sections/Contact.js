@@ -7,7 +7,6 @@ const Contact = () => {
   const [isEmailSent, setIsEmailSent] = useState();
 
   const submitEmail = async (emailData) => {
-    console.log(emailData);
 
     const emailSendRes = await sendEmailData(emailData);
 
@@ -25,7 +24,9 @@ const Contact = () => {
 
   return (
     <>
-      {isEmailSent ? <p>Sent</p> : <ContactCard submitMessage={submitEmail} />}
+      {isEmailSent === true && <p>Sent</p>}
+      {isEmailSent=== false && <p>Error!</p>}
+      {isEmailSent === undefined && <ContactCard submitMessage={submitEmail} />}
     </>
   );
 };

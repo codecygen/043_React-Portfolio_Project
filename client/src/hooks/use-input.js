@@ -27,10 +27,10 @@ const useInput = inputType => {
         setIsTouched(true);
     };
 
-    const reset = () => {
-        setEnteredValue('');
-        setIsTouched(false);
-    }
+    // const reset = () => {
+    //     setEnteredValue('');
+    //     setIsTouched(false);
+    // }
 
     return {
         value: enteredValue,
@@ -39,7 +39,7 @@ const useInput = inputType => {
         isValueValid,
         inputClasses,
         errorMessage,
-        reset
+        // reset
     };
 };
 

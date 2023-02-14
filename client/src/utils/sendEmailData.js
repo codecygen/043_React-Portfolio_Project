@@ -1,9 +1,9 @@
-const sendEmailData = async () => {
+const sendEmailData = async (emailData) => {
   try {
-    const res = await fetch("/test", {
+    const res = await fetch("/email", {
       method: "POST",
       body: JSON.stringify({
-        aras: "hi",
+        emailData,
       }),
       headers: {
         "Content-Type": "application/json",

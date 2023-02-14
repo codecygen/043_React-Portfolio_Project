@@ -1,11 +1,10 @@
 import { useEffect } from "react";
+import checkIP from "../utils/checkIP";
 
 const useVisitor = () => {
   useEffect(() => {
     const postData = async () => {
-      const ipRes = await fetch("https://www.myexternalip.com/json");
-      const ipData = await ipRes.json();
-      const ip = ipData.ip;
+      const ip = await checkIP();
 
       try {
         const res = await fetch("/visitor", {

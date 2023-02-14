@@ -1,4 +1,6 @@
 const sendEmailData = async (emailData) => {
+  let data;
+
   try {
     const res = await fetch("/email", {
       method: "POST",
@@ -15,11 +17,12 @@ const sendEmailData = async (emailData) => {
       console.error("Something went awry!");
     }
 
-    const data = await res.json();
-    console.log(data);
+    data = await res.json();
   } catch (e) {
     console.error(e);
   }
+
+  return data;
 };
 
 export default sendEmailData;

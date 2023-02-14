@@ -64,11 +64,21 @@ const Contact = () => {
       Message: enteredMessage,
     };
 
-    await sendEmailData(emailData);
+    const emailSendRes = await sendEmailData(emailData);
 
-    resetName();
-    resetSubject();
-    resetMessage();
+    if (emailSendRes.message === "Successfully sent email data!") {
+      console.log("Something right!");
+      resetName();
+      resetSubject();
+      resetMessage();
+      return;
+    } else {
+      console.log("Something wrong!");
+
+      resetName();
+      resetSubject();
+      resetMessage();
+    }
   };
 
   const contactColor = darkCtx.isDarkMode

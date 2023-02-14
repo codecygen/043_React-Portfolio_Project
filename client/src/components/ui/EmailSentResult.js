@@ -10,11 +10,13 @@ const EmailSentSuccess = (props) => {
   const contactColor = darkCtx.isDarkMode
     ? "contact-color-dark"
     : "contact-color-light";
-  
+
   return (
     <section className={classes["form-card"]} id="contact">
       <div className={contactColor}>
-        <p className={classes2.warning}>{props.isSent ? 'success!' : 'fail!'}</p>
+        <h3 className={classes2.warning}>
+          {props.isSent ? "I received your email!" : "Failed to send email!"}
+        </h3>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import classes from '../components/sections/Contact.module.css';
+import classes from '../components/ui/ContactCard.module.css';
 
 import DarkModeContext from '../store/color-context';
 
@@ -27,11 +27,6 @@ const useInput = inputType => {
         setIsTouched(true);
     };
 
-    // const reset = () => {
-    //     setEnteredValue('');
-    //     setIsTouched(false);
-    // }
-
     return {
         value: enteredValue,
         valueChangeHandler,
@@ -39,7 +34,6 @@ const useInput = inputType => {
         isValueValid,
         inputClasses,
         errorMessage,
-        // reset
     };
 };
 

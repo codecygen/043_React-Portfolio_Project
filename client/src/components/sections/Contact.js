@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useInput from "../../hooks/use-input";
 import checkIP from "../../utils/checkIP";
 import sendEmailData from "../../utils/sendEmailData.js";
@@ -9,6 +9,7 @@ import classes from "./Contact.module.css";
 import DarkModeContext from "../../store/color-context";
 
 const Contact = () => {
+  const [isEmailSent, setIsEmailSent] = useState();
   const darkCtx = useContext(DarkModeContext);
 
   const {
@@ -66,14 +67,23 @@ const Contact = () => {
 
     const emailSendRes = await sendEmailData(emailData);
 
+    if (!emailSendRes) {
+      setIsEmailSent(false);
+
+      resetName();
+      resetSubject();
+      resetMessage();
+    }
+
     if (emailSendRes.message === "Successfully sent email data!") {
-      console.log("Something right!");
+      setIsEmailSent(true);
+
       resetName();
       resetSubject();
       resetMessage();
       return;
     } else {
-      console.log("Something wrong!");
+      setIsEmailSent(false);
 
       resetName();
       resetSubject();
@@ -81,61 +91,74 @@ const Contact = () => {
     }
   };
 
-  const contactColor = darkCtx.isDarkMode
+  
+
+  const formCard = () => {
+
+    const contactColor = darkCtx.isDarkMode
     ? "contact-color-dark"
     : "contact-color-light";
+    
+    return (
+      <section className={classes["form-card"]} id="contact">
+        <div className={contactColor}>
+          <form onSubmit={formSubmitHandler}>
+            <h3>Contact Form</h3>
+            <div className={classes["input-div"]}>
+              <label htmlFor="name">Your Name</label>
+              <input
+                className={nameInputClasses}
+                type="text"
+                id="name"
+                placeholder="Name..."
+                onChange={nameChangeHandler}
+                value={enteredName}
+                onBlur={nameOnBlurHandler}
+              />
+              {nameErrorMessage}
+            </div>
+
+            <div className={classes["input-div"]}>
+              <label htmlFor="subject">Your Subject</label>
+              <input
+                className={subjectInputClasses}
+                type="text"
+                id="subject"
+                placeholder="Subject..."
+                onChange={subjectChangeHandler}
+                value={enteredSubject}
+                onBlur={subjectOnBlurHandler}
+              />
+              {subjectErrorMessage}
+            </div>
+
+            <div className={classes["input-div"]}>
+              <label htmlFor="message">Your Message</label>
+              <textarea
+                className={messageInputClasses}
+                type="text"
+                id="message"
+                placeholder="Message..."
+                onChange={messageChangeHandler}
+                value={enteredMessage}
+                onBlur={messageOnBlurHandler}
+              />
+              {messageErrorMessage}
+            </div>
+
+            <Button padding="true">Shoot!</Button>
+          </form>
+        </div>
+      </section>
+    );
+  };
+
+  console.log(isEmailSent);
 
   return (
-    <section className={classes["form-card"]} id="contact">
-      <div className={contactColor}>
-        <form onSubmit={formSubmitHandler}>
-          <h3>Contact Form</h3>
-          <div className={classes["input-div"]}>
-            <label htmlFor="name">Your Name</label>
-            <input
-              className={nameInputClasses}
-              type="text"
-              id="name"
-              placeholder="Name..."
-              onChange={nameChangeHandler}
-              value={enteredName}
-              onBlur={nameOnBlurHandler}
-            />
-            {nameErrorMessage}
-          </div>
-
-          <div className={classes["input-div"]}>
-            <label htmlFor="subject">Your Subject</label>
-            <input
-              className={subjectInputClasses}
-              type="text"
-              id="subject"
-              placeholder="Subject..."
-              onChange={subjectChangeHandler}
-              value={enteredSubject}
-              onBlur={subjectOnBlurHandler}
-            />
-            {subjectErrorMessage}
-          </div>
-
-          <div className={classes["input-div"]}>
-            <label htmlFor="message">Your Message</label>
-            <textarea
-              className={messageInputClasses}
-              type="text"
-              id="message"
-              placeholder="Message..."
-              onChange={messageChangeHandler}
-              value={enteredMessage}
-              onBlur={messageOnBlurHandler}
-            />
-            {messageErrorMessage}
-          </div>
-
-          <Button padding="true">Shoot!</Button>
-        </form>
-      </div>
-    </section>
+    <>
+      {isEmailSent ? <p>Thanks</p> : formCard()}
+    </>
   );
 };
 

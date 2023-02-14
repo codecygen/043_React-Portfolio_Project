@@ -1,13 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-// router.get('/test', (req, res) => {
-//     res.json({
-//         color: "red",
-// 		value: "#f00"
-//     });
-// });
-
 router.post("/test", (req, res) => {
   
   postedData = req.body;

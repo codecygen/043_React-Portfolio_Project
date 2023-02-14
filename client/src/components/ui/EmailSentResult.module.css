@@ -1,3 +1,4 @@
 .warning {
     text-align: center;
+    transition: height 1s ease, line-height 1s ease;
 }

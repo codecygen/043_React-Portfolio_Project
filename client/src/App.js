@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import useFetch from './hooks/use-fetch';
+
 import NavBar from './components/sections/NavBar';
 import Home from './components/sections/Home';
 import Tech from './components/sections/Tech';
@@ -13,6 +15,7 @@ import DarkModeContext from './store/color-context';
 import './App.css';
 
 function App() {
+  const backendData = useFetch();
 
   const darkCtx = useContext(DarkModeContext);
 

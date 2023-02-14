@@ -7,8 +7,11 @@ import sendEmailData from "../../utils/sendEmailData";
 
 const Contact = () => {
   const [isEmailSent, setIsEmailSent] = useState();
+  const [initialHeight, setInitialHeight] = useState();
 
-  const submitEmail = async (emailData) => {
+  const submitEmail = async (emailData, contactFormHeight) => {
+    setInitialHeight(contactFormHeight);
+
     const emailSendRes = await sendEmailData(emailData);
 
     if (!emailSendRes) {
@@ -30,7 +33,7 @@ const Contact = () => {
       ) : (
         // even if it is true or false it sends result 
         // based on the result it will show error or success message
-        <EmailSentResult isSent={isEmailSent} />
+        <EmailSentResult isSent={isEmailSent} elementHeight={initialHeight} />
       )}
     </>
   );

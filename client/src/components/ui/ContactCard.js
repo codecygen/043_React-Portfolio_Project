@@ -6,9 +6,11 @@ import Button from "../ui/buttons/Button";
 import classes from "./ContactCard.module.css";
 
 import DarkModeContext from "../../store/color-context";
+import useAssessHeight from "../../hooks/use-assessHeight";
 
 const ContactCard = (props) => {
   const darkCtx = useContext(DarkModeContext);
+  const contactFormHeight = useAssessHeight("contact");
 
   const {
     value: enteredName,
@@ -60,7 +62,7 @@ const ContactCard = (props) => {
       Message: enteredMessage,
     };
 
-    props.submitMessage(emailData);
+    props.submitMessage(emailData, contactFormHeight);
   };
 
   const contactColor = darkCtx.isDarkMode

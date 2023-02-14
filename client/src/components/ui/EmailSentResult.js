@@ -5,6 +5,7 @@ import classes from "./ContactCard.module.css";
 import classes2 from "./EmailSentResult.module.css";
 
 const EmailSentSuccess = (props) => {
+  console.log(props.elementHeight);
   const darkCtx = useContext(DarkModeContext);
 
   const contactColor = darkCtx.isDarkMode

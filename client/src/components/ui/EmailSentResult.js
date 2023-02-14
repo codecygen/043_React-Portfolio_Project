@@ -1,12 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import DarkModeContext from "../../store/color-context";
-import useAssessHeight from "../../hooks/use-assessHeight";
 
 import classes from "./ContactCard.module.css";
 import classes2 from "./EmailSentResult.module.css";
 
 const EmailSentSuccess = (props) => {
-  const finalHeight = useAssessHeight("warning-message");
   const darkCtx = useContext(DarkModeContext);
 
   const [currentHeight, setCurrentHeight] = useState();
@@ -17,7 +15,7 @@ const EmailSentSuccess = (props) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentHeight(finalHeight);
+      setCurrentHeight("120px");
     }, 20);
 
     setCurrentHeight(props.elementHeight);
@@ -25,7 +23,7 @@ const EmailSentSuccess = (props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [props.elementHeight, finalHeight]);
+  }, [props.elementHeight]);
 
   return (
     <section className={classes["form-card"]} id="warning-message">

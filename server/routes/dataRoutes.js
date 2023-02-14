@@ -1,4 +1,5 @@
 const express = require("express");
+const sendMail = require("../utils/sendMail");
 const router = express.Router();
 
 router.post("/visitor", (req, res) => {
@@ -13,7 +14,7 @@ router.post("/visitor", (req, res) => {
   res.status(201).json({ message: "Successfully sent visitor data!" });
 });
 
-router.post("/email", (req, res) => {
+router.post("/email", async (req, res) => {
   postedEmailData = req.body;
 
   console.log(postedEmailData);
@@ -22,6 +23,7 @@ router.post("/email", (req, res) => {
     res.status(422).json({ message: "Could not receive email data!" });
   }
 
+  await sendMail(postedEmailData);
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 

@@ -16,6 +16,7 @@ import './App.css';
 
 function App() {
   const backendData = useFetch();
+  console.log(backendData);
 
   const darkCtx = useContext(DarkModeContext);
 

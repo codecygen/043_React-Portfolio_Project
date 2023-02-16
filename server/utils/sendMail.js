@@ -21,7 +21,7 @@ const sendMail = async (emailData) => {
     const mailOptions = {
         from: process.env.EMAIL,
         to: process.env.TOEMAIL,
-        subject: `Test`,
+        subject: `Email from ${process.env.PORTFOLIO_WEBSITE}`,
         html: `
             <p>IP Address: ${IP}</p>
             <p>Name: ${Name}</p>

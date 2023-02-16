@@ -13,13 +13,13 @@ router.post("/visitor", (req, res) => {
 });
 
 router.post("/email", async (req, res) => {
-  postedEmailData = req.body;
+  postedData = req.body;
 
-  if (!postedEmailData) {
+  if (!postedData) {
     res.status(422).json({ message: "Could not receive email data!" });
   }
 
-  await sendMail(postedEmailData.emailData);
+  await sendMail(postedData.emailData);
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 

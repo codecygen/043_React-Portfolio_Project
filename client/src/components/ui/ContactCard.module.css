@@ -64,3 +64,9 @@
 .error-text-light {
     color: rgb(160, 35, 35);
 }
+
+.button-spinner {
+    display: flex;
+    flex-direction: row;
+    align-items:end;
+}

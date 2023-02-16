@@ -3,6 +3,7 @@ import useInput from "../../hooks/use-input";
 import checkIP from "../../utils/checkIP";
 
 import Button from "../ui/buttons/Button";
+import Spinner from "./Spinner";
 import classes from "./ContactCard.module.css";
 
 import DarkModeContext from "../../store/color-context";
@@ -115,8 +116,10 @@ const ContactCard = (props) => {
             />
             {messageErrorMessage}
           </div>
-
-          <Button padding="true">Shoot!</Button>
+          <div className={classes['button-spinner']}>
+            <Button padding="true">Shoot!</Button>
+            <Spinner />
+          </div>
         </form>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useInput from "../../hooks/use-input";
 import checkIP from "../../utils/checkIP";
 
@@ -10,6 +10,7 @@ import DarkModeContext from "../../store/color-context";
 import useAssessHeight from "../../hooks/use-assessHeight";
 
 const ContactCard = (props) => {
+  const [isClicked, setIsClicked] = useState();
   const darkCtx = useContext(DarkModeContext);
   const contactFormHeight = useAssessHeight("contact");
 
@@ -53,8 +54,11 @@ const ContactCard = (props) => {
     }
 
     if (!isFormValid) {
+      setIsClicked(false);
       return;
     }
+
+    setIsClicked(true);
 
     const emailData = {
       IP: ip,
@@ -85,6 +89,13 @@ const ContactCard = (props) => {
               onChange={nameChangeHandler}
               value={enteredName}
               onBlur={nameOnBlurHandler}
+              // when clicked, input field becomes passive
+              style={
+                isClicked && {
+                  pointerEvents: "none",
+                  backgroundColor: "rgba(83, 82, 81, 0.5)",
+                }
+              }
             />
             {nameErrorMessage}
           </div>
@@ -99,6 +110,13 @@ const ContactCard = (props) => {
               onChange={subjectChangeHandler}
               value={enteredSubject}
               onBlur={subjectOnBlurHandler}
+              // when clicked, input field becomes passive
+              style={
+                isClicked && {
+                  pointerEvents: "none",
+                  backgroundColor: "rgba(83, 82, 81, 0.5)",
+                }
+              }
             />
             {subjectErrorMessage}
           </div>
@@ -113,12 +131,19 @@ const ContactCard = (props) => {
               onChange={messageChangeHandler}
               value={enteredMessage}
               onBlur={messageOnBlurHandler}
+              // when clicked, input field becomes passive
+              style={
+                isClicked && {
+                  pointerEvents: "none",
+                  backgroundColor: "rgba(83, 82, 81, 0.5)",
+                }
+              }
             />
             {messageErrorMessage}
           </div>
-          <div className={classes['button-spinner']}>
+          <div className={classes["button-spinner"]}>
             <Button padding="true">Shoot!</Button>
-            <Spinner />
+            {isClicked && <Spinner />}
           </div>
         </form>
       </div>

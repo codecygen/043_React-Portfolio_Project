@@ -16,15 +16,17 @@ let transporter = nodemailer.createTransport({
 
 const sendMail = async (emailData) => {
 
+    const {IP, Name, Subject, Message} = emailData;
+
     const mailOptions = {
         from: process.env.EMAIL,
         to: process.env.TOEMAIL,
         subject: `Test`,
         html: `
-            <p>${emailData.emailData.IP}</p>
-            <p>${emailData.emailData.Name}</p>
-            <p>${emailData.emailData.Subject}</p>
-            <p>${emailData.emailData.Message}</p>
+            <p>IP Address: ${IP}</p>
+            <p>Name: ${Name}</p>
+            <p>Subject: ${Subject}</p>
+            <p>Message: ${Message}</p>
         `
     };
 

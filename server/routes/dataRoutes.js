@@ -13,7 +13,7 @@ router.post("/visitor", async (req, res) => {
   }
 
   const visitTimeStamp = Date.now();
-  visitorData = { ...visitorData, visitingTimes: [visitTimeStamp] };
+  visitorData = { ...visitorData, visitingDates: [visitTimeStamp], visitInstance: 1 };
 
   // Connect to "visitors" collection
   const { client, dbCollection: visitorCollection } = await connectDatabase(

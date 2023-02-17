@@ -11,9 +11,9 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
 
   if (foundVisitor) {
     const lastVisitTime =
-      foundVisitor.visitingTimes[foundVisitor.visitingTimes.length - 1];
+      foundVisitor.visitingDates[foundVisitor.visitingDates.length - 1];
 
-    const currentVisitTime = visitorData.visitingTimes[0];
+    const currentVisitTime = visitorData.visitingDates[0];
 
     // Update database only after 3 minutes of the last visit
     if (currentVisitTime - lastVisitTime <= 180000) {
@@ -25,10 +25,12 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
         { IP: visitorData.IP },
         {
           $set: {
-            visitingTimes: [
-              ...foundVisitor.visitingTimes,
-              visitorData.visitingTimes[0],
+            visitingDates: [
+              ...foundVisitor.visitingDates,
+              visitorData.visitingDates[0],
             ],
+
+            visitInstance: foundVisitor.visitingDates.length + 1
           },
         }
       );

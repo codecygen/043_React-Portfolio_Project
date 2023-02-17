@@ -14,7 +14,6 @@ router.post("/visitor", async (req, res) => {
 
   const visitTimeStamp = Date.now();
   visitorData = { ...visitorData, visitingTimes: [visitTimeStamp] };
-  console.log(visitorData);
 
   const { client, dbCollection: visitorCollection } = await connectDatabase(
     "visitors"

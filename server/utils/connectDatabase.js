@@ -5,10 +5,17 @@ dotenv.config();
 
 const connectDatabase = async (collectionName) => {
   const databaseLink = process.env.DATABASE_LINK;
+  let client;
+  let db;
+  let dbCollection;
 
-  const client = await MongoClient.connect(databaseLink);
-  const db = client.db();
-  const dbCollection = db.collection(collectionName);
+  try {
+    client = await MongoClient.connect(databaseLink);
+    db = client.db();
+    dbCollection = db.collection(collectionName);
+  } catch (e) {
+    console.error(e.message || "Could not connect to database!");
+  }
 
   return { client, dbCollection };
 };

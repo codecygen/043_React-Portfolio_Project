@@ -2,12 +2,21 @@ const express = require("express");
 const sendMail = require("../utils/sendMail");
 const router = express.Router();
 
-router.post("/visitor", (req, res) => {
-  postedData = req.body;
+const connectDatabase = require("../utils/connectDatabase");
 
-  if (!postedData) {
+router.post("/visitor", async (req, res) => {
+  visitorData = req.body;
+
+  if (!visitorData) {
     res.status(422).json({ message: "Could not receive message!" });
   }
+
+  const { client, dbCollection: visitorCollection } = await connectDatabase(
+    "visitors"
+  );
+
+  const result = await visitorCollection.insertOne(visitorData);
+  client.close();
 
   res.status(201).json({ message: "Successfully sent visitor data!" });
 });

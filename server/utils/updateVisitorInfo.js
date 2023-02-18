@@ -25,15 +25,8 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
     }
 
     try {
-      additionalData = await getMoreInfo(visitorData.IP);
-
-      updatedVisitorData = {
-        ...visitorData,
-        ...additionalData,
-      };
-
       const result = await visitorCollection.updateOne(
-        { IP: updatedVisitorData.IP },
+        { IP: visitorData.IP },
         {
           $set: {
             visitingDates: [

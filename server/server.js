@@ -7,7 +7,7 @@ app.use(express.json({limit: '50mb'})) // To parse the incoming requests with JS
 const dataRoutes = require('./routes/dataRoutes');
 
 
-const port = 4000 || process.env.PORT;
+const port = process.env.PORT || 4000;
 
 app.use(dataRoutes);
 

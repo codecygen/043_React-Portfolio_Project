@@ -26,12 +26,12 @@ const sendMail = async (emailData) => {
         to: process.env.TOEMAIL,
         subject: `Email from ${process.env.PORTFOLIO_WEBSITE}`,
         html: `
-            <p>IP Address: ${IP}</p>
-            <p>Country: ${additionalInfo.country}</p>
-            <p>City: ${additionalInfo.city}</p>
-            <p>Name: ${Name}</p>
-            <p>Subject: ${Subject}</p>
-            <p>Message: ${Message}</p>
+            <p><strong>IP:</strong> ${IP}</p>
+            <p><strong>Country:</strong> ${additionalInfo.country}</p>
+            <p><strong>City:</strong> ${additionalInfo.city}</p>
+            <p><strong>Name:</strong> ${Name}</p>
+            <p><strong>Subject:</strong> ${Subject}</p>
+            <p><strong>Message:</strong> ${Message}</p>
         `
     };
 

@@ -46,4 +46,8 @@ router.post("/email", async (req, res) => {
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 
+router.get("/test", (req, res) => {
+  res.json({ isWorking: true });
+});
+
 module.exports = router;

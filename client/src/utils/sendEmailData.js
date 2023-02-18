@@ -2,7 +2,7 @@ const sendEmailData = async (emailData) => {
   let data;
 
   try {
-    const res = await fetch("/email", {
+    const res = await fetch("https://aras-sen-portfolio-backend.vercel.app/email", {
       method: "POST",
       body: JSON.stringify({
         emailData,

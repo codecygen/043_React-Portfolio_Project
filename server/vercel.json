@@ -1,9 +1,16 @@
-{
-    "routes": [
-        { "src": "/.*", "dest": "https://my-old-site.com" }
-    ],
-    
+{    
+    "version": 2, 
     "builds": [
-      { "src": "(.*).js", "use": "/" }
+      { 
+        "src": "./server.js", 
+        "use": "@vercel/node" 
+      }
+    ],
+
+    "routes": [
+      { 
+        "src": "/(.*)", 
+        "dest": "/" 
+      }
     ]
 }

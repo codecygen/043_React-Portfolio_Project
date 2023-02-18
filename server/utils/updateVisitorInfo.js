@@ -1,5 +1,9 @@
+const getMoreInfo = require("./getMoreInfo");
+
 const updateVisitorInfo = async (visitorCollection, visitorData) => {
   let foundVisitor;
+  let additionalData;
+  let updatedVisitorData;
 
   try {
     foundVisitor = await visitorCollection.findOne({
@@ -21,8 +25,15 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
     }
 
     try {
+      additionalData = await getMoreInfo(visitorData.IP);
+
+      updatedVisitorData = {
+        ...visitorData,
+        ...additionalData,
+      };
+
       const result = await visitorCollection.updateOne(
-        { IP: visitorData.IP },
+        { IP: updatedVisitorData.IP },
         {
           $set: {
             visitingDates: [
@@ -30,7 +41,7 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
               visitorData.visitingDates[0],
             ],
 
-            visitInstance: foundVisitor.visitingDates.length + 1
+            visitInstance: foundVisitor.visitingDates.length + 1,
           },
         }
       );
@@ -42,8 +53,15 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
   }
 
   try {
-    // Inser new entry if the user has never visited my website
-    const result = await visitorCollection.insertOne(visitorData);
+    additionalData = await getMoreInfo(visitorData.IP);
+
+    updatedVisitorData = {
+      ...visitorData,
+      ...additionalData,
+    };
+
+    // Insert new entry if the user has never visited my website
+    const result = await visitorCollection.insertOne(updatedVisitorData);
   } catch (e) {
     console.error(e.message || "Problem inserting new visitor entry!");
   }

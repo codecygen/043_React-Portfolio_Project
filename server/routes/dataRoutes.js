@@ -4,6 +4,7 @@ const router = express.Router();
 
 const connectDatabase = require("../utils/connectDatabase");
 const updateVisitorInfo = require("../utils/updateVisitorInfo");
+const getIpInfo = require("../utils/getMoreInfo");
 
 router.post("/visitor", async (req, res) => {
   let visitorData = req.body;
@@ -13,15 +14,20 @@ router.post("/visitor", async (req, res) => {
   }
 
   const visitTimeStamp = Date.now();
-  visitorData = { ...visitorData, visitingDates: [visitTimeStamp], visitInstance: 1 };
+
+  visitorData = {
+    ...visitorData,
+    visitingDates: [visitTimeStamp],
+    visitInstance: 1,
+  };
 
   // Connect to "visitors" collection
   const { client, dbCollection: visitorCollection } = await connectDatabase(
     "visitors"
   );
 
-  // Checkout if the client connected to website before, if yes, 
-  // put the latest timestamp of the visit, if no, 
+  // Checkout if the client connected to website before, if yes,
+  // put the latest timestamp of the visit, if no,
   // create a new entry for the first time visitor
   const result = await updateVisitorInfo(visitorCollection, visitorData);
   client.close();

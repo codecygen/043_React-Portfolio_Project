@@ -12,7 +12,7 @@ const getMoreInfo = async (ip) => {
   }
 
   if (moreInfo.status !== "success") {
-    moreInfo = "Cannot connect API to get IP info!";
+    moreInfo = "Cannot connect API to get more info!";
   }
 
   return moreInfo;

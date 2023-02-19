@@ -4,7 +4,6 @@ const router = express.Router();
 
 const connectDatabase = require("../utils/connectDatabase");
 const updateVisitorInfo = require("../utils/updateVisitorInfo");
-const getIpInfo = require("../utils/getMoreInfo");
 
 router.post("/visitor", async (req, res) => {
   let visitorData = req.body;

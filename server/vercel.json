@@ -2,7 +2,7 @@
     "version": 2, 
     "builds": [
       { 
-        "src": "./server.js", 
+        "src": "./index.js", 
         "use": "@vercel/node" 
       }
     ],
@@ -12,13 +12,5 @@
         "src": "/(.*)", 
         "dest": "/" 
       }
-    ],
-
-    "env": {
-      "BRANCH": "vercel-deployment-test"
-    },
-
-    "scripts": {
-        "vercel-deploy": "if [ \"$BRANCH\" != \"main\" ]; then echo \"Cannot deploy from $BRANCH branch\"; exit 1; fi"
-    }
+    ]
 }

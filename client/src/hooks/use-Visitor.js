@@ -7,7 +7,7 @@ const useVisitor = () => {
       const ip = await checkIP();
 
       try {
-        const res = await fetch("/visitor", {
+        const res = await fetch("https://aras-portfolio-backend.vercel.app/visitor", {
           method: "POST",
           body: JSON.stringify({
             IP: ip,

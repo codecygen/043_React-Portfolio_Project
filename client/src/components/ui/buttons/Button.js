@@ -10,7 +10,7 @@ const Button = (props) => {
     ? `${classes.card} button-color-dark`
     : `${classes.card} button-color-light`;
 
-  if (props.scroll) {
+  if (props.scrollTo) {
     return (
       <button
         className={buttonClasses}
@@ -19,7 +19,7 @@ const Button = (props) => {
           margin: props.margin && "10px",
         }}
         onClick={() => {
-          document.getElementById("contact").scrollIntoView();
+          document.getElementById(props.scrollTo).scrollIntoView();
         }}
       >
         {props.children}

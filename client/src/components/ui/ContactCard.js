@@ -143,7 +143,7 @@ const ContactCard = (props) => {
             {messageErrorMessage}
           </div>
           <div className={classes["button-spinner"]}>
-            <Button padding={true} scroll={true} >Shoot!</Button>
+            <Button padding={true} scrollTo="contact" >Shoot!</Button>
             {isClicked && <Spinner />}
           </div>
         </form>

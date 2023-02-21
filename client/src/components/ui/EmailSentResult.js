@@ -35,7 +35,7 @@ const EmailSentSuccess = (props) => {
             lineHeight: currentHeight,
           }}
         >
-          {props.isSent ? "I received your email!" : "Failed to send email!"}
+          {props.isSent ? "Received!" : "Failed!"}
         </h3>
       </div>
     </section>

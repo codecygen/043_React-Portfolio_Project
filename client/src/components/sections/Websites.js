@@ -38,6 +38,14 @@ const Websites = () => {
     setExpandState((prevValue) => !prevValue);
   };
 
+  // When Contract button is clicked, scroll back to the
+  // beginning of the "websites" id.
+  const scrollToWebsitesId = () => {
+    setTimeout(() => {
+      document.getElementById("websites").scrollIntoView();
+    }, 300);
+  };
+
   let projectList = [
     {
       img: blogImg,
@@ -105,8 +113,10 @@ const Websites = () => {
 
   const expandContractArrow = expandState ? (
     <>
-      <h4>Collapse</h4>
-      <TiArrowSortedUp className={classes["contract-arrow"]} />
+      <h4 onClick={scrollToWebsitesId}>Collapse</h4>
+      <div onClick={scrollToWebsitesId}>
+        <TiArrowSortedUp className={classes["contract-arrow"]} />
+      </div>
     </>
   ) : (
     <>

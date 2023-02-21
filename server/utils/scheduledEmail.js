@@ -1,10 +1,15 @@
 const CronJob = require("cron").CronJob;
+const connectDatabase = require("../utils/connectDatabase");
 
-const scheduledEmail = async (ip) => {
+const scheduledEmail = () => {
   const job = new CronJob(
-    "* * * * * *",
-    function () {
-      console.log("You will see this message every second");
+    "*/10 * * * * *",
+    async () => {
+      const { client, dbCollection: visitorCollection, db } = await connectDatabase(
+        "visitors"
+      );
+
+      console.log("You will see this message every 10 seconds");
     },
     null,
     true,
@@ -15,3 +20,6 @@ const scheduledEmail = async (ip) => {
 };
 
 module.exports = scheduledEmail;
+
+// every midnight "0 0 0 * * *"
+// every 10 seconds "*/10 * * * * *"

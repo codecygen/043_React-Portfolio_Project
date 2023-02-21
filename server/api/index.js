@@ -21,7 +21,7 @@ router.post("/visitor", async (req, res) => {
   };
 
   // Connect to "visitors" collection
-  const { client, dbCollection: visitorCollection } = await connectDatabase(
+  const { client, dbCollection: visitorCollection, db } = await connectDatabase(
     "visitors"
   );
 

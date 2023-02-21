@@ -17,7 +17,6 @@ const Button = (props) => {
         padding: props.padding && "10px",
         margin: props.margin && "10px",
       }}
-      onClick="document.getElementById('contact').scrollIntoView();"
     >
       {props.children}
     </button>

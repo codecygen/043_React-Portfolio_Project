@@ -10,10 +10,10 @@ const MenuOverlay = props => {
 
     const menuColor = darkCtx.isDarkMode ? 'menu-color-dark' : 'menu-color-light';
 
-    let menuClasses = `${classes.box} ${menuColor} ${classes.menu}`;
+    let menuClasses = `${classes.box} ${menuColor} ${classes.menu} ${classes['menu-passive']}`;
 
     if (props.clickState) {
-        menuClasses = `${classes.box} ${menuColor} ${classes.menu} ${classes['menu-active']}`
+        menuClasses = `${classes.box} ${menuColor} ${classes.menu} ${classes['menu-active']}`;
     }
 
     const buttons = props.navButtons.map(eachObject => (

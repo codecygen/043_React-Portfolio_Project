@@ -27,6 +27,11 @@
     transition: all 0.3s ease-in-out;
 }
 
+.menu-passive {
+    height: 0;
+    transform: translateY(-50px);
+}
+
 .menu-active {
     height: 100%;
     opacity: 1;

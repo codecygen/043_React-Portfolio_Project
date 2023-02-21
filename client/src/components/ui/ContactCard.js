@@ -43,7 +43,6 @@ const ContactCard = (props) => {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    const ip = await checkIP();
 
     let isFormValid = false;
 
@@ -59,6 +58,8 @@ const ContactCard = (props) => {
     }
 
     setIsClicked(true);
+
+    const ip = await checkIP();
 
     const emailData = {
       IP: ip,

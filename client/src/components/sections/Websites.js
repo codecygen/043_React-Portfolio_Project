@@ -134,7 +134,7 @@ const Websites = () => {
       <Divider />
 
       <div className={classes.expand} onClick={handleExpand}>
-        {projectListLength > 2 && expandContractArrow}
+        {expandContractArrow}
       </div>
     </section>
   );

@@ -10,6 +10,23 @@ const Button = (props) => {
     ? `${classes.card} button-color-dark`
     : `${classes.card} button-color-light`;
 
+  if (props.scroll) {
+    return (
+      <button
+        className={buttonClasses}
+        style={{
+          padding: props.padding && "10px",
+          margin: props.margin && "10px",
+        }}
+        onClick={() => {
+          document.getElementById("contact").scrollIntoView();
+        }}
+      >
+        {props.children}
+      </button>
+    );
+  }
+
   return (
     <button
       className={buttonClasses}

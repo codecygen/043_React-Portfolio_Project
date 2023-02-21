@@ -53,7 +53,7 @@ const ContactCard = (props) => {
     }
 
     if (!isFormValid) {
-      setIsClicked(false);
+      setIsClicked(undefined);
       return;
     }
 

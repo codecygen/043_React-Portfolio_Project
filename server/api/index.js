@@ -95,6 +95,9 @@ router.get("/today", async (req, res) => {
       `<li>
         <p><strong style="color: blue;">IP:</strong> ${visitor.IP}</p>
         <p><strong style="color: blue;">Times Visited:</strong> ${visitor.visitInstance}</p>
+        <ol>
+          ${visitor.visitingDates.map(date => `<li>${date}</li>`).join('')}
+        </ol>
         <p><strong style="color: blue;">Country:</strong> ${visitor.country}</p>
         <p><strong style="color: blue;">City:</strong> ${visitor.city}</p>
         <p><strong style="color: blue;">Latitude:</strong> ${visitor.lat}</p>

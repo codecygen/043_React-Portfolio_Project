@@ -45,7 +45,7 @@ router.post("/email", async (req, res) => {
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 
-router.get("/test", async (req, res) => {
+router.get("/today", async (req, res) => {
   // Connect to "visitors" collection
   const { client, dbCollection: visitorCollection } = await connectDatabase(
     "visitors"
@@ -71,19 +71,36 @@ router.get("/test", async (req, res) => {
   const todayEndTimeStamp = new Date(todayEndString).getTime();
 
   const allVisitors = await visitorCollection
-  .find({
-    visitingDates: {
-      $elemMatch: {
-        $gt: todayStartTimeStamp,
-        $lt: todayEndTimeStamp
-      }
-    }
-  })
-  .toArray();
+    .find({
+      visitingDates: {
+        $elemMatch: {
+          $gt: todayStartTimeStamp,
+          $lt: todayEndTimeStamp,
+        },
+      },
+    })
+    .toArray();
 
   client.close();
 
-  res.json(allVisitors);
+  if (!allVisitors || allVisitors.length === 0) {
+    res.json({ noVisitor: "None Returned" });
+    return;
+  }
+
+  const visitorCount = allVisitors.length;
+
+  const htmlFormat = `<html>
+      <head>
+        <title>Visitors Today</title>
+      </head>
+      <body>
+        <p>${visitorCount} people visited your website today!</p>
+        <pre id="json">${JSON.stringify(allVisitors, null, "\t")}</pre>
+      </body>
+    </html>`;
+
+  res.send(htmlFormat);
 });
 
 module.exports = router;

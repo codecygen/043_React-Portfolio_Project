@@ -102,7 +102,6 @@ router.get("/today", async (req, res) => {
         <p><strong style="color: blue;">Zip Code:</strong> ${visitor.zip}</p>
       </li><br>`
   );
-  console.log(visitorList.join(""));
 
   const htmlFormat = `<html>
       <head>

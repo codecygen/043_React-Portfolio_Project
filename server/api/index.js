@@ -90,13 +90,29 @@ router.get("/today", async (req, res) => {
 
   const visitorCount = allVisitors.length;
 
+  const visitorList = allVisitors.map(
+    (visitor) =>
+      `<li>
+        <p><strong style="color: blue;">IP:</strong> ${visitor.IP}</p>
+        <p><strong style="color: blue;">Times Visited:</strong> ${visitor.visitInstance}</p>
+        <p><strong style="color: blue;">Country:</strong> ${visitor.country}</p>
+        <p><strong style="color: blue;">City:</strong> ${visitor.city}</p>
+        <p><strong style="color: blue;">Latitude:</strong> ${visitor.lat}</p>
+        <p><strong style="color: blue;">Langitude:</strong> ${visitor.lon}</p>
+        <p><strong style="color: blue;">Zip Code:</strong> ${visitor.zip}</p>
+      </li><br>`
+  );
+  console.log(visitorList.join(""));
+
   const htmlFormat = `<html>
       <head>
         <title>Visitors Today</title>
       </head>
       <body>
+        <h2>Details:</h2>
         <p>${visitorCount} people visited your website today!</p>
-        <pre id="json">${JSON.stringify(allVisitors, null, "\t")}</pre>
+        <ol>${visitorList.join("")}</ol>
+        <pre>${JSON.stringify(allVisitors, null, "\t")}</pre>
       </body>
     </html>`;
 

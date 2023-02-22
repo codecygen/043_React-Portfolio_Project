@@ -21,7 +21,7 @@ router.post("/visitor", async (req, res) => {
   };
 
   // Connect to "visitors" collection
-  const { client, dbCollection: visitorCollection, db } = await connectDatabase(
+  const { client, dbCollection: visitorCollection } = await connectDatabase(
     "visitors"
   );
 
@@ -43,6 +43,47 @@ router.post("/email", async (req, res) => {
 
   await sendMail(postedData.emailData);
   res.status(201).json({ message: "Successfully sent email data!" });
+});
+
+router.get("/test", async (req, res) => {
+  // Connect to "visitors" collection
+  const { client, dbCollection: visitorCollection } = await connectDatabase(
+    "visitors"
+  );
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1; // +1 to get month instead of month index
+  const day = today.getDate();
+  // getHours(), getMinutes(), getSeconds()
+
+  // These will add leading 0 to months and day if necessary
+  // if the returned day is 2, it will make it 02
+  // if the returned month is 6, it will make it 06
+  const paddedMonth = month.toString().padStart(2, 0);
+  const paddedDay = day.toString().padStart(2, 0);
+
+  // Here T represents time, Z represents Zulu time which is UTC.
+  const todayStartString = `${year}-${paddedMonth}-${paddedDay}T00:00:00.000Z`;
+  const todayEndString = `${year}-${paddedMonth}-${paddedDay}T23:59:59.999Z`;
+
+  const todayStartTimeStamp = new Date(todayStartString).getTime();
+  const todayEndTimeStamp = new Date(todayEndString).getTime();
+
+  const allVisitors = await visitorCollection
+  .find({
+    visitingDates: {
+      $elemMatch: {
+        $gt: todayStartTimeStamp,
+        $lt: todayEndTimeStamp
+      }
+    }
+  })
+  .toArray();
+
+  client.close();
+
+  res.json(allVisitors);
 });
 
 module.exports = router;

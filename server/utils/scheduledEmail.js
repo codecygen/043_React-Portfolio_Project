@@ -5,9 +5,9 @@ const scheduledEmail = () => {
   const job = new CronJob(
     "*/10 * * * * *",
     async () => {
-      const { client, dbCollection: visitorCollection, db } = await connectDatabase(
-        "visitors"
-      );
+      // const { client, dbCollection: visitorCollection } = await connectDatabase(
+      //   "visitors"
+      // );
 
       console.log("You will see this message every 10 seconds");
     },

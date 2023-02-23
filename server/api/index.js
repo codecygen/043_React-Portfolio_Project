@@ -4,6 +4,10 @@ const router = express.Router();
 
 const connectDatabase = require("../utils/connectDatabase");
 const updateVisitorInfo = require("../utils/updateVisitorInfo");
+const getMoreInfo = require("../utils/getMoreInfo");
+
+const dotenv = require("dotenv");
+dotenv.config();
 
 router.post("/visitor", async (req, res) => {
   let visitorData = req.body;
@@ -41,7 +45,21 @@ router.post("/email", async (req, res) => {
     res.status(422).json({ message: "Could not receive email data!" });
   }
 
-  await sendMail(postedData.emailData);
+  const { IP, Name, Subject, Message } = postedData.emailData;
+
+  const additionalInfo = await getMoreInfo(IP);
+
+  const emailTitle = `Email from ${process.env.PORTFOLIO_WEBSITE}`;
+  const emailBody = `
+    <p><strong>IP:</strong> ${IP}</p>
+    <p><strong>Country:</strong> ${additionalInfo.country}</p>
+    <p><strong>City:</strong> ${additionalInfo.city}</p>
+    <p><strong>Name:</strong> ${Name}</p>
+    <p><strong>Subject:</strong> ${Subject}</p>
+    <p><strong>Message:</strong> ${Message}</p>
+  `;
+
+  await sendMail(emailTitle, emailBody);
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 
@@ -94,31 +112,41 @@ router.get("/today", async (req, res) => {
     (visitor) =>
       `<li>
         <p><strong style="color: blue;">IP:</strong> ${visitor.IP}</p>
-        <p><strong style="color: blue;">Times Visited:</strong> ${visitor.visitInstance}</p>
+        <p><strong style="color: blue;">Times Visited:</strong> ${
+          visitor.visitInstance
+        }</p>
         <ol>
-          ${visitor.visitingDates.map(date => `<li>${date}</li>`).join('')}
+          ${visitor.visitingDates
+            .map((timeStamp) => `<li>${new Date(timeStamp)}</li>`)
+            .join("")}
         </ol>
         <p><strong style="color: blue;">Country:</strong> ${visitor.country}</p>
         <p><strong style="color: blue;">City:</strong> ${visitor.city}</p>
         <p><strong style="color: blue;">Latitude:</strong> ${visitor.lat}</p>
-        <p><strong style="color: blue;">Langitude:</strong> ${visitor.lon}</p>
+        <p><strong style="color: blue;">Longitude:</strong> ${visitor.lon}</p>
         <p><strong style="color: blue;">Zip Code:</strong> ${visitor.zip}</p>
+        <p><strong style="color: blue;">ISP:</strong> ${visitor.isp}</p>
       </li><br>`
   );
 
-  const htmlFormat = `<html>
+  // This can be added to email body to see json data in formatted form
+  // <pre>${JSON.stringify(allVisitors, null, "\t")}</pre>
+  const emailBody = `<html>
       <head>
         <title>Visitors Today</title>
       </head>
       <body>
         <h2>Details:</h2>
-        <p>${visitorCount} people visited your website today!</p>
+        <h3><strong style="color: red;">${visitorCount}</strong> people visited your website today!</h3>
         <ol>${visitorList.join("")}</ol>
-        <pre>${JSON.stringify(allVisitors, null, "\t")}</pre>
       </body>
     </html>`;
 
-  res.send(htmlFormat);
+  res.send(emailBody);
+
+  const emailTitle = `Today's Visitors to ${process.env.PORTFOLIO_WEBSITE}`;
+
+  await sendMail(emailTitle, emailBody);
 });
 
 module.exports = router;

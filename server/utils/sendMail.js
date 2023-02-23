@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer");
-const getMoreInfo = require("../utils/getMoreInfo");
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -15,24 +14,13 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-const sendMail = async (emailData) => {
-
-    const {IP, Name, Subject, Message} = emailData;
-
-    const additionalInfo = await getMoreInfo(IP);
+const sendMail = async (emailTitle, emailBody) => {
 
     const mailOptions = {
         from: process.env.EMAIL,
         to: process.env.TOEMAIL,
-        subject: `Email from ${process.env.PORTFOLIO_WEBSITE}`,
-        html: `
-            <p><strong>IP:</strong> ${IP}</p>
-            <p><strong>Country:</strong> ${additionalInfo.country}</p>
-            <p><strong>City:</strong> ${additionalInfo.city}</p>
-            <p><strong>Name:</strong> ${Name}</p>
-            <p><strong>Subject:</strong> ${Subject}</p>
-            <p><strong>Message:</strong> ${Message}</p>
-        `
+        subject: emailTitle,
+        html: emailBody
     };
 
     try {

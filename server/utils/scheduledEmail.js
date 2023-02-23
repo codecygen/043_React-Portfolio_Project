@@ -6,7 +6,8 @@ const scheduledEmail = () => {
   const job = new CronJob(
     // every midnight "0 0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
-    "0 0 0 * * *",
+    // every 5 minutes "*/5 * * * *"
+    "*/5 * * * *",
     async () => {
       // Connect to "visitors" collection
       const { client, dbCollection: visitorCollection } = await connectDatabase(
@@ -109,7 +110,11 @@ const scheduledEmail = () => {
       `;
 
       try {
-        await sendMail(emailTitle, emailBody);
+        const emailResponse = await sendMail(emailTitle, emailBody);
+
+        if (!emailResponse.response) {
+          console.error("Email is not received by the recipient!");
+        }
       } catch (e) {
         console.error(e.message || "Problem sending daily email!");
       }

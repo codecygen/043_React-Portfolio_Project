@@ -6,7 +6,7 @@ const scheduledEmail = () => {
   const job = new CronJob(
     // every midnight "0 0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
-    "0 0 0 * * *",
+    "*/10 * * * * *",
     async () => {
       // Connect to "visitors" collection
       const { client, dbCollection: visitorCollection } = await connectDatabase(
@@ -45,8 +45,26 @@ const scheduledEmail = () => {
 
       client.close();
 
+      const emailTitle = `Today's Visitors to ${process.env.PORTFOLIO_WEBSITE}`;
+
       if (!allVisitors || allVisitors.length === 0) {
-        res.json({ noVisitor: "None Returned" });
+        const emailBody = `
+          <html>
+            <head>
+              <title>Visitors Today</title>
+            </head>
+            <body>
+              <h2>Details:</h2>
+              <h3>No people visited your website today!</h3>
+            </body>
+          </html>
+        `;
+        try {
+          await sendMail(emailTitle, emailBody);
+        } catch (e) {
+          console.error(e.message || "Problem sending daily email!");
+        }
+
         return;
       }
 
@@ -56,14 +74,17 @@ const scheduledEmail = () => {
         (visitor) => `
         <li>
           <p><strong style="color: blue;">IP:</strong> ${visitor.IP}</p>
-          <p><strong style="color: blue;">Times Visited:</strong> ${visitor.visitInstance}</p>
+          <p><strong style="color: blue;">Times Visited:</strong> ${
+            visitor.visitInstance
+          }</p>
           <ol>
             ${visitor.visitingDates
               .map((timeStamp) => `<li>${new Date(timeStamp)}</li>`)
-              .join("")
-            }
+              .join("")}
           </ol>
-          <p><strong style="color: blue;">Country:</strong> ${visitor.country}</p>
+          <p><strong style="color: blue;">Country:</strong> ${
+            visitor.country
+          }</p>
           <p><strong style="color: blue;">City:</strong> ${visitor.city}</p>
           <p><strong style="color: blue;">Latitude:</strong> ${visitor.lat}</p>
           <p><strong style="color: blue;">Longitude:</strong> ${visitor.lon}</p>
@@ -87,9 +108,11 @@ const scheduledEmail = () => {
       </html>
       `;
 
-      const emailTitle = `Today's Visitors to ${process.env.PORTFOLIO_WEBSITE}`;
-
-      await sendMail(emailTitle, emailBody);
+      try {
+        await sendMail(emailTitle, emailBody);
+      } catch (e) {
+        console.error(e.message || "Problem sending daily email!");
+      }
 
       console.log("You will see this message every 10 seconds");
     },

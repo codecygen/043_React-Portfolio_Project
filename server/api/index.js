@@ -49,7 +49,7 @@ router.post("/email", async (req, res) => {
 
   const additionalInfo = await getMoreInfo(IP);
 
-  const emailTitle = `Email from ${process.env.PORTFOLIO_WEBSITE}`;
+  const emailTitle = `Contact Message from ${process.env.PORTFOLIO_WEBSITE}`;
   const emailBody = `
     <p><strong>IP:</strong> ${IP}</p>
     <p><strong>Country:</strong> ${additionalInfo.country}</p>

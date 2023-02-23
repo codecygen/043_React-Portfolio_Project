@@ -55,7 +55,7 @@ const scheduledEmail = () => {
             </head>
             <body>
               <h2>Details:</h2>
-              <h3>No people visited your website today!</h3>
+              <h3>No person visited your website today!</h3>
             </body>
           </html>
         `;
@@ -102,7 +102,7 @@ const scheduledEmail = () => {
         </head>
         <body>
           <h2>Details:</h2>
-          <h3><strong style="color: red;">${visitorCount}</strong> people visited your website today!</h3>
+          <h3><strong style="color: red;">${visitorCount}</strong> person(s) visited your website today!</h3>
           <ol>${visitorList.join("")}</ol>
         </body>
       </html>

@@ -59,7 +59,19 @@ router.post("/email", async (req, res) => {
     <p><strong>Message:</strong> ${Message}</p>
   `;
 
-  await sendMail(emailTitle, emailBody);
+  try {
+    const emailResponse = await sendMail(emailTitle, emailBody);
+
+    if (!emailResponse.ok) {
+      res.status(422).json({ message: "Could not send email!" });
+      return;
+    }
+    
+  } catch (e) {
+    res.status(422).json({ message: e.message });
+    return;
+  }
+  
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 

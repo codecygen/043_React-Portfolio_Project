@@ -4,10 +4,10 @@ const sendMail = require("../utils/sendMail");
 
 const scheduledEmail = () => {
   const job = new CronJob(
-    // every midnight "0 0 0 * * *"
+    // every midnight "0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
     // every 5 minutes "*/5 * * * *"
-    "*/3 * * * *",
+    "0 0 * * *",
     async () => {
       // Connect to "visitors" collection
       const { client, dbCollection: visitorCollection } = await connectDatabase(

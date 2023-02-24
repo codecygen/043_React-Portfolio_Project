@@ -6,9 +6,6 @@ const connectDatabase = require("../utils/connectDatabase");
 const updateVisitorInfo = require("../utils/updateVisitorInfo");
 const getMoreInfo = require("../utils/getMoreInfo");
 
-const dotenv = require("dotenv");
-dotenv.config();
-
 router.post("/visitor", async (req, res) => {
   let visitorData = req.body;
 

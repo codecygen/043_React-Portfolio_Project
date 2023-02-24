@@ -1,8 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const dotenv = require("dotenv");
-dotenv.config();
-
 const connectDatabase = async (collectionName) => {
   const databaseLink = process.env.DATABASE_LINK;
   let client;

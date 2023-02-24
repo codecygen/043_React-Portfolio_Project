@@ -7,7 +7,7 @@ const scheduledEmail = () => {
     // every midnight "0 0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
     // every 5 minutes "*/5 * * * *"
-    "0 0 0 * * *",
+    "*/3 * * * *",
     async () => {
       // Connect to "visitors" collection
       const { client, dbCollection: visitorCollection } = await connectDatabase(
@@ -46,7 +46,7 @@ const scheduledEmail = () => {
 
       client.close();
 
-      const emailTitle = `Today's Visitors to ${process.env.PORTFOLIO_WEBSITE}`;
+      const emailTitle = `Visitor to ${process.env.PORTFOLIO_WEBSITE} in ${year}-${paddedMonth}-${paddedDay}`;
 
       if (!allVisitors || allVisitors.length === 0) {
         const emailBody = `
@@ -56,12 +56,16 @@ const scheduledEmail = () => {
             </head>
             <body>
               <h2>Details:</h2>
-              <h3>No person visited your website today!</h3>
+              <h3>No person visited your website in ${year}-${paddedMonth}-${paddedDay}!</h3>
             </body>
           </html>
         `;
         try {
-          await sendMail(emailTitle, emailBody);
+          const emailResponse = await sendMail(emailTitle, emailBody);
+  
+          if (!emailResponse.response) {
+            console.error("Email is not received by the recipient!");
+          }
         } catch (e) {
           console.error(e.message || "Problem sending daily email!");
         }
@@ -103,7 +107,7 @@ const scheduledEmail = () => {
         </head>
         <body>
           <h2>Details:</h2>
-          <h3><strong style="color: red;">${visitorCount}</strong> person(s) visited your website today!</h3>
+          <h3><strong style="color: red;">${visitorCount}</strong> person(s) visited your website in ${year}-${paddedMonth}-${paddedDay}!</h3>
           <ol>${visitorList.join("")}</ol>
         </body>
       </html>

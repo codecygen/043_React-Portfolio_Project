@@ -19,17 +19,13 @@ app.use((req, res, next) => {
 });
 
 const dataRoutes = require("./api");
-const scheduledEmail = require("./utils/scheduledEmail");
+// const scheduledEmail = require("./utils/scheduledEmail");
 
 const port = process.env.PORT || 4000;
 
 app.use(dataRoutes);
 
-try {
-  scheduledEmail();
-} catch (e) {
-  console.log(e.message);
-}
+// scheduledEmail();
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);

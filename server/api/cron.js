@@ -1,3 +1,6 @@
+const connectDatabase = require("../utils/connectDatabase");
+const sendMail = require("../utils/sendMail");
+
 const handler = async (req, res) => {
     // Connect to "visitors" collection
     const { client, dbCollection: visitorCollection } = await connectDatabase(

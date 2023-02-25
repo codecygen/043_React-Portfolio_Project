@@ -7,7 +7,7 @@ const scheduledEmail = () => {
     // every midnight "0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
     // every 5 minutes "*/5 * * * *"
-    "0 18 * * *",
+    "14 21 * * *",
     async () => {
       // Connect to "visitors" collection
       const { client, dbCollection: visitorCollection } = await connectDatabase(
@@ -125,7 +125,7 @@ const scheduledEmail = () => {
     },
     null,
     true,
-    "America/New_York"
+    "Europe/Istanbul"
   );
 
   return job;

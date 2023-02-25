@@ -25,7 +25,11 @@ const port = process.env.PORT || 4000;
 
 app.use(dataRoutes);
 
-scheduledEmail();
+try {
+  scheduledEmail();
+} catch (e) {
+  console.log(e.message);
+}
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);

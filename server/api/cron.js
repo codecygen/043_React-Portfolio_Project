@@ -1,7 +1,13 @@
 const connectDatabase = require("../utils/connectDatabase");
 const sendMail = require("../utils/sendMail");
 
+// Enabled using .env file in the project
+const dotenv = require("dotenv");
+dotenv.config();
+
 const handler = async (req, res) => {
+    console.log("Sending email!");
+
     // Connect to "visitors" collection
     const { client, dbCollection: visitorCollection } = await connectDatabase(
         "visitors"

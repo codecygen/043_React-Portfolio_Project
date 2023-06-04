@@ -67,7 +67,7 @@ const Home = () => {
               </a>
             </Button>
           </div>
-          <SocialMedia />
+          <SocialMedia iconsMarginTop="true" />
         </div>
       </div>
       <Divider />

@@ -18,6 +18,7 @@ import { SiTailwindcss } from 'react-icons/si';
 import { DiSass } from "react-icons/di";
 import { SiVercel } from "react-icons/si";
 import { FcLinux } from "react-icons/fc";
+import { SiMysql } from "react-icons/si";
 
 import expressLink from '../../assets/tech-icons/express.svg';
 import reduxLink from '../../assets/tech-icons/redux.svg';
@@ -113,48 +114,54 @@ const techButtons = [
 
     {
         key: 'a15',
+        icon: <SiMysql className={classes.mysql} size="40px" />,
+        name: 'MySQL'
+    },
+
+    {
+        key: 'a16',
         icon: <BsGearWide className={classes.restapi} />,
         name: 'REST API'
     },
 
     {
-        key: 'a16',
+        key: 'a17',
         icon: <DiGit className={classes.git} />,
         name: 'Git'
     },
 
     {
-        key: 'a17',
+        key: 'a18',
         icon: <ImGithub className={classes.github} />,
         name: 'GitHub'
     },
 
     {
-        key: 'a18',
+        key: 'a19',
         icon: <SiHeroku className={classes.heroku} />,
         name: 'Heroku'
     },
 
     {
-        key: 'a19',
+        key: 'a20',
         icon: <SiFirebase className={classes.firebase} />,
         name: 'Firebase'
     },
 
     {
-        key: 'a20',
+        key: 'a21',
         icon: <SiVercel className={classes.vercel} />,
         name: 'Vercel'
     },
 
     {
-        key: 'a21',
+        key: 'a22',
         icon: <FcLinux className={classes.linux} />,
         name: 'Linux'
     },
 
     {
-        key: 'a22',
+        key: 'a23',
         icon: <SiNginx className={classes.nginx} />,
         name: 'Nginx'
     },

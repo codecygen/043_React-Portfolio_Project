@@ -7,6 +7,7 @@ import SocialMedia from "../ui/SocialMedia";
 import Button from "../ui/buttons/Button";
 
 import { FaCanadianMapleLeaf } from "react-icons/fa";
+import { BsFillChatDotsFill } from "react-icons/bs";
 import { ImPen } from "react-icons/im";
 
 import classes from "./Home.module.css";
@@ -35,7 +36,8 @@ const Home = () => {
             <FaCanadianMapleLeaf className="maple-icon" />
           </h4>
           <p>
-            I am passionate about creating applications with better UI and UX!
+            I am a software and mechanical engineer. I create web apps for more
+            than 3 years.
           </p>
           <div className={classes["link-container"]}>
             <Button className={buttonColor} padding="true">
@@ -55,8 +57,17 @@ const Home = () => {
                 <div>Blog</div>
               </a>
             </Button>
-            <SocialMedia />
+
+            <Button className={buttonColor} padding="true">
+              <a href="#contact" className="blog-button">
+                <div>
+                  <BsFillChatDotsFill className="pen-icon" size={33} />
+                </div>
+                <div>Ask</div>
+              </a>
+            </Button>
           </div>
+          <SocialMedia />
         </div>
       </div>
       <Divider />

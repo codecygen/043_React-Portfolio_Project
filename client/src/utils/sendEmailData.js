@@ -2,7 +2,7 @@ const sendEmailData = async (emailData) => {
   let data;
 
   try {
-    const res = await fetch(`${process.env.REACT_APP_API_LINK}/email`, {
+    const res = await fetch(`${process.env.REACT_APP_BACKEND}/email`, {
       method: "POST",
       body: JSON.stringify({
         emailData,

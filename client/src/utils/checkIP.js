@@ -1,5 +1,5 @@
 const checkIP = async () => {
-    const ipRes = await fetch("https://www.myexternalip.com/json");
+    const ipRes = await fetch(process.env.REACT_APP_IP_API);
     const ipData = await ipRes.json();
     let ip = ipData.ip;
 

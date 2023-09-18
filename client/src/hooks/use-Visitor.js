@@ -7,7 +7,7 @@ const useVisitor = () => {
       const ip = await checkIP();
 
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_LINK}/visitor`, {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND}/visitor`, {
           method: "POST",
           body: JSON.stringify({
             IP: ip,

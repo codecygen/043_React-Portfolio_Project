@@ -14,7 +14,7 @@ const connectDatabase = async (collectionName) => {
     console.error(e.message || "Could not connect to database!");
   }
 
-  return { client, dbCollection };
+  return { client, dbCollection, db };
 };
 
 module.exports = connectDatabase;

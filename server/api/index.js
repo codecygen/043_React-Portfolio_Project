@@ -9,11 +9,28 @@ const getMoreInfo = require("../utils/getMoreInfo");
 router.post("/visitor", async (req, res) => {
   let visitorData = req.body;
 
-  console.log(req.body);
-
   if (!visitorData) {
     res.status(422).json({ message: "Could not receive message!" });
   }
+
+  // Connect to "bans" collection
+  const { client, dbCollection: blackListCollection, db } = await connectDatabase(
+    "blacklist"
+  );
+
+  // await blackListCollection.insertOne({
+  //   ip: "88.238.146.233"
+  // });
+
+  // await db.createCollection("bans");
+  const cursor = await blackListCollection.find();
+  const blackList = await cursor.toArray();
+
+  bannedIPList = blackList.map(list => list.ip);
+
+  isInBanList = bannedIPList.findIndex(ip => ip === visitorData.IP) === -1 ? false : true;
+
+  console.log(isInBanList);
 
   const visitTimeStamp = Date.now();
 
@@ -24,7 +41,7 @@ router.post("/visitor", async (req, res) => {
   };
 
   // Connect to "visitors" collection
-  const { client, dbCollection: visitorCollection } = await connectDatabase(
+  const { _: ignored, dbCollection: visitorCollection } = await connectDatabase(
     "visitors"
   );
 
@@ -34,14 +51,14 @@ router.post("/visitor", async (req, res) => {
   const result = await updateVisitorInfo(visitorCollection, visitorData);
   client.close();
 
-  res.status(201).json({ message: "Successfully sent visitor data!" });
+  res.status(201).json({ message: "Successfully sent visitor data!", isInBanList });
 });
 
-router.get("/visitor", async (req, res, next) => {
-  res.json({
-    message: "Works!"
-  });
-});
+// router.get("/visitor", async (req, res, next) => {
+//   res.json({
+//     message: "Works!"
+//   });
+// });
 
 router.post("/email", async (req, res) => {
   const postedData = req.body;

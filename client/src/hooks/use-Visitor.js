@@ -29,24 +29,24 @@ const useVisitor = () => {
       }
 
       // GET DATA FROM BACKEND
-      try {
-        const res = await fetch(`${process.env.REACT_APP_BACKEND}/visitor`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        });
+      // try {
+      //   const res = await fetch(`${process.env.REACT_APP_BACKEND}/visitor`, {
+      //     method: "GET",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Accept: "application/json",
+      //     },
+      //   });
 
-        if (!res.ok) {
-          console.error("Something went awry!");
-        }
+      //   if (!res.ok) {
+      //     console.error("Something went awry!");
+      //   }
 
-        const data = await res.json();
-        console.log(data);
-      } catch (e) {
-        console.error(e);
-      }
+      //   const data = await res.json();
+      //   console.log(data);
+      // } catch (e) {
+      //   console.error(e);
+      // }
     };
     postAndGetData();
   }, []);

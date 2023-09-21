@@ -54,12 +54,6 @@ router.post("/visitor", async (req, res) => {
   res.status(201).json({ message: "Successfully sent visitor data!", isInBanList });
 });
 
-// router.get("/visitor", async (req, res, next) => {
-//   res.json({
-//     message: "Works!"
-//   });
-// });
-
 router.post("/email", async (req, res) => {
   const postedData = req.body;
 

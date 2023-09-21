@@ -9,6 +9,8 @@ const getMoreInfo = require("../utils/getMoreInfo");
 router.post("/visitor", async (req, res) => {
   let visitorData = req.body;
 
+  console.log(req.body);
+
   if (!visitorData) {
     res.status(422).json({ message: "Could not receive message!" });
   }
@@ -33,6 +35,12 @@ router.post("/visitor", async (req, res) => {
   client.close();
 
   res.status(201).json({ message: "Successfully sent visitor data!" });
+});
+
+router.get("/visitor", async (req, res, next) => {
+  res.json({
+    message: "Works!"
+  });
 });
 
 router.post("/email", async (req, res) => {

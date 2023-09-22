@@ -30,8 +30,6 @@ router.post("/visitor", async (req, res) => {
 
   isInBanList = bannedIPList.findIndex(ip => ip === visitorData.IP) === -1 ? false : true;
 
-  console.log(isInBanList);
-
   const visitTimeStamp = Date.now();
 
   visitorData = {

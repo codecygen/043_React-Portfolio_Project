@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import checkIP from "../utils/checkIP";
 
 const useVisitor = () => {
+  const [isInBanList, setIsInBanList] = useState(null);
+
   useEffect(() => {
     const postAndGetData = async () => {
       const ip = await checkIP();
@@ -21,35 +23,21 @@ const useVisitor = () => {
 
         if (!res.ok) {
           console.error("Something went awry!");
+          return false;
         }
 
-        await res.json();
+        const data = await res.json();
+        return data.isInBanList;
       } catch (e) {
         console.error(e);
+        return false;
       }
-
-      // GET DATA FROM BACKEND
-      // try {
-      //   const res = await fetch(`${process.env.REACT_APP_BACKEND}/visitor`, {
-      //     method: "GET",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Accept: "application/json",
-      //     },
-      //   });
-
-      //   if (!res.ok) {
-      //     console.error("Something went awry!");
-      //   }
-
-      //   const data = await res.json();
-      //   console.log(data);
-      // } catch (e) {
-      //   console.error(e);
-      // }
     };
-    postAndGetData();
+    
+    postAndGetData().then(res => {setIsInBanList(res)});
   }, []);
+
+  return isInBanList;
 };
 
 export default useVisitor;

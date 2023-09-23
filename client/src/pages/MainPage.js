@@ -20,7 +20,7 @@ const AllSections = (props) => {
       <Websites />
       <Projects />
       <Contact />
-      <Footer year={currentYear} />
+      <Footer year={props.year} />
     </div>
   );
 };

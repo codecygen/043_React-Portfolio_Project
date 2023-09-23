@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import checkIP from "../utils/checkIP";
 
 const useVisitor = () => {
-  const [isInBanList, setIsInBanList] = useState(null);
+  const [isAllowed, setIsAllowed] = useState(null);
 
   useEffect(() => {
     const postAndGetData = async () => {
@@ -23,21 +23,21 @@ const useVisitor = () => {
 
         if (!res.ok) {
           console.error("Something went awry!");
-          return false;
+          return true;
         }
 
         const data = await res.json();
-        return data.isInBanList;
+        return !data.isInBanList;
       } catch (e) {
         console.error(e);
-        return false;
+        return true;
       }
     };
     
-    postAndGetData().then(res => {setIsInBanList(res)});
+    postAndGetData().then(res => {setIsAllowed(res)});
   }, []);
 
-  return isInBanList;
+  return isAllowed;
 };
 
 export default useVisitor;

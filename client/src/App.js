@@ -10,16 +10,18 @@ import DarkModeContext from "./store/color-context";
 import "./App.css";
 
 function App() {
-  const isInBanList = useVisitor();
+  const isAllowed = useVisitor();
 
   const darkCtx = useContext(DarkModeContext);
   const bodyColor = darkCtx.isDarkMode ? "body-color-dark" : "body-color-light";
 
+  const currentYear = new Date().getFullYear();
+
   const finalContent =
-    isInBanList === false ? (
-      <MainPage bodyColor={bodyColor} />
+    isAllowed === true ? (
+      <MainPage bodyColor={bodyColor} year={currentYear} />
     ) : (
-      <LoadingPage />
+      <LoadingPage bodyColor={bodyColor} />
     );
 
   return <>{finalContent}</>;

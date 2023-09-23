@@ -1,7 +1,13 @@
 import React from "react";
 
-const LoadingPage = () => {
-  return <div>Loading</div>;
+import Loading from "../components/sections/Loading";
+
+const LoadingPage = (props) => {
+  return (
+    <div className={props.bodyColor}>
+      <Loading />
+    </div>
+  );
 };
 
 export default LoadingPage;

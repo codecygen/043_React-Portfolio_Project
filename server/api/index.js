@@ -21,7 +21,7 @@ router.post("/visitor", async (req, res) => {
   } = await connectDatabase("blacklist");
 
   // await blackListCollection.insertOne({
-  //   ip: "88.238.146.233"
+  //   ip: "78.184.125.228"
   // });
 
   // await db.createCollection("bans");

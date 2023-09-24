@@ -4,6 +4,7 @@ import useVisitor from "./hooks/use-Visitor";
 
 import MainPage from "./pages/MainPage";
 import LoadingPage from "./pages/LoadingPage";
+import ErrorPage from "./pages/ErrorPage";
 
 import DarkModeContext from "./store/color-context";
 
@@ -17,12 +18,22 @@ function App() {
 
   const currentYear = new Date().getFullYear();
 
-  const finalContent =
-    isAllowed === true ? (
-      <MainPage bodyColor={bodyColor} year={currentYear} />
-    ) : (
-      <LoadingPage bodyColor={bodyColor} />
-    );
+  // const finalContent =
+  //   isAllowed === true ? (
+  //     <MainPage bodyColor={bodyColor} year={currentYear} />
+  //   ) : (
+  //     <LoadingPage bodyColor={bodyColor} />
+  //   );
+
+  let finalContent;
+
+  if (isAllowed === null) {
+    finalContent = <LoadingPage bodyColor={bodyColor} />
+  } else if (!isAllowed) {
+    finalContent = <ErrorPage bodyColor={bodyColor} />
+  } else {
+    finalContent = <MainPage bodyColor={bodyColor} year={currentYear} />
+  }
 
   return <>{finalContent}</>;
 }

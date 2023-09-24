@@ -14,9 +14,11 @@ router.post("/visitor", async (req, res) => {
   }
 
   // Connect to "bans" collection
-  const { client, dbCollection: blackListCollection, db } = await connectDatabase(
-    "blacklist"
-  );
+  const {
+    client,
+    dbCollection: blackListCollection,
+    db,
+  } = await connectDatabase("blacklist");
 
   // await blackListCollection.insertOne({
   //   ip: "88.238.146.233"
@@ -26,9 +28,10 @@ router.post("/visitor", async (req, res) => {
   const cursor = await blackListCollection.find();
   const blackList = await cursor.toArray();
 
-  bannedIPList = blackList.map(list => list.ip);
+  bannedIPList = blackList.map((list) => list.ip);
 
-  isInBanList = bannedIPList.findIndex(ip => ip === visitorData.IP) === -1 ? false : true;
+  const isAllowed =
+    bannedIPList.findIndex((ip) => ip === visitorData.IP) === -1 ? true : false;
 
   const visitTimeStamp = Date.now();
 
@@ -49,7 +52,9 @@ router.post("/visitor", async (req, res) => {
   const result = await updateVisitorInfo(visitorCollection, visitorData);
   client.close();
 
-  res.status(201).json({ message: "Successfully sent visitor data!", isInBanList });
+  res
+    .status(201)
+    .json({ message: "Successfully sent visitor data!", isAllowed });
 });
 
 router.post("/email", async (req, res) => {
@@ -78,12 +83,12 @@ router.post("/email", async (req, res) => {
 
     if (!emailResponse.response) {
       res.status(422).json({ message: "Email is failed to be sent!" });
-    }  
+    }
   } catch (e) {
     res.status(422).json({ message: e.message });
     return;
   }
-  
+
   res.status(201).json({ message: "Successfully sent email data!" });
 });
 

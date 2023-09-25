@@ -18,18 +18,11 @@ function App() {
 
   const currentYear = new Date().getFullYear();
 
-  // const finalContent =
-  //   isAllowed === true ? (
-  //     <MainPage bodyColor={bodyColor} year={currentYear} />
-  //   ) : (
-  //     <LoadingPage bodyColor={bodyColor} />
-  //   );
-
   let finalContent;
 
   if (isAllowed === null) {
     finalContent = <LoadingPage bodyColor={bodyColor} />
-  } else if (!isAllowed) {
+  } else if (isAllowed) {
     finalContent = <ErrorPage bodyColor={bodyColor} />
   } else {
     finalContent = <MainPage bodyColor={bodyColor} year={currentYear} />

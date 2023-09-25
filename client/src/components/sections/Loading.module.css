@@ -27,8 +27,8 @@
 .loader-dark-mode, 
 .loader-dark-mode:before,
 .loader-dark-mode:after {
-  background: #e4deee;
-  color: #e4deee;
+  background: #dbe8d4;
+  color: #dbe8d4;
 }
 
 .loader,

@@ -4,9 +4,6 @@ import DarkModeContext from "../../store/color-context";
 
 import classes from "./Error.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-
 const Error = () => {
   const darkCtx = useContext(DarkModeContext);
   // const errorIconClasses = darkCtx.isDarkMode
@@ -18,8 +15,7 @@ const Error = () => {
       <div className={classes.container}>
         <h1>500</h1>
         <p>Please Contact System Admin!</p>
-
-        <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
+        <div><i className="fa fa-spinner fa-spin">no spinner but why</i></div>
       </div>
     </section>
   );

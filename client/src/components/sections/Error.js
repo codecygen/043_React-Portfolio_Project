@@ -4,6 +4,10 @@ import DarkModeContext from "../../store/color-context";
 
 import classes from "./Error.module.css";
 
+// Font-Awesome-Animation
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+
 const Error = () => {
   const darkCtx = useContext(DarkModeContext);
   // const errorIconClasses = darkCtx.isDarkMode
@@ -15,7 +19,13 @@ const Error = () => {
       <div className={classes.container}>
         <h1>500</h1>
         <p>Please Contact System Admin!</p>
-        <div><i className="fa fa-spinner fa-spin">no spinner but why</i></div>
+        {/* Font-Awesome-Animation */}
+        {/* For installing font awesome refer to this link */}
+        {/* https://fontawesome.com/v5/docs/web/use-with/react */}
+        {/* Other animations can be beat, spin, pulse, fade, bounce, flip, shake */}
+        {/* Can take the combination of animation keys. For animations */}
+        {/* https://fontawesome.com/docs/web/style/animate */}
+        <FontAwesomeIcon icon={faCoffee} size="3x" beat fade />
       </div>
     </section>
   );

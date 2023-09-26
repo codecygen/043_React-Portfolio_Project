@@ -6,7 +6,7 @@ import classes from "./Error.module.css";
 
 // Font-Awesome-Animation
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faGears } from "@fortawesome/free-solid-svg-icons";
 
 const Error = () => {
   const darkCtx = useContext(DarkModeContext);
@@ -17,15 +17,20 @@ const Error = () => {
   return (
     <section className={classes.error}>
       <div className={classes.container}>
-        <h1>500</h1>
-        <p>Please Contact System Admin!</p>
+        <h1>404</h1>
+        <h2>Contact Admin</h2>
         {/* Font-Awesome-Animation */}
         {/* For installing font awesome refer to this link */}
         {/* https://fontawesome.com/v5/docs/web/use-with/react */}
         {/* Other animations can be beat, spin, pulse, fade, bounce, flip, shake */}
         {/* Can take the combination of animation keys. For animations */}
         {/* https://fontawesome.com/docs/web/style/animate */}
-        <FontAwesomeIcon icon={faCoffee} size="3x" beat fade />
+        <FontAwesomeIcon
+          icon={faGears}
+          size="5x"
+          fade
+          color="rgba(130, 45, 28, 1)"
+        />
       </div>
     </section>
   );

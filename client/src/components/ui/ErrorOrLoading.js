@@ -12,11 +12,10 @@ const Error = (props) => {
   const { isErrorPage = true } = props;
 
   const darkCtx = useContext(DarkModeContext);
-  // const errorIconClasses = darkCtx.isDarkMode
-  //   ? `${classes.loader} ${classes["loader-dark-mode"]} ${classes["loader-dark-mode"]}::before ${classes["loader-dark-mode"]}::after`
-  //   : `${classes.loader} ${classes["loader-light-mode"]} ${classes["loader-light-mode"]}::before ${classes["loader-light-mode"]}::afte`;
 
-  const fontColor = darkCtx.isDarkMode ? classes["color-dark"] : classes["color-dark"]
+  const fontColor = darkCtx.isDarkMode
+    ? classes["color-dark"]
+    : classes["color-dark"];
 
   const pageTitle = isErrorPage ? "404" : "Loading";
   const pageMessage = isErrorPage ? "Not Found" : "Wait";

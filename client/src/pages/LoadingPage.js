@@ -1,11 +1,11 @@
 import React from "react";
 
-import Loading from "../components/sections/Loading";
+import ErrorOrLoading from "../components/ui/ErrorOrLoading";
 
 const LoadingPage = (props) => {
   return (
     <div className={props.bodyColor}>
-      <Loading />
+      <ErrorOrLoading isErrorPage={false} />
     </div>
   );
 };

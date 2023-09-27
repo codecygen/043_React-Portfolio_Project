@@ -1,4 +1,4 @@
-.error {
+.section {
     text-align: center;
     height: 100vh;
     position: relative;
@@ -15,6 +15,14 @@
 .container h1 {
   letter-spacing: 1px;
   font-size: 45px;
+}
+
+.color-light {
+  color: #3d3846;
+}
+
+.color-dark {
+  color: #dbe8d4;
 }
 
 @media (max-width: 1000px) {

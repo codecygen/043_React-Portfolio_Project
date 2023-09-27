@@ -1,11 +1,11 @@
 import React from "react";
 
-import Error from "../components/sections/Error";
+import ErrorOrLoading from "../components/ui/ErrorOrLoading";
 
 const ErrorPage = (props) => {
   return (
     <div className={props.bodyColor}>
-      <Error />
+      <ErrorOrLoading />
     </div>
   );
 };

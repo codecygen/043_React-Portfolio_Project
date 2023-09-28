@@ -1,8 +1,8 @@
 const CronJob = require("cron").CronJob;
-const connectDatabase = require("../../utils/connectDatabase");
-const sendMail = require("../../utils/sendMail");
+const connectDatabase = require("./connectDatabase");
+const sendMail = require("./sendMail");
 
-const scheduledEmail = () => {
+const crobJobEmail = () => {
   const job = new CronJob(
     // every midnight "0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
@@ -132,4 +132,12 @@ const scheduledEmail = () => {
   return job;
 };
 
-module.exports = scheduledEmail;
+const dailyVisitorsEmail = () => {
+  try {
+    crobJobEmail();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+module.exports = dailyVisitorsEmail;

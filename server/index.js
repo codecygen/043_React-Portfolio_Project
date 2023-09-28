@@ -6,10 +6,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const enableCorsMiddleware = require("./middleware/enableCorsMiddleware");
-const scheduledEmailMiddleware = require("./middleware/scheduledEmailMiddleware");
+const dailyVisitorsEmail = require("./utils/dailyVisitorsEmail");
 
 const dataRoutes = require("./api");
-const scheduledEmail = require("./middleware/utils/scheduledEmail");
 
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb" })); // To parse the incoming requests with JSON payloads
@@ -17,17 +16,10 @@ app.use(express.json({ limit: "50mb" })); // To parse the incoming requests with
 // This section enables cors
 app.use(enableCorsMiddleware);
 
-// This enables scheduled email, a daily report email to database
-// about daily visitors
-app.use(scheduledEmailMiddleware);
+// Sends daily visitor counts as email
+dailyVisitorsEmail();
 
 app.use(dataRoutes);
-
-try {
-  scheduledEmail();
-} catch (e) {
-  console.log(e.message);
-}
 
 const serverPort = process.env.PORT || 4000;
 

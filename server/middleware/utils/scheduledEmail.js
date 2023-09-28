@@ -1,12 +1,13 @@
 const CronJob = require("cron").CronJob;
-const connectDatabase = require("../utils/connectDatabase");
-const sendMail = require("../utils/sendMail");
+const connectDatabase = require("../../utils/connectDatabase");
+const sendMail = require("../../utils/sendMail");
 
 const scheduledEmail = () => {
   const job = new CronJob(
     // every midnight "0 0 * * *"
     // every 10 seconds "*/10 * * * * *"
     // every 5 minutes "*/5 * * * *"
+    // every day 20pm "0 20 * * *"
     "0 20 * * *",
     async () => {
       // Connect to "visitors" collection
@@ -62,7 +63,7 @@ const scheduledEmail = () => {
         `;
         try {
           const emailResponse = await sendMail(emailTitle, emailBody);
-  
+
           if (!emailResponse.response) {
             console.error("Email is not received by the recipient!");
           }

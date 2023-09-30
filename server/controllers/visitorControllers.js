@@ -1,12 +1,9 @@
-const express = require("express");
 const sendMail = require("../utils/sendMail");
-const router = express.Router();
-
-const connectDatabase = require("../utils/connectDatabase");
+const connectDatabase = require("../models/utils/connectDatabase");
 const updateVisitorInfo = require("../utils/updateVisitorInfo");
 const getMoreInfo = require("../utils/getMoreInfo");
 
-router.post("/visitor", async (req, res) => {
+const saveVisitorInfo = async (req, res, next) => {
   let visitorData = req.body;
 
   if (!visitorData) {
@@ -55,9 +52,9 @@ router.post("/visitor", async (req, res) => {
   res
     .status(201)
     .json({ message: "Successfully sent visitor data!", isAllowed });
-});
+};
 
-router.post("/email", async (req, res) => {
+const sendVisitorEmail = async (req, res, next) => {
   const postedData = req.body;
 
   if (!postedData) {
@@ -70,13 +67,13 @@ router.post("/email", async (req, res) => {
 
   const emailTitle = `Contact Message from ${process.env.PORTFOLIO_WEBSITE}`;
   const emailBody = `
-    <p><strong>IP:</strong> ${IP}</p>
-    <p><strong>Country:</strong> ${additionalInfo.country}</p>
-    <p><strong>City:</strong> ${additionalInfo.city}</p>
-    <p><strong>Name:</strong> ${Name}</p>
-    <p><strong>Subject:</strong> ${Subject}</p>
-    <p><strong>Message:</strong> ${Message}</p>
-  `;
+      <p><strong>IP:</strong> ${IP}</p>
+      <p><strong>Country:</strong> ${additionalInfo.country}</p>
+      <p><strong>City:</strong> ${additionalInfo.city}</p>
+      <p><strong>Name:</strong> ${Name}</p>
+      <p><strong>Subject:</strong> ${Subject}</p>
+      <p><strong>Message:</strong> ${Message}</p>
+    `;
 
   try {
     const emailResponse = await sendMail(emailTitle, emailBody);
@@ -90,6 +87,9 @@ router.post("/email", async (req, res) => {
   }
 
   res.status(201).json({ message: "Successfully sent email data!" });
-});
+};
 
-module.exports = router;
+module.exports = {
+  saveVisitorInfo,
+  sendVisitorEmail,
+};

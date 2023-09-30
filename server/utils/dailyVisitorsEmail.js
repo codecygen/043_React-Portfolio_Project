@@ -1,5 +1,5 @@
 const CronJob = require("cron").CronJob;
-const connectDatabase = require("./connectDatabase");
+const connectDatabase = require("../models/utils/connectDatabase");
 const sendMail = require("./sendMail");
 
 const crobJobEmail = () => {

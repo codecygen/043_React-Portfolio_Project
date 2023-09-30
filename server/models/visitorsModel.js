@@ -1,4 +1,4 @@
-const connectDatabase = require("./utils/connectDatabase");
+const connectDatabase = require("./database/connectDatabase");
 
 class VisitorModel {
   constructor(ip, visitingDates, visitorData) {

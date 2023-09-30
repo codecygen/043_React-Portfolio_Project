@@ -1,8 +1,9 @@
 const connectDatabase = require("./utils/connectDatabase");
 
 class VisitorModel {
-  constructor(ip, visitorData) {
+  constructor(ip, visitingDates, visitorData) {
     this.IP = ip;
+    this.visitingDates = visitingDates;
     this.visitorData = visitorData;
   }
 }

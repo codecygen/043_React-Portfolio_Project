@@ -1,5 +1,5 @@
 const sendMail = require("../utils/sendMail");
-const connectDatabase = require("../models/utils/connectDatabase");
+const connectDatabase = require("../models/database/connectDatabase");
 const updateVisitorInfo = require("../utils/updateVisitorInfo");
 const getMoreInfo = require("../utils/getMoreInfo");
 

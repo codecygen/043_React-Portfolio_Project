@@ -1,11 +1,36 @@
-const connectDatabase = require("./database/connectDatabase");
+const mongoose = require("mongoose");
 
-class VisitorModel {
-  constructor(ip, visitingDates, visitorData) {
-    this.IP = ip;
-    this.visitingDates = visitingDates;
-    this.visitorData = visitorData;
-  }
-}
+const visitorSchema = new mongoose.Schema(
+  {
+    IP: {
+      type: String,
+      required: true,
+    },
+    visitingDates: [Number],
+    visitorData: [
+      {
+        visitInstance: Number,
+        status: String,
+        country: String,
+        countryCode: String,
+        region: String,
+        regionName: String,
+        city: String,
+        zip: String,
+        lat: Number,
+        lon: Number,
+        timezone: String,
+        isp: String,
+        org: String,
+        as: String,
+        query: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+  },
+  { collection: "visitors" }
+);
 
-module.exports = VisitorModel;
+module.exports = mongoose.model("VisitorModel", visitorSchema);

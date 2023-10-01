@@ -5,7 +5,6 @@ const enableCorsMiddleWare = (req, res, next) => {
     ? process.env.PORTFOLIO_WEBSITE
     : "*";
 
-
   res.header("Access-Control-Allow-Origin", allowedFrontEndOrigin);
 
   // Allow common headers

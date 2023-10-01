@@ -1,9 +1,13 @@
-const connectDatabase = require("./database/connectDatabase");
+const mongoose = require("mongoose");
 
-class BlacklistModel {
-  constructor(blacklistIP) {
-    this.blacklistIP = blacklistIP;
-  }
-}
+const blacklistSchema = new mongoose.Schema(
+  {
+    blockedIP: {
+      type: String,
+      required: true,
+    },
+  },
+  {collection: "blacklist"}
+);
 
-module.exports = BlacklistModel;
+module.exports = mongoose.model("BlacklistModel", blacklistSchema);

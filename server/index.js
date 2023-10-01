@@ -7,6 +7,7 @@ dotenv.config();
 
 const enableCorsMiddleware = require("./middleware/enableCorsMiddleware");
 const dailyVisitorsEmail = require("./utils/dailyVisitorsEmail");
+const startServerConnectDB = require("./utils/startServerConnectDB");
 
 const dataRoutes = require("./routes/visitorRoutes");
 
@@ -16,13 +17,12 @@ app.use(express.json({ limit: "50mb" })); // To parse the incoming requests with
 // This section enables cors
 app.use(enableCorsMiddleware);
 
+app.use(dataRoutes);
+
 // Sends daily visitor counts as email
 dailyVisitorsEmail();
 
-app.use(dataRoutes);
-
-const serverPort = process.env.PORT || 4000;
-
-app.listen(serverPort, () => {
-  console.log(`App is listening on port ${serverPort}`);
-});
+// By default uses port 4000
+// In production if VPS is the server
+// You can define port with process.env.PORT
+startServerConnectDB();

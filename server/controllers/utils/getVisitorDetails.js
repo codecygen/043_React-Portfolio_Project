@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const getMoreInfo = async (ip) => {
+const getVisitorDetails = async (ip) => {
   let moreInfoRes;
   let moreInfo;
 
@@ -18,4 +18,4 @@ const getMoreInfo = async (ip) => {
   return moreInfo;
 };
 
-module.exports = getMoreInfo;
+module.exports = getVisitorDetails;

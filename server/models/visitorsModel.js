@@ -7,6 +7,7 @@ const visitorSchema = new mongoose.Schema(
       required: true,
     },
     visitingDates: [Number],
+    visitInstance: Number,
     visitorData: [
       {
         visitInstance: Number,

@@ -10,4 +10,13 @@ const blacklistSchema = new mongoose.Schema(
   {collection: "blacklist"}
 );
 
+blacklistSchema.statics.getBlacklist = async function () {
+  try {
+    const blacklist = await this.find();
+    return blacklist;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = mongoose.model("BlacklistModel", blacklistSchema);

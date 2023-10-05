@@ -1,8 +1,8 @@
-const getMoreInfo = require("./getMoreInfo");
+const getVisitorDetails = require("./getVisitorDetails");
 
-const updateVisitorInfo = async (visitorCollection, visitorData) => {
+const saveVisitor = async (visitorData) => {
   let foundVisitor;
-  let additionalData;
+  let visitorDetails;
   let updatedVisitorData;
 
   try {
@@ -46,11 +46,11 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
   }
 
   try {
-    additionalData = await getMoreInfo(visitorData.IP);
+    visitorDetails = await getVisitorDetails(visitorData.IP);
 
     updatedVisitorData = {
       ...visitorData,
-      ...additionalData,
+      ...visitorDetails,
     };
 
     // Insert new entry if the user has never visited my website
@@ -60,4 +60,4 @@ const updateVisitorInfo = async (visitorCollection, visitorData) => {
   }
 };
 
-module.exports = updateVisitorInfo;
+module.exports = saveVisitor;

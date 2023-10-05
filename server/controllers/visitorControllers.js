@@ -1,50 +1,46 @@
-const sendMail = require("../utils/sendMail");
-const updateVisitorInfo = require("../utils/updateVisitorInfo");
-const getMoreInfo = require("../utils/getMoreInfo");
-
+const visitorsModel = require("../models/visitorsModel");
 const blacklistModel = require("../models/blacklistModel");
 
-const saveVisitorInfo = async (req, res, next) => {
+const sendMail = require("../utils/sendMail");
+const saveVisitor = require("./utils/saveVisitor");
+const getVisitorDetails = require("./utils/getVisitorDetails");
+
+const allowedVisitorHandler = async (req, res, next) => {
   let visitorData = req.body;
 
   if (!visitorData) {
     res.status(422).json({ message: "Could not receive message!" });
   }
 
-  const blackList = await blacklistModel.find();
+  const blackList = await blacklistModel.getBlacklist();
 
   bannedIPList = blackList.map((list) => list.blockedIP);
 
   const isAllowed =
     bannedIPList.findIndex((ip) => ip === visitorData.IP) === -1 ? true : false;
 
-  res
-    .status(201)
-    .json({ message: "Successfully sent visitor data!", isAllowed });
+  res.status(201).json({
+    message: "Successfully sent visitor data!",
+    isAllowed,
+  });
 
-  //   const visitTimeStamp = Date.now();
+  next();
+};
 
-  //   visitorData = {
-  //     ...visitorData,
-  //     visitingDates: [visitTimeStamp],
-  //     visitInstance: 1,
-  //   };
+const saveVisitorInfo = async (req, res, next) => {
+  const visitorIP = req.body;
 
-  //   // Connect to "visitors" collection
-  //   const { _: ignored, dbCollection: visitorCollection } = await connectDatabase(
-  //     "visitors"
-  //   );
+  const visitTimeStamp = Date.now();
 
-  //   // Checkout if the client connected to website before, if yes,
-  //   // put the latest timestamp of the visit, if no,
-  //   // create a new entry for the first time visitor
-  //   const result = await updateVisitorInfo(visitorCollection, visitorData);
-  //   client.close();
+  const visitorData = {
+    ...visitorIP,
+    visitingDates: [visitTimeStamp],
+    visitInstance: 1,
+  };
 
-  //   res
-  //     .status(201)
-  //     .json({ message: "Successfully sent visitor data!", isAllowed });
-  //
+  // await saveVisitor(visitorData);
+
+  next();
 };
 
 const sendVisitorEmail = async (req, res, next) => {
@@ -76,6 +72,7 @@ const sendVisitorEmail = async (req, res, next) => {
 };
 
 module.exports = {
+  allowedVisitorHandler,
   saveVisitorInfo,
   sendVisitorEmail,
 };

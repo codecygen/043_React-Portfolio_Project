@@ -38,7 +38,7 @@ const saveVisitorInfo = async (req, res, next) => {
     visitInstance: 1,
   };
 
-  // await saveVisitor(visitorData);
+  await visitorsModel.saveVisitor(visitorData);
 
   next();
 };

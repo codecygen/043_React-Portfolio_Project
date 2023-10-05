@@ -2,8 +2,6 @@ const visitorsModel = require("../models/visitorsModel");
 const blacklistModel = require("../models/blacklistModel");
 
 const sendMail = require("../utils/sendMail");
-const saveVisitor = require("./utils/saveVisitor");
-const getVisitorDetails = require("./utils/getVisitorDetails");
 
 const allowedVisitorHandler = async (req, res, next) => {
   let visitorData = req.body;

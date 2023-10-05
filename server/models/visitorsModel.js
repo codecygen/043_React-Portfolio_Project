@@ -86,8 +86,6 @@ visitorSchema.statics.saveVisitor = async function (visitorData) {
       visitorData: { ...visitorDetails },
     };
 
-    console.log(updatedVisitorData);
-
     await this.create(updatedVisitorData);
   } catch (e) {
     console.error(e.message || "Problem inserting new visitor entry!");

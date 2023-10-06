@@ -1,6 +1,8 @@
 const CronJob = require("cron").CronJob;
-const connectDatabase = require("../models/database/connectDatabase");
+// const connectDatabase = require("../models/database/connectDatabase");
 const sendMail = require("./sendMail");
+
+const visitorsModel = require("../models/visitorsModel");
 
 const crobJobEmail = () => {
   const job = new CronJob(
@@ -11,9 +13,9 @@ const crobJobEmail = () => {
     "0 20 * * *",
     async () => {
       // Connect to "visitors" collection
-      const { client, dbCollection: visitorCollection } = await connectDatabase(
-        "visitors"
-      );
+      // const { client, dbCollection: visitorCollection } = await connectDatabase(
+      //   "visitors"
+      // );
 
       const today = new Date();
       const year = today.getFullYear();
@@ -34,18 +36,16 @@ const crobJobEmail = () => {
       const todayStartTimeStamp = new Date(todayStartString).getTime();
       const todayEndTimeStamp = new Date(todayEndString).getTime();
 
-      const allVisitors = await visitorCollection
-        .find({
-          visitingDates: {
-            $elemMatch: {
-              $gt: todayStartTimeStamp,
-              $lt: todayEndTimeStamp,
-            },
+      const allVisitors = await visitorsModel.find({
+        visitingDates: {
+          $elemMatch: {
+            $gt: todayStartTimeStamp,
+            $lt: todayEndTimeStamp,
           },
-        })
-        .toArray();
+        },
+      });
 
-      client.close();
+      // client.close();
 
       const emailTitle = `Visitor to ${process.env.PORTFOLIO_WEBSITE} in ${year}-${paddedMonth}-${paddedDay}`;
 
@@ -57,7 +57,7 @@ const crobJobEmail = () => {
             </head>
             <body>
               <h2>Details:</h2>
-              <h3>No person visited your website in ${year}-${paddedMonth}-${paddedDay}!</h3>
+              <h3>No one visited your website in ${year}-${paddedMonth}-${paddedDay}!</h3>
             </body>
           </html>
         `;
@@ -89,13 +89,23 @@ const crobJobEmail = () => {
               .join("")}
           </ol>
           <p><strong style="color: blue;">Country:</strong> ${
-            visitor.country
+            visitor.visitorData.country
           }</p>
-          <p><strong style="color: blue;">City:</strong> ${visitor.city}</p>
-          <p><strong style="color: blue;">Latitude:</strong> ${visitor.lat}</p>
-          <p><strong style="color: blue;">Longitude:</strong> ${visitor.lon}</p>
-          <p><strong style="color: blue;">Zip Code:</strong> ${visitor.zip}</p>
-          <p><strong style="color: blue;">ISP:</strong> ${visitor.isp}</p>
+          <p><strong style="color: blue;">City:</strong> ${
+            visitor.visitorData.city
+          }</p>
+          <p><strong style="color: blue;">Latitude:</strong> ${
+            visitor.visitorData.lat
+          }</p>
+          <p><strong style="color: blue;">Longitude:</strong> ${
+            visitor.visitorData.lon
+          }</p>
+          <p><strong style="color: blue;">Zip Code:</strong> ${
+            visitor.visitorData.zip
+          }</p>
+          <p><strong style="color: blue;">ISP:</strong> ${
+            visitor.visitorData.isp
+          }</p>
         </li><br>`
       );
 
@@ -108,7 +118,9 @@ const crobJobEmail = () => {
         </head>
         <body>
           <h2>Details:</h2>
-          <h3><strong style="color: red;">${visitorCount}</strong> person(s) visited your website in ${year}-${paddedMonth}-${paddedDay}!</h3>
+          <h3><strong style="color: red;">${visitorCount}</strong> ${
+        visitorCount === 1 ? "person" : "people"
+      } visited your website in ${year}-${paddedMonth}-${paddedDay}!</h3>
           <ol>${visitorList.join("")}</ol>
         </body>
       </html>

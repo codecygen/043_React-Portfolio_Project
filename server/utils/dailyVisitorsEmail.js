@@ -10,7 +10,7 @@ const crobJobEmail = () => {
     // every 10 seconds "*/10 * * * * *"
     // every 5 minutes "*/5 * * * *"
     // every day 20pm "0 20 * * *"
-    "*/10 * * * * *",
+    "0 20 * * *",
     async () => {
       const today = new Date();
       const year = today.getFullYear();
@@ -71,10 +71,10 @@ const crobJobEmail = () => {
       const visitorList = allVisitors.map((visitor) => {
         const summarizedVisitingTimes = visitor.visitingDates.map(
           (date, index) => {
-            if (visitor.visitInstance <= 4) {
-              return new Date(date);
-            } else if (index < 1 || index === visitor.visitInstance - 1) {
-              return new Date(date);
+            if (visitor.visitInstance <= 8) {
+              return `${index + 1}) ${new Date(date)}`;
+            } else if (index < 1 || index > visitor.visitInstance - 6) {
+              return `${index + 1}) ${new Date(date)}`;
             } else if (index === 1 || index === 2) {
               return "........";
             } else {

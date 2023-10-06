@@ -36,7 +36,7 @@ const crobJobEmail = () => {
         todayEndTimeStamp
       );
 
-      const emailTitle = `Visitor to ${process.env.PORTFOLIO_WEBSITE} in ${year}-${paddedMonth}-${paddedDay}`;
+      const emailTitle = `Daily Visitor Report, ${process.env.PORTFOLIO_WEBSITE}, ${year}-${paddedMonth}-${paddedDay}`;
 
       if (!allVisitors || allVisitors.length === 0) {
         const emailBody = `

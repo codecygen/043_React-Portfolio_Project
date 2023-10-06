@@ -24,10 +24,7 @@ const visitorSchema = new mongoose.Schema(
       isp: String,
       org: String,
       as: String,
-      query: {
-        type: String,
-        required: true,
-      },
+      query: String,
     },
   },
   { collection: "visitors" }

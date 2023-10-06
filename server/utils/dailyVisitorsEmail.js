@@ -10,7 +10,7 @@ const crobJobEmail = () => {
     // every 10 seconds "*/10 * * * * *"
     // every 5 minutes "*/5 * * * *"
     // every day 20pm "0 20 * * *"
-    "0 20 * * *",
+    "*/10 * * * * *",
     async () => {
       const today = new Date();
       const year = today.getFullYear();
@@ -65,18 +65,39 @@ const crobJobEmail = () => {
 
       const visitorCount = allVisitors.length;
 
-      const visitorList = allVisitors.map(
-        (visitor) => `
+      // If an IP address visited more than 4 times,
+      // it will only create times as
+      // [2023-10-05T17:55:06.240Z, ......., ......., 2023-10-06T14:43:29.206Z]
+      const visitorList = allVisitors.map((visitor) => {
+        const summarizedVisitingTimes = visitor.visitingDates.map(
+          (date, index) => {
+            if (visitor.visitInstance <= 4) {
+              return new Date(date);
+            } else if (index < 1 || index === visitor.visitInstance - 1) {
+              return new Date(date);
+            } else if (index === 1 || index === 2) {
+              return "........";
+            } else {
+              return null;
+            }
+          }
+        );
+
+        filteredVisitTimes = summarizedVisitingTimes.filter(element => {
+          return element !== null;
+        })
+
+        return `
         <li>
           <p><strong style="color: blue;">IP:</strong> ${visitor.IP}</p>
           <p><strong style="color: blue;">Times Visited:</strong> ${
             visitor.visitInstance
           }</p>
-          <ol>
-            ${visitor.visitingDates
-              .map((timeStamp) => `<li>${new Date(timeStamp)}</li>`)
+          <ul>
+            ${filteredVisitTimes
+              .map((time) => `<li>${time}</li>`)
               .join("")}
-          </ol>
+          </ul>
           <p><strong style="color: blue;">Country:</strong> ${
             visitor.visitorData.country
           }</p>
@@ -95,8 +116,8 @@ const crobJobEmail = () => {
           <p><strong style="color: blue;">ISP:</strong> ${
             visitor.visitorData.isp
           }</p>
-        </li><br>`
-      );
+        </li><br>`;
+      });
 
       // This can be added to email body to see json data in formatted form
       // <pre>${JSON.stringify(allVisitors, null, "\t")}</pre>

@@ -92,4 +92,24 @@ visitorSchema.statics.saveVisitor = async function (visitorData) {
   }
 };
 
+visitorSchema.statics.getTodaysVisitors = async function (
+  todayStartTimeStamp,
+  todayEndTimeStamp
+) {
+  try {
+    const todaysVisitors = await this.find({
+      visitingDates: {
+        $elemMatch: {
+          $gt: todayStartTimeStamp,
+          $lt: todayEndTimeStamp,
+        },
+      },
+    });
+
+    return todaysVisitors;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = mongoose.model("VisitorModel", visitorSchema);

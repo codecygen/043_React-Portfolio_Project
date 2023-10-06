@@ -12,11 +12,6 @@ const crobJobEmail = () => {
     // every day 20pm "0 20 * * *"
     "0 20 * * *",
     async () => {
-      // Connect to "visitors" collection
-      // const { client, dbCollection: visitorCollection } = await connectDatabase(
-      //   "visitors"
-      // );
-
       const today = new Date();
       const year = today.getFullYear();
       const month = today.getMonth() + 1; // +1 to get month instead of month index
@@ -36,16 +31,10 @@ const crobJobEmail = () => {
       const todayStartTimeStamp = new Date(todayStartString).getTime();
       const todayEndTimeStamp = new Date(todayEndString).getTime();
 
-      const allVisitors = await visitorsModel.find({
-        visitingDates: {
-          $elemMatch: {
-            $gt: todayStartTimeStamp,
-            $lt: todayEndTimeStamp,
-          },
-        },
-      });
-
-      // client.close();
+      const allVisitors = await visitorsModel.getTodaysVisitors(
+        todayStartTimeStamp,
+        todayEndTimeStamp
+      );
 
       const emailTitle = `Visitor to ${process.env.PORTFOLIO_WEBSITE} in ${year}-${paddedMonth}-${paddedDay}`;
 

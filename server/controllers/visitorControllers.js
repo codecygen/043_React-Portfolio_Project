@@ -1,6 +1,7 @@
 const visitorsModel = require("../models/visitorsModel");
 const blacklistModel = require("../models/blacklistModel");
 
+const getVisitorDetails = require("./utils/getVisitorDetails");
 const sendMail = require("../utils/sendMail");
 
 const allowedVisitorHandler = async (req, res, next) => {
@@ -42,31 +43,34 @@ const saveVisitorInfo = async (req, res, next) => {
 };
 
 const sendVisitorEmail = async (req, res, next) => {
-  // const postedData = req.body;
-  // if (!postedData) {
-  //   res.status(422).json({ message: "Could not receive email data!" });
-  // }
-  // const { IP, Name, Subject, Message } = postedData.emailData;
-  // const additionalInfo = await getMoreInfo(IP);
-  // const emailTitle = `Contact Message from ${process.env.PORTFOLIO_WEBSITE}`;
-  // const emailBody = `
-  //     <p><strong>IP:</strong> ${IP}</p>
-  //     <p><strong>Country:</strong> ${additionalInfo.country}</p>
-  //     <p><strong>City:</strong> ${additionalInfo.city}</p>
-  //     <p><strong>Name:</strong> ${Name}</p>
-  //     <p><strong>Subject:</strong> ${Subject}</p>
-  //     <p><strong>Message:</strong> ${Message}</p>
-  //   `;
-  // try {
-  //   const emailResponse = await sendMail(emailTitle, emailBody);
-  //   if (!emailResponse.response) {
-  //     res.status(422).json({ message: "Email is failed to be sent!" });
-  //   }
-  // } catch (e) {
-  //   res.status(422).json({ message: e.message });
-  //   return;
-  // }
-  // res.status(201).json({ message: "Successfully sent email data!" });
+  const postedData = req.body;
+  if (!postedData) {
+    res.status(422).json({ message: "Could not receive email data!" });
+  }
+  const { IP, Name, Subject, Message } = postedData.emailData;
+  
+  const visitorDetails = await getVisitorDetails(IP);
+  const emailTitle = `Contact Email, ${process.env.PORTFOLIO_WEBSITE}, ${IP}`;
+  const emailBody = `
+      <p><strong>IP:</strong> ${IP}</p>
+      <p><strong>Country:</strong> ${visitorDetails.country}</p>
+      <p><strong>City:</strong> ${visitorDetails.city}</p>
+      <p><strong>Name:</strong> ${Name}</p>
+      <p><strong>Subject:</strong> ${Subject}</p>
+      <p><strong>Message:</strong> ${Message}</p>
+    `;
+  
+  try {
+    const emailResponse = await sendMail(emailTitle, emailBody);
+    if (!emailResponse.response) {
+      res.status(422).json({ message: "Email is failed to be sent!" });
+    }
+  } catch (e) {
+    res.status(422).json({ message: e.message });
+    return;
+  }
+
+  res.status(201).json({ message: "Successfully sent email data!" });
 };
 
 module.exports = {

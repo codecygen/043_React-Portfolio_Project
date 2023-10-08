@@ -8,10 +8,12 @@ import classes from "./ErrorOrLoading.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWarning, faSync } from "@fortawesome/free-solid-svg-icons";
 
-const Error = (props) => {
+const ErrorOrLoading = (props) => {
   const { isErrorPage = true } = props;
 
   const darkCtx = useContext(DarkModeContext);
+
+  const bodyColor = darkCtx.isDarkMode ? "body-color-dark" : "body-color-light";
 
   const fontColor = darkCtx.isDarkMode
     ? classes["color-dark"]
@@ -33,14 +35,16 @@ const Error = (props) => {
   );
 
   return (
-    <section className={classes.section}>
-      <div className={classes.container}>
-        <h1 classes={fontColor}>{pageTitle}</h1>
-        <h2 classes={fontColor}>{pageMessage}</h2>
-        {pageIcon}
+    <section className={bodyColor}>
+      <div className={classes.section}>
+        <div className={classes.container}>
+          <h1 classes={fontColor}>{pageTitle}</h1>
+          <h2 classes={fontColor}>{pageMessage}</h2>
+          {pageIcon}
+        </div>
       </div>
     </section>
   );
 };
 
-export default Error;
+export default ErrorOrLoading;

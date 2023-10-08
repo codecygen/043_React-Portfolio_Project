@@ -3,8 +3,7 @@ import React, { useContext } from "react";
 import useVisitor from "./hooks/use-Visitor";
 
 import MainPage from "./pages/MainPage";
-import LoadingPage from "./pages/LoadingPage";
-import ErrorPage from "./pages/ErrorPage";
+import ErrorOrLoading from "./components/ui/ErrorOrLoading";
 
 import DarkModeContext from "./store/color-context";
 
@@ -21,9 +20,9 @@ function App() {
   let finalContent;
 
   if (isAllowed === null) {
-    finalContent = <LoadingPage bodyColor={bodyColor} />
+    finalContent = <ErrorOrLoading isErrorPage={false} />
   } else if (!isAllowed) {
-    finalContent = <ErrorPage bodyColor={bodyColor} />
+    finalContent = <ErrorOrLoading />
   } else {
     finalContent = <MainPage bodyColor={bodyColor} year={currentYear} />
   }

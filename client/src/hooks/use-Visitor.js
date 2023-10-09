@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import checkIP from "../utils/checkIP";
 
 const useVisitor = () => {
-  const [isOKtoVisit, setIsOKtoVisit] = useState(null);
+  const [isOKtoVisit, setIsOKtoVisit] = useState(() => {
+    const isOK = localStorage.getItem("isOKtoVisit");
+    const result = isOK !== null ? JSON.parse(isOK) : null;
+
+    return result;
+  });
 
   useEffect(() => {
     const postAndGetData = async () => {
@@ -27,6 +32,10 @@ const useVisitor = () => {
         }
 
         const data = await res.json();
+
+        // Set data to local storage
+        localStorage.setItem("isOKtoVisit", JSON.stringify(data.isAllowed));
+
         return data.isAllowed;
       } catch (e) {
         console.error(e);

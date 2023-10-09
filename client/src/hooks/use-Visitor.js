@@ -6,7 +6,9 @@ const useVisitor = () => {
 
   useEffect(() => {
     const postAndGetData = async () => {
-      const localStorageVisitorData = JSON.parse(localStorage.getItem("visitorData"));
+      const localStorageVisitorData = JSON.parse(
+        localStorage.getItem("visitorData")
+      );
       let isThreeMinPassed = false;
 
       if (localStorageVisitorData) {
@@ -20,7 +22,8 @@ const useVisitor = () => {
 
       // Only send request to backend if localstorage is not set
       // or if 3 minutes passed since the last saved data.
-      if (isThreeMinPassed || localStorageVisitorData === null) {
+      if (!localStorageVisitorData || isThreeMinPassed) {
+        console.log("server storage!");
         const ip = await checkIP();
 
         // POST DATA TO BACKEND
@@ -57,9 +60,10 @@ const useVisitor = () => {
       }
 
       // This will return local storage result if visitorData already
-      // put inside the local storage. So it will not connect server in every
-      // page request to see if the person is allowed to visit your page.
+      // exists and if 3 min is not passed since the last saved data.
+      // So it will not connect to server in every page request
       return new Promise((resolve, reject) => {
+        console.log("local storage!");
         setTimeout(() => {
           const localStorageVisitorData = JSON.parse(
             localStorage.getItem("visitorData")

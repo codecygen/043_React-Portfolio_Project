@@ -6,8 +6,20 @@ const useVisitor = () => {
 
   useEffect(() => {
     const postAndGetData = async () => {
+      const localStorageVisitorData = JSON.parse(localStorage.getItem("visitorData"));
+      let isThreeMinPassed = false;
+
+      if (localStorageVisitorData) {
+        // Check if 3 min passed since the last timeStamp of locally saved
+        // visitorData
+        isThreeMinPassed =
+          Date.now() - localStorageVisitorData.timeStamp > 180000
+            ? true
+            : false;
+      }
+
       // Only send request to backend if localstorage is not set
-      if (localStorage.getItem("visitorData") === null) {
+      if (isThreeMinPassed || localStorageVisitorData === null) {
         const ip = await checkIP();
 
         // POST DATA TO BACKEND
@@ -33,7 +45,7 @@ const useVisitor = () => {
           // Set data to local storage
           localStorage.setItem(
             "visitorData",
-            JSON.stringify({ isAllowed: data.isAllowed, timeStamp: new Date() })
+            JSON.stringify({ isAllowed: data.isAllowed, timeStamp: Date.now() })
           );
 
           return data.isAllowed;

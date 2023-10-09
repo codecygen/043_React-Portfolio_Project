@@ -19,6 +19,7 @@ const useVisitor = () => {
       }
 
       // Only send request to backend if localstorage is not set
+      // or if 3 minutes passed since the last saved data.
       if (isThreeMinPassed || localStorageVisitorData === null) {
         const ip = await checkIP();
 

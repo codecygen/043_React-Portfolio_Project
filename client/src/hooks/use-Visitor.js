@@ -40,7 +40,11 @@ const useVisitor = () => {
         }
       }
 
-      return JSON.parse(localStorage.getItem("isOKtoVisit"));
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(JSON.parse(localStorage.getItem("isOKtoVisit")));
+        }, 1000);
+      });
     };
 
     // Only run the backend check if data is not set

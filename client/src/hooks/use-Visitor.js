@@ -7,7 +7,7 @@ const useVisitor = () => {
   useEffect(() => {
     const postAndGetData = async () => {
       // Only send request to backend if localstorage is not set
-      if (localStorage.getItem("isOKtoVisit") === null) {
+      if (localStorage.getItem("visitorData") === null) {
         const ip = await checkIP();
 
         // POST DATA TO BACKEND
@@ -31,7 +31,10 @@ const useVisitor = () => {
           const data = await res.json();
 
           // Set data to local storage
-          localStorage.setItem("isOKtoVisit", JSON.stringify(data.isAllowed));
+          localStorage.setItem(
+            "visitorData",
+            JSON.stringify({ isAllowed: data.isAllowed, timeStamp: new Date() })
+          );
 
           return data.isAllowed;
         } catch (e) {
@@ -40,18 +43,20 @@ const useVisitor = () => {
         }
       }
 
-      // This will return local storage result if isOKtoVisit already
+      // This will return local storage result if visitorData already
       // put inside the local storage. So it will not connect server in every
       // page request to see if the person is allowed to visit your page.
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(JSON.parse(localStorage.getItem("isOKtoVisit")));
+          const localStorageVisitorData = JSON.parse(
+            localStorage.getItem("visitorData")
+          );
+
+          resolve(localStorageVisitorData.isAllowed);
         }, 500);
       });
     };
 
-    // Only run the backend check if data is not set
-    // if (localStorage.getItem("isOKtoVisit") === null) {
     postAndGetData().then((res) => {
       setIsOKtoVisit(res);
     });

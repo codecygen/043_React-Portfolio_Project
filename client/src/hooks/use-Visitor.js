@@ -9,6 +9,7 @@ const useVisitor = () => {
       const localStorageVisitorData = JSON.parse(
         localStorage.getItem("visitorData")
       );
+      
       let isThreeMinPassed = false;
 
       if (localStorageVisitorData) {

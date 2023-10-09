@@ -40,10 +40,13 @@ const useVisitor = () => {
         }
       }
 
+      // This will return local storage result if isOKtoVisit already
+      // put inside the local storage. So it will not connect server in every
+      // page request to see if the person is allowed to visit your page.
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(JSON.parse(localStorage.getItem("isOKtoVisit")));
-        }, 1000);
+        }, 500);
       });
     };
 

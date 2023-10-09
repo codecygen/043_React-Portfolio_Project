@@ -13,7 +13,7 @@ export const DarkModeContextProvider = props => {
 
     useEffect(() => {
 
-        const isUserSelectionDark = sessionStorage.getItem('isUserSelectionDark');
+        const isUserSelectionDark = localStorage.getItem('isUserSelectionDark');
 
         if (!isUserSelectionDark) {
             // Do nothing
@@ -27,10 +27,10 @@ export const DarkModeContextProvider = props => {
     const colorChangeHandler = () => {
         setIsDarkMode(prevValue => {
             if (prevValue) {
-                sessionStorage.setItem('isUserSelectionDark', '0');
+                localStorage.setItem('isUserSelectionDark', '0');
                 return false;
             } else {
-                sessionStorage.setItem('isUserSelectionDark', '1');
+                localStorage.setItem('isUserSelectionDark', '1');
                 return true;
             }
         });

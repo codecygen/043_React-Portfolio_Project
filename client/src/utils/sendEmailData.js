@@ -11,6 +11,8 @@ const sendEmailData = async (emailData) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
+      // This allows us to receive cookies from server
+      credentials: "include",
     });
 
     if (!res.ok) {

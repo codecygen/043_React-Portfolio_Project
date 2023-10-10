@@ -17,10 +17,21 @@ const allowedVisitorHandler = async (req, res, next) => {
 
   const blackList = await blacklistModel.getBlacklist();
 
-  bannedIPList = blackList.map((list) => list.blockedIP);
+  const bannedIPList = blackList.map((list) => list.blockedIP);
 
   const isAllowed =
     bannedIPList.findIndex((ip) => ip === visitorData.IP) === -1 ? true : false;
+
+  res.cookie("random", "randomValue", {
+    sameSite: "Strict",
+    secure: true,
+
+    // maxAge: 1000 * 60 * 60, // Set an appropriate expiration time
+    // httpOnly: true,
+    // path: "/", // Adjust the path if needed
+  });
+
+  // res.setHeader('Set-Cookie', [`connect.sid=someValue; SameSite=None`]);
 
   res.status(201).json({
     message: "Successfully sent visitor data!",
@@ -52,7 +63,7 @@ const sendVisitorEmail = async (req, res, next) => {
     res.status(422).json({ message: "Could not receive email data!" });
   }
   const { IP, Name, Subject, Message } = postedData.emailData;
-  
+
   const visitorDetails = await getVisitorDetails(IP);
   const emailTitle = `Contact Email, ${process.env.PORTFOLIO_WEBSITE}, ${IP}`;
   const emailBody = `
@@ -63,7 +74,7 @@ const sendVisitorEmail = async (req, res, next) => {
       <p><strong>Subject:</strong> ${Subject}</p>
       <p><strong>Message:</strong> ${Message}</p>
     `;
-  
+
   try {
     const emailResponse = await sendMail(emailTitle, emailBody);
     if (!emailResponse.response) {

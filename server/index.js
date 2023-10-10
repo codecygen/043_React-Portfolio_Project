@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const cors = require("cors");
 
 const enableCorsMiddleware = require("./middleware/enableCorsMiddleware");
 const dailyVisitorsEmail = require("./utils/dailyVisitorsEmail");
@@ -16,18 +17,32 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb" })); // To parse the incoming requests with JSON payloads
 
 // This section enables cors
-app.use(enableCorsMiddleware);
+// app.use(enableCorsMiddleware);
 
-// Sends daily visitor counts as email
-dailyVisitorsEmail();
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow requests from this origin
+    credentials: true, // Include credentials (cookies)
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
+    methods: ["GET", "POST"],
+  })
+);
 
 app.use(
   session({
     secret: process.env.EXPRESS_SESSION_KEY,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      sameSite: "Strict",
+      secure: false, // Set to true for HTTPS connections
+      // maxAge: 1000 * 60 * 60 * 24, // 1 day in milliseconds
+    },
   })
 );
+
+// Sends daily visitor counts as email
+// dailyVisitorsEmail();
 
 app.use(visitorRoutes);
 

@@ -10,7 +10,7 @@ const enableCorsMiddleWare = (req, res, next) => {
   // Allow common headers
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept",
   );
 
   // Allow common HTTP methods

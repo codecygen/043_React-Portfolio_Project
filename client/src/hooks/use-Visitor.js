@@ -6,24 +6,24 @@ const useVisitor = () => {
 
   useEffect(() => {
     const postAndGetData = async () => {
-      const localStorageVisitorData = JSON.parse(
-        localStorage.getItem("visitorData")
-      );
+      // const localStorageVisitorData = JSON.parse(
+      //   localStorage.getItem("visitorData")
+      // );
       
-      let isThreeMinPassed = false;
+      // let isThreeMinPassed = false;
 
-      if (localStorageVisitorData) {
+      // if (localStorageVisitorData) {
         // Check if 3 min passed since the last timeStamp of locally saved
         // visitorData
-        isThreeMinPassed =
-          Date.now() - localStorageVisitorData.timeStamp > 180000
-            ? true
-            : false;
-      }
+      //   isThreeMinPassed =
+      //     Date.now() - localStorageVisitorData.timeStamp > 180000
+      //       ? true
+      //       : false;
+      // }
 
       // Only send request to backend if localstorage is not set
       // or if 3 minutes passed since the last saved data.
-      if (!localStorageVisitorData || isThreeMinPassed) {
+      // if (!localStorageVisitorData || isThreeMinPassed) {
         const ip = await checkIP();
 
         // POST DATA TO BACKEND
@@ -57,20 +57,20 @@ const useVisitor = () => {
           console.error(e);
           return false;
         }
-      }
+      // }
 
       // This will return local storage result if visitorData already
       // exists and if 3 min is not passed since the last saved data.
       // So it will not connect to server in every page request
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          const localStorageVisitorData = JSON.parse(
-            localStorage.getItem("visitorData")
-          );
+      // return new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     const localStorageVisitorData = JSON.parse(
+      //       localStorage.getItem("visitorData")
+      //     );
 
-          resolve(localStorageVisitorData.isAllowed);
-        }, 500);
-      });
+      //     resolve(localStorageVisitorData.isAllowed);
+      //   }, 500);
+      // });
     };
 
     postAndGetData().then((res) => {

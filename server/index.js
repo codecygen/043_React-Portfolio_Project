@@ -1,16 +1,16 @@
 const express = require("express");
-const app = express();
-
 const mongoose = require("mongoose");
+const session = require("express-session");
+
+const enableCorsMiddleware = require("./middleware/enableCorsMiddleware");
+const dailyVisitorsEmail = require("./utils/dailyVisitorsEmail");
+const visitorRoutes = require("./routes/visitorRoutes");
 
 // Enabled using .env file in the project
 const dotenv = require("dotenv");
 dotenv.config();
 
-const enableCorsMiddleware = require("./middleware/enableCorsMiddleware");
-const dailyVisitorsEmail = require("./utils/dailyVisitorsEmail");
-
-const visitorRoutes = require("./routes/visitorRoutes");
+const app = express();
 
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb" })); // To parse the incoming requests with JSON payloads
@@ -20,6 +20,14 @@ app.use(enableCorsMiddleware);
 
 // Sends daily visitor counts as email
 dailyVisitorsEmail();
+
+app.use(
+  session({
+    secret: process.env.EXPRESS_SESSION_KEY,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(visitorRoutes);
 

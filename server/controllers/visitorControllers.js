@@ -6,10 +6,10 @@ const sendMail = require("../utils/sendMail");
 
 const allowedVisitorHandler = async (req, res, next) => {
   const visitorData = req.body;
+  console.log(req.session.visitorData);
+  req.session.visitorData = visitorData;
 
-  req.visitorData = visitorData;
-
-  console.log(req.visitorData);
+  console.log(req.session.visitorData);
 
   if (!visitorData) {
     res.status(422).json({ message: "Could not receive message!" });
@@ -31,7 +31,6 @@ const allowedVisitorHandler = async (req, res, next) => {
 };
 
 const saveVisitorInfo = async (req, res, next) => {
-  console.log(req.visitorData);
   const visitorIP = req.body;
 
   const visitTimeStamp = Date.now();

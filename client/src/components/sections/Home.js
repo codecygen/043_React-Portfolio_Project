@@ -36,8 +36,7 @@ const Home = () => {
             <FaCanadianMapleLeaf className="maple-icon" />
           </h4>
           <p>
-            I am a software and mechanical engineer. I create web apps for more
-            than 3 years.
+            I am a software developer and I would like to contact you.
           </p>
           <div className={classes["link-container"]}>
             <Button className={buttonColor} padding="true">

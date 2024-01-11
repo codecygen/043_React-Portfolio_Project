@@ -29,7 +29,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h1>Aras Sen</h1>
+          <h1>Vahit S.</h1>
           <h3>Full Stack Web Developer</h3>
           <h4 className={classes["same-line"]}>
             Based in Toronto
@@ -71,7 +71,7 @@ const Home = () => {
         </div>
       </div>
       <Divider />
-      <h2>Hello Everyone! My Name is Aras</h2>
+      <h2>Hello Everyone! My Name is Vahit</h2>
       <p>
         I am a full stack web developer. I use HTML, CSS and Javascript on a
         daily basis. I try to keep up with the latest practices in industry to

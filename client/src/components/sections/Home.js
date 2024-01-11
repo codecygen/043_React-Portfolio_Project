@@ -30,13 +30,14 @@ const Home = () => {
 
         <div>
           <h1>Vahit S.</h1>
-          <h3>Full Stack Web Developer</h3>
+          <h3>Software Developer</h3>
           <h4 className={classes["same-line"]}>
-            Based in Toronto
+            Proudly Torontonian
             <FaCanadianMapleLeaf className="maple-icon" />
           </h4>
           <p>
-            I am a software developer and I would like to contact you.
+            I am a software developer / mechanical engineer and currently
+            employed at Zillow
           </p>
           <div className={classes["link-container"]}>
             <Button className={buttonColor} padding="true">
@@ -70,23 +71,21 @@ const Home = () => {
         </div>
       </div>
       <Divider />
-      <h2>Hello Everyone! My Name is Vahit</h2>
+      <h2>Thanks for stopping by</h2>
       <p>
-        I am a full stack web developer. I use HTML, CSS and Javascript on a
-        daily basis. I try to keep up with the latest practices in industry to
-        bring the best result by pushing my limits.
+        I am a seasoned software developer with a rich history in
+        programming, dating back to my initiation in 2008. My professional
+        journey reached a milestone in December 2018 when I successfully
+        deployed my first website.
       </p>
 
       <p>
-        Although I started learning programming many years ago (around 2008), I
-        made my first website in December 2018.
+        My dedication centers around remaining current with the latest industry
+        practices, to exceed expectations, and pushing the boundaries of my
+        capabilities.
       </p>
 
-      <p>
-        In February 2021, I started to fully focus on web development and
-        programming. Since then, I wake up everyday completely motivated to
-        learn something new.
-      </p>
+      <p>Lets connect!</p>
 
       <Divider />
     </header>

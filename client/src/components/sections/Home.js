@@ -41,7 +41,7 @@ const Home = () => {
           </p>
           <div className={classes["link-container"]}>
             <Button className={buttonColor} padding="true">
-              <a href="https://drive.google.com/file/d/1sNUvXlUuPn57Uh9BSGVPmK3Tb3bHftpK/view?usp=sharing">
+              <a href="https://drive.google.com/file/d/1m-KRo08C9wo98TfuC4XUElAAU4cBPWTN/view?usp=sharing">
                 Resume
               </a>
             </Button>
@@ -73,19 +73,28 @@ const Home = () => {
       <Divider />
       <h2>Thanks for stopping by</h2>
       <p>
-        I am a seasoned software developer with a rich history in
-        programming, dating back to my initiation in 2008. My professional
-        journey reached a milestone in December 2018 when I successfully
-        deployed my first website.
+        I am a seasoned software developer with a rich history in programming,
+        dating back to my initiation in 2008. My professional journey reached a
+        milestone in December 2018 when I successfully deployed my first
+        website.
       </p>
 
       <p>
-        My dedication centers around remaining current with the latest industry
-        practices, to exceed expectations, and pushing the boundaries of my
-        capabilities.
+        I'm dedicated to staying on top of the latest industry trends, exceeding
+        expectations, and pushing the boundaries of my technical expertise. It's
+        all about showcasing my substantial knowledge in the field.
       </p>
 
       <p>Lets connect!</p>
+
+      <Button className={buttonColor} padding="true">
+        <a href="#contact" className="blog-button">
+          <div>
+            <BsFillChatDotsFill className="pen-icon" size={33} />
+          </div>
+          <div>Ask</div>
+        </a>
+      </Button>
 
       <Divider />
     </header>

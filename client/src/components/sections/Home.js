@@ -29,7 +29,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h1>Vahit S.</h1>
+          <h1>Vahit</h1>
           <h3>Software Developer</h3>
           <h4 className={classes["same-line"]}>
             Proudly Torontonian

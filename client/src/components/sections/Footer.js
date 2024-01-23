@@ -33,7 +33,7 @@ const Footer = props => {
                 </p>
 
                 <h4>Developed and designed by</h4>
-                <h4> Vahit S. © {props.year}</h4>
+                <h4> Vahit © {props.year}</h4>
                 <GiBroadheadArrow className={bottomArrowColor} onClick={scrollUp} />
             </div>
         </footer>

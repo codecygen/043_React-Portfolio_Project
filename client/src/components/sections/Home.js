@@ -29,19 +29,18 @@ const Home = () => {
         </div>
 
         <div>
-          <h1>Vahit</h1>
+          <h1>Aras</h1>
           <h3>Software Developer</h3>
           <h4 className={classes["same-line"]}>
-            Proudly Torontonian
+            From Toronto
             <FaCanadianMapleLeaf className="maple-icon" />
           </h4>
           <p>
-            I am a software developer / mechanical engineer and currently
-            employed at Zillow
+            I am a software developer / mechanical engineer
           </p>
           <div className={classes["link-container"]}>
             <Button className={buttonColor} padding="true">
-              <a href="https://drive.google.com/file/d/1m-KRo08C9wo98TfuC4XUElAAU4cBPWTN/view?usp=sharing">
+              <a href="https://drive.google.com/file/d/1sNUvXlUuPn57Uh9BSGVPmK3Tb3bHftpK/view?usp=drive_link">
                 Resume
               </a>
             </Button>
@@ -86,15 +85,6 @@ const Home = () => {
       </p>
 
       <p>Lets connect!</p>
-
-      <Button className={buttonColor} padding="true">
-        <a href="#contact" className="blog-button">
-          <div>
-            <BsFillChatDotsFill className="pen-icon" size={33} />
-          </div>
-          <div>Ask</div>
-        </a>
-      </Button>
 
       <Divider />
     </header>

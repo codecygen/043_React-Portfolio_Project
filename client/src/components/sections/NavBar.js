@@ -126,7 +126,7 @@ const NavBar = props => {
             {mobileScreenMenu}
             
             <nav className={navClass}>
-                <h1>VAHIT</h1>
+                <h1>ARAS</h1>
                 {largeScreenMenu}
                 {darkCtx.isDarkMode ? lightModeIcon : darkModeIcon}
                 {hamburgerIcon}

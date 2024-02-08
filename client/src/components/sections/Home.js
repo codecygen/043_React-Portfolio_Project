@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import myImage from "../../assets/images/Me.jpeg";
+import myImage from "../../assets/images/Me.png";
 import Divider from "../ui/Divider";
 
 import SocialMedia from "../ui/SocialMedia";
